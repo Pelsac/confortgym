@@ -1,1 +1,16 @@
 
+.fondo{
+    height: 100vh;
+    background-image: url('../img/rename.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+#frase{
+    font-size: 60px;
+}
+
+#frase>span{
+    color: yellow;
+    font-weight: bold;
+}

@@ -19,7 +19,7 @@
     
         //cargar vista
     
-        public function vista($vista,$datos =[])
+        public function vista($vista,$datos =[],$errors=[])
         {
            //chequer si el archivo vista existe
      
