@@ -7,8 +7,8 @@
         public function model($modelo)
         {
             //cargar
-            if(file_exists('./Models/'.$modelo .'Model.php')){
-                require_once './Models/'.$modelo .'Model.php';
+            if(file_exists('./Models/'.$modelo .'.php')){
+                require_once './Models/'.$modelo .'.php';
                 //instaciar modelo
                 return new $modelo();
             }else{
@@ -19,7 +19,7 @@
     
         //cargar vista
     
-        public function vista($vista,$datos =[])
+        public function vista($vista,$datos =[],$errors=[])
         {
            //chequer si el archivo vista existe
      

@@ -8,7 +8,7 @@
     */
 
     class Core{
-        protected $controladorActual = 'Home';
+        protected $controladorActual = 'Login';
         protected $metodoActual = 'index';
         protected $parametro = [];
         //constructor
