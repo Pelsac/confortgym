@@ -34,7 +34,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo RUTA_URL ?>clientes" class="nav-link">
               <i class="nav-icon fas fa-user"></i>
               <p>
                 Clientes
@@ -52,7 +52,7 @@
             </a>
           </li>
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo RUTA_URL ?>entrenadores" class="nav-link">
               <i class="nav-icon fas fa-user-friends"></i>
               <p>
                 Entrenadores
