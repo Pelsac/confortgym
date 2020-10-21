@@ -5,7 +5,13 @@
         function redirecionar($pagina){
             header('location: '.RUTA_URL.$pagina);
         }
-    
+        
+        function calcularedad($fecha){
+            $fecha = new DateTime($fecha);
+            $hoy = new DateTime();
+            $edad = $hoy->diff($fecha);
+            return $edad->y;
+        }
 
         function formatear($datos){
             print_r('<pre>');

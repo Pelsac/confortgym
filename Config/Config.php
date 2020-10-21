@@ -6,7 +6,7 @@
  
    //configuacion de acceso a la base de datos
    const DB_HOST = "localhost";
-   const DB_NAME = "confortgym";
+   const DB_NAME = "confort-gym";
    const DB_USER = "root";
    const DB_PASSWORD = "";
   

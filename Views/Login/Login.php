@@ -10,9 +10,9 @@ if(isset($_SESSION['id_usuario'])){
 
 
 <div class="fondo">
-<div class="container" >
+<div class="container-fluid" >
     <div class="row p-5">
-    <div class="col-md-8">
+    <div class="col-md-8 d-none d-sm-none d-md-block">
     <h1 class="text-white" id="frase">NO ERES LO QUE LOGRAS...</h1>
     <h1 class="text-white" id="frase">ERES LO QUE</h1>
     <h1 class="text-white" id="frase"><span>SUPERAS.</span> </h1>
@@ -47,11 +47,16 @@ if(isset($_SESSION['id_usuario'])){
         </div>
     </div>
     </div>
+  <footer class="blockquote-footer">
+      <span>
+      Foto de Hombre creado por javi_indy - <a  href='https://www.freepik.es/fotos/hombre'> www.freepik.es</a>
+      </span>
 
+</footer>
 </div>
 
 </div>
-<a href='https://www.freepik.es/fotos/hombre'>Foto de Hombre creado por javi_indy - www.freepik.es</a>
+
 
     
     <?php } require_once RUTA_APP."/Views/inc/footer.php" ?>

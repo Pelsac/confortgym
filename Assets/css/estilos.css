@@ -1,9 +1,15 @@
-
+*{
+    padding: 0px;
+    margin: 0px;
+    text-decoration: none;
+}
 .fondo{
     height: 100vh;
     background-image: url('../img/rename.jpg');
     background-repeat: no-repeat;
-    background-size: cover;
+   background-size: cover;
+    background-position: center;
+    overflow: hidden;
 }
 
 #frase{
@@ -13,4 +19,11 @@
 #frase>span{
     color: yellow;
     font-weight: bold;
+}
+footer{
+    position: fixed;
+    width: 100%;
+    text-align: left;
+    bottom: 0;
+ 
 }
