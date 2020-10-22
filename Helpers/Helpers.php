@@ -31,7 +31,7 @@
         }
 
         function isNull($datos,$pass){
-            if(strlen(trim($datos['nombre']))<1 ||strlen(trim($datos['usuario']))<1||strlen(trim($datos['password']))<1||strlen(trim($pass))<1||strlen(trim($datos['correo']))<1){
+            if(strlen(trim($datos['nombre']))<1 ||strlen(trim($datos['password']))<1||strlen(trim($pass))<1||strlen(trim($datos['correo']))<1){
                 return true;
             }else{
                 return false;

@@ -6,6 +6,7 @@
     //autoload
     require_once "Helpers/Helpers.php";
     require_once ("Libraries/Autoload.php");
+    date_default_timezone_set('America/Bogota');
     $iniciar = new Core();
     //metodo para cargar automaticamente las clases
      

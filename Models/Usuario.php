@@ -13,16 +13,17 @@ class Usuario{
 
     public function agregarUsuario($datos){
 
-    $this->db->query("INSERT INTO usuarios(usuario,password,nombre,correo,activacion,token,id_rol)
-                                             values(:usuario,:password,:nombre,:correo,:activacion,:token,:id_rol)");
+    $this->db->query("INSERT INTO usuarios(nombre,password,correo,activo,token, fecha_registro,id_rol,id_cliente)
+                                             values(:nombre,:password,:correo,:activo,:token,:fecha_registro,:id_rol,:id_cliente)");
     //vincular los valores
-    $this->db->bind(':usuario',$datos['usuario']);
-    $this->db->bind(':password',$datos['password']);
     $this->db->bind(':nombre',$datos['nombre']);
+    $this->db->bind(':password',$datos['password']);
     $this->db->bind(':correo',$datos['correo']);
-    $this->db->bind(':activacion',$datos['activacion']);
+    $this->db->bind(':activo',$datos['activo']);
     $this->db->bind(':token',$datos['token']);
+    $this->db->bind(':fecha_registro',$datos['fecha']);
     $this->db->bind(':id_rol',$datos['id_rol']);
+    $this->db->bind(':id_cliente',$datos['id_cliente']);
         if($this->db->execute()){
             return true;
         }else{

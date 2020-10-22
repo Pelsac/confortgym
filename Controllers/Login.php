@@ -4,6 +4,7 @@ class Login extends Controller{
     public function __construct()
     {
             $this->usuariomodelo = $this->model("Usuario");
+            $this->clienteModelo = $this->model("Cliente");
     }
    
      public function index()
@@ -16,21 +17,33 @@ class Login extends Controller{
         $this->vista('Login/registro');
     }
     public function registrar(){
-        
-
         if($_SERVER["REQUEST_METHOD"]="POST"){
             $errors = [];
             $pass= trim($_POST['con_password']);
-            $datos = [
-                'usuario' => trim($_POST['usuario']),
-                'password' => trim($_POST['password']),
-                'nombre'=>trim($_POST['nombre']),
-                'correo' => trim($_POST['correo']),
-                'activacion' => 0,
-                'token' => generateToken(),
-                'id_rol' =>2
+
+            //obteniendo datos del cliente
+            $datoscliente=[
+                'nombres'=>trim($_POST['nombres']),
+                'apellidos'=>trim($_POST['apellidos']),
+                'fecha'=>trim($_POST['fecha']),
+                'edad'=>calcularedad($_POST['fecha']),
+                'genero'=>trim($_POST['genero']),
+                'cod'=>''
             ];
-          
+            $this->clienteModelo->agregarCliente($datoscliente);
+            $fila = $this->clienteModelo->obtenerid();
+           $fecha = new DateTime();
+           $datos = [
+                'nombre' => trim($_POST['alias']),
+                'password' => trim($_POST['password']),
+                'correo' => trim($_POST['correo']),
+                'token' => generateToken(),
+                'fecha'=>  $fecha->format('y-m-d H:i:s'),
+                'activo' => 1,
+                'id_rol' =>2,
+                'id_cliente'=> $fila->id
+            ];
+            print_r($datos);
             if(isNull($datos,$pass)){
                 $errors[] = "Debe llenar todos los campos";
             }
@@ -43,13 +56,17 @@ class Login extends Controller{
             if(count($errors) == 0){
               
               $datos['password'] = hashPassword(trim($_POST['password']));
+        
+
                 if($this->usuariomodelo->agregarUsuario($datos)){
-                    redirecionar('login');
+                        redirecionar('login');
                 }else{
                     echo "algo salio mal";
                     die('algo salio mal');
                     
                 }
+                    
+             
                 
             }else{
                 
@@ -59,8 +76,7 @@ class Login extends Controller{
 
         }else{
             
-            echo "hola";
-           
+            echo "hola";  
         }
     }
 

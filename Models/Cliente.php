@@ -82,4 +82,10 @@ class Cliente
             return false;
         }
     }
+
+    public function obtenerid(){
+        $this->db->query("SELECT MAX(id) as id FROM clientes");
+        $id = $this->db->registro();
+        return $id;
+       }
 }
