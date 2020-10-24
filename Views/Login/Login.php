@@ -1,13 +1,16 @@
 <?php 
 session_start();
 if(isset($_SESSION['id_usuario'])){ 
- redirecionar('home'); 
-}else{?>
+ redirecionar('clientes'); 
+}else{
+
+
+?>
+
 <?php 
 
  require_once RUTA_APP."/Views/inc/header.php"; ?>
 <?php require_once RUTA_APP."/Views/inc/navbar.php"; ?>
-
 
 <div class="fondo">
 <div class="container-fluid" >
@@ -25,13 +28,14 @@ if(isset($_SESSION['id_usuario'])){
                         <h3>Iniciar sesion</h3>
                         <div class="form-group">
                         <label for="">Ingresar usuario:</label>
+                        
                         <input class="form-control" name="usuario" type="text" placeholder="Nombre de usuario">
                         </div>
                         <div class="form-group">
                         <label for="">Ingresar Contraseña:</label>
                         <input class="form-control" name="password"type="password" placeholder="Contraseña">
                         </div>
-                    <p><a href="">¿olvidaste tu contraseña?</a></p>
+                    <p><a href="<?php echo RUTA_URL ?>login/recuperar_password">¿olvidaste tu contraseña?</a></p>
                     <button type="submit" class="btn btn-primary">Ingresar</button>
                 </form>
             </div>
@@ -59,4 +63,4 @@ if(isset($_SESSION['id_usuario'])){
 
 
     
-    <?php } require_once RUTA_APP."/Views/inc/footer.php" ?>
+    <?php  } require_once RUTA_APP."/Views/inc/footer.php" ?>

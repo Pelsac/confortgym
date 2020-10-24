@@ -7,7 +7,7 @@
 </head>
 <body>
     <div>
-       <h1>Pagina no econtrada</h1>
+       <h1>no se pudo verificar los datos</h1>
     </div>
 </body>
 </html>

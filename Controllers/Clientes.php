@@ -9,8 +9,10 @@ class Clientes extends  Controller{
     public function index()
 
     {
+        session_start();
         $clientes = $this->clienteModelo->obtenerClientes();
         $datos = [
+            'titulo'=>'Listado de clientes',
             'clientes'=>$clientes
         ];
         
@@ -83,6 +85,7 @@ class Clientes extends  Controller{
     public function eliminar($id){
         $cliente = $this->clienteModelo->obtenerClienteid($id);
             $datos = [
+              
                 'id'=>$cliente->id,
                 'nombres'=>$cliente->nombres,
                 'apellidos'=>$cliente->apellidos,

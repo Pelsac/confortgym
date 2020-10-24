@@ -32,9 +32,6 @@
                     <label for="">Codigo de ingreso</label>
                     <input type="text" name="codigo" class="form-control">
                 </div>
-               
-
-         
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>

@@ -1,9 +1,9 @@
 
-
 <?php require_once RUTA_APP."/Views/plantilla/header.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
+<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
  <section class="content">
       <div class="container-fluid">
     <!--  aqui va el diseño !-->

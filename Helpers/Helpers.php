@@ -20,14 +20,19 @@
         } 
 
         function resultBlock($errors){
-            echo "<div id='error' class='alert alert-danger' role='alert'>
-                    <a href='#' onclick=\"showHide('error'); \" >X</a>";
+
+            echo "<div class='card bg-danger m-2'>
+                        <div class='card-tools'>
+                            <button type='button' class='btn btn-tool' data-card-widget='remove'><i class='fas fa-times'></i>
+                            </button>
+                        </div>
+                    <div class='card-body'>";
             echo "<ul>";
             foreach($errors as $error){
                 echo "<li>".$error."</li>";
             }
             echo"</ul>";
-            echo "</div>";
+            echo "</div> </div>";
         }
 
         function isNull($datos,$pass){
@@ -69,7 +74,32 @@
             }
         }
 
-        
+        function enviarEmail($email, $nombre, $asunto, $cuerpo){
+		
+            require_once './PHPMailer/PHPMailerAutoload.php';
+            
+            $mail = new PHPMailer();
+            $mail->isSMTP();
+            $mail->SMTPAuth = true;
+            $mail->SMTPSecure = 'tls'; //Modificar
+            $mail->Host = 'smtp.gmail.com'; //Modificar
+            $mail->Port = 587; //Modificar
+            
+            $mail->Username = 'confortgymlorica@gmail.com'; //Modificar
+            $mail->Password = 'confort123L'; //Modificar
+            
+            $mail->setFrom('confortgymlorica@gmail.com', 'Confort Gym Lorica'); //Modificar
+            $mail->addAddress($email, $nombre);
+            
+            $mail->Subject = $asunto;
+            $mail->Body    = $cuerpo;
+            $mail->IsHTML(true);
+            
+            if($mail->send())
+            return true;
+            else
+            return false;
+        }
 
         
 ?>
