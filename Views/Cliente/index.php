@@ -9,12 +9,12 @@
     <!--  aqui va el diseño !-->
         <div class="row">
             <div class="col-md-3 mt-3">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
+            <a type="button" href="<?php echo RUTA_URL;?>clientes/agregar"class="btn btn-success" >
                   Agregar cliente
-        </button>
-            </div>
+</a>
+          </div>
             <div class="col-md-12 mt-3">
-                <table class="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -40,12 +40,13 @@
                             <td><?php echo $cliente->cod_ingreso ?></td>
                             <td>
                             <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $cliente->id?>" class="btn btn-primary">Editar</a>
-                            <?php require_once RUTA_APP."/Views/Cliente/eliminar.modal.php"?>  
-                            <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
+                           
+                            <button  data-toggle="modal" data-target="#s<?php echo$cliente->id?>"  class="btn btn-danger">Eliminar</button>
                               
                         </td>
                         </tr>
-                        
+                        <?php require RUTA_APP."/Views/Cliente/eliminar.modal.php";
+                        ?>  
                         <?php endforeach ?>
                     </tbody>
                 </table>
@@ -56,3 +57,8 @@
  </section>
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<script>
+$(document).ready(function() {
+    $('#table').DataTable();
+} );
+</script>

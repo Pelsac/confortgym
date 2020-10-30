@@ -100,8 +100,12 @@ class Login extends Controller
                         $_SESSION['id_usuario'] = $fila->id;
                         $_SESSION['nombre'] = $fila->nombre;
                         $_SESSION['tipo_usuario'] = $fila->id_rol;
-
-                        redirecionar('clientes');
+                        if($_SESSION['tipo_usuario'] == 2){
+                            redirecionar('Home');
+                        }else{
+                            redirecionar('clientes');
+                        }
+                       
 
                     } else {
                         $errors[] = "La contraseña es incorrecta";
@@ -191,7 +195,7 @@ class Login extends Controller
                 $token = $this->usuariomodelo->generateTokenPass($user_id->id);
               
                 $url = 'http://' . $_SERVER["SERVER_NAME"] . '/confortgym/login/cambiar_pass/' . $user_id->id . '/' . $token;
-                $asunto = 'Recuperar Password - Confort gym';
+                $asunto = 'Recuperar Contrase&ntilde;a - Confort gym';
                 $cuerpo = "Hola $nombre->nombre:
                         <br><br>
                         Se ha solicitado un reinicio de contrase&ntilde;a. <br>

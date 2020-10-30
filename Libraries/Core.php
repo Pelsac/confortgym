@@ -11,6 +11,7 @@
         protected $controladorActual = 'Login';
         protected $metodoActual = 'index';
         protected $parametro = [];
+        protected $api =false;
         //constructor
         public function __construct(){
                $url = $this->getUrl();
@@ -22,10 +23,24 @@
                 //unset indice
                 unset($url[0]);
 
+               }else if(file_exists('Controllers/Api/'.ucwords($url[0]).'.php')){
+                $this->controladorActual = ucwords($url[0]);
+                //unset indice
+                unset($url[0]);
+                $this->api=true;
                }
                   //requerir en controlador
-                  require_once 'Controllers/'. $this->controladorActual.'.php';
-                  $this->controladorActual = new $this->controladorActual;
+                  if($this->api){
+                    require_once 'Controllers/Api/'. $this->controladorActual.'.php';
+
+                    $this->controladorActual = new $this->controladorActual;
+                  }else{
+                    require_once 'Controllers/'. $this->controladorActual.'.php';
+
+                    $this->controladorActual = new $this->controladorActual;
+                  }
+                
+                 
                if(isset($url[1])){
                 if (method_exists($this->controladorActual,$url[1])) {
                     //checeamos el metodo

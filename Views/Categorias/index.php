@@ -8,12 +8,21 @@
     <!--  aqui va el diseño !-->
         <div class="row">
             <div class="col-md-3 mt-3">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
-                  Agregar Categoria
-        </button>
+        
+            <form action="<?php echo RUTA_URL?>categorias/agregar" method="POST">
+                <div class="form-group">
+                <label for=""> Agregar Categoria</label>
+                    <input type="text" class="form-control" name="cat" placeholder="ingrese la categoria">    
+                </div>
+                    <div class="form-group">
+                        <button class="btn btn-success" type="submit">Agregar</button>
+                    </div>
+            </form>
+                
             </div>
+            
             <div class="col-md-12 mt-3">
-                <table class="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -23,23 +32,21 @@
                     </thead>
                   
                     <tbody>
-                    <?php foreach($datos['rutinas'] as $rutina): ?>
+                    <?php foreach($datos['categorias'] as $cat): ?>
                         <tr>
-                            <td><?php echo $rutina->codigo ?></td>
-                            <td><?php echo $rutina->nombre_rutina ?></td>
-                            <td><?php echo $rutina->descripcion ?></td>
-                            <td><?php echo $rutina->tipo_rutina ?></td>
-                            <td><?php echo $rutina->id_nivel ?></td>
-                            
+                            <td><?php echo $cat->id ?></td>
+                            <td><?php echo $cat->categoria ?></td>      
                             <td>
-                            <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $rutina->id?>" class="btn btn-primary">Editar</a>
-                            <?php require_once RUTA_APP."/Views/Cliente/eliminar.modal.php"?>  
-                            <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
-                              
+                           
+                            <a href="<?php echo RUTA_URL;?>categorias/editar/<?php echo $cat->id?>" class="btn btn-primary">Editar</a>
+                            <button  data-toggle="modal" data-target="#<?php echo $cat->categoria?>" class="btn btn-danger">Eliminar</button>
+                            
                         </td>
                         </tr>
                         
+                        <?php require RUTA_APP."/Views/Categorias/eliminar.modal.php"?>  
                         <?php endforeach ?>
+                       
                     </tbody>
                 </table>
             </div>
@@ -49,3 +56,8 @@
  </section>
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<script>
+$(document).ready(function() {
+    $('#table').DataTable();
+} );
+</script>

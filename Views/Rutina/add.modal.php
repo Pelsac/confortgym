@@ -9,34 +9,54 @@
             </div>
             <form action="<?php echo RUTA_URL?>rutinas/agregar" method="POST">
             <div class="modal-body">
-                <div class="form-group">
+              <div class="row">
+              <div class="col-md-6">
+               <div class="form-group">
                     <label for="">Nombre de rutina</label>
-                    <input name="nombre_rutina" type="text" class="form-control">
+                    <input name="nombre" type="text" class="form-control">
                 </div>
                 <div class="form-group">
                     <label for="">Descripcion</label>
                     <textarea name="descripcion" type="text" class="form-control"></textarea>
                 </div>
-                <div class="form-group">
-                    <label for="">tipo de rutina</label>
-                    <input name="tipo-rutina" type="text" class="form-control">
-                </div>
+               
                 <div class="form-group">
                 <label>Nivel de la rutina</label>
-                        <select name="nivel_rutina" class="form-control">
+                        <select name="nivel" class="form-control">
                         <?php foreach($datos['niveles'] as $nivel): ?>
                           <option value="<?php echo $nivel->id ?>"><?php echo $nivel->tipo_nivel ?></option>
                         
                         <?php endforeach ?>
                         </select>
                 </div>
+          
+               </div>
                
-            </div>
+               <div class="col-md-6">
+               <div class="form-group">
+                  <label>Asignar ejercicios</label>
+                  <div class="select2-purple">
+                  <select name="ejercicios[]" class="select2"  data-dropdown-css-class="select2-purple" multiple="multiple" data-placeholder="agregar ejercicio" style="width: 100%;">
+                  <?php foreach($datos['ejercicios'] as $ejer): ?>
+                    <option value="<?php echo $ejer->id_ejer ?>"><?php echo $ejer->nombre ?></option>
+                   
+                    <?php endforeach ?>
+                  </select>
+                  </div>
+                  
+                </div>
+               </div>
+               
+               </div>
+              </div>
+               
+          
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary">Aceptar</button>
             </div>
             </form>
+            </div>
           </div>
           <!-- /.modal-content -->
         </div>

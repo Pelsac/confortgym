@@ -10,10 +10,14 @@
     <div class="sidebar">
       <!-- Sidebar user panel (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-       
-        <div class="info text-white">
-          <span class="d-block">Bienvenido   <?php  echo  $_SESSION['nombre'] ?></span>
+ 
+        <div class="image">
+         <i class="fas fa-user-graduate text-white "></i>
         </div>
+        <div class="info">
+          <a href="#" class="d-block"><?php   echo $_SESSION['nombre']; ?></a>
+        </div>
+      
       </div>
       <!-- Sidebar Menu -->
       <nav class="mt-2">
@@ -22,7 +26,7 @@
                with font-awesome or any other icon font library -->
         
           <li class="nav-item">
-            <a href="pages/widgets.html" class="nav-link">
+            <a href="<?php echo RUTA_URL ?>sesiones" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>
                Rutinas Programadas

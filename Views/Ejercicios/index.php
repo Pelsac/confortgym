@@ -14,7 +14,7 @@
         </button>
             </div>
             <div class="col-md-12 mt-3">
-                <table class="table">
+                <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -29,29 +29,59 @@
                     </thead>
                   
                     <tbody>
-                    <?php foreach($datos['rutinas'] as $rutina): ?>
+                    <?php foreach($datos['ejercicios'] as $ejercicio): ?>
                         <tr>
-                            <td><?php echo $rutina->codigo ?></td>
-                            <td><?php echo $rutina->nombre_rutina ?></td>
-                            <td><?php echo $rutina->descripcion ?></td>
-                            <td><?php echo $rutina->tipo_rutina ?></td>
-                            <td><?php echo $rutina->id_nivel ?></td>
+                           <td><?php  echo $ejercicio->id_ejer ?></td>
+                            <td><?php echo $ejercicio->nombre ?></td>
+                            <td><?php echo $ejercicio->duracion ?></td>
+                            <td><?php echo $ejercicio->descripcion ?></td>
+                            <td><?php echo $ejercicio->repeticiones ?></td>
+                            <td><img class="img-fluid brand-image-xs" src="<?php echo ".".$ejercicio->animacion ?>" alt=""></td>
+                            <td><?php echo $ejercicio->categoria ?></td>
+                            
                             
                             <td>
-                            <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $rutina->id?>" class="btn btn-primary">Editar</a>
-                            <?php require_once RUTA_APP."/Views/Cliente/eliminar.modal.php"?>  
+                            <a href="<?php echo RUTA_URL;?>ejercicios/editar/<?php echo $ejercicio->id_ejer?>" class="btn btn-primary">Editar</a>
+                     
                             <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
                               
                         </td>
                         </tr>
+
+                        <img src="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmNRU7Ndz6a2nMEXGbLeSSGfi6QFiKYHru3nE9pRoMMH9K/Crunch%20Abdominales.gif" alt="">
+            
                         
                         <?php endforeach ?>
                     </tbody>
                 </table>
             </div>
-            <?php require_once RUTA_APP."/Views/Rutina/add.modal.php"?>
+            <?php require_once RUTA_APP."/Views/Ejercicios/add.modal.php"?>
         </div>
       </div>
  </section>
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<script>
+$(document).ready(function() {
+    $('#table').DataTable({
+        language:{
+        "decimal": "",
+        "emptyTable": "No hay información",
+        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
+        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+        "infoPostFix": "",
+        "thousands": ",",
+        "lengthMenu": "Mostrar _MENU_ Entradas",
+        "loadingRecords": "Cargando...",
+        "processing": "Procesando...",
+        "search": "Buscar:",
+        "zeroRecords": "Sin resultados encontrados",
+        "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+        }}});
+} );
+</script>

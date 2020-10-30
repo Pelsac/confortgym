@@ -12,6 +12,9 @@
             $edad = $hoy->diff($fecha);
             return $edad->y;
         }
+        function isAjax(){
+             return !empty($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest';
+        }
 
         function formatear($datos){
             print_r('<pre>');
@@ -42,6 +45,7 @@
                 return false;
             }
         }
+        
         function generateToken(){
             $gen = md5(uniqid(mt_rand(),false));
             return $gen;

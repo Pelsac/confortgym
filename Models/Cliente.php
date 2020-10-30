@@ -72,7 +72,7 @@ class Cliente
 
     public function borrarCliente($id)
     {
-        echo $id;
+       
         $this->db->query("DELETE FROM clientes WHERE id = :id");
         //vincular los valores
            $this->db->bind(':id',$id);
@@ -82,7 +82,18 @@ class Cliente
             return false;
         }
     }
+        function existeNombre($nombre){
+            $this->db->query("SELECT nombres from clientes WHERE nombres = :nombres");
+            $this->db->bind(":nombres",$nombre);
 
+            $nombre= $this->db->registro();
+            
+            if($nombre->nombres){
+                return true;
+            }else{
+                return false;
+            }
+        }
     public function obtenerid(){
         $this->db->query("SELECT MAX(id) as id FROM clientes");
         $id = $this->db->registro();

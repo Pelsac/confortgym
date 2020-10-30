@@ -5,6 +5,7 @@
    //require_once ("Libraries/Core.php");
     //autoload
     require_once "Helpers/Helpers.php";
+    require_once "Helpers/validaciones.php";
     require_once ("Libraries/Autoload.php");
     date_default_timezone_set('America/Bogota');
     $iniciar = new Core();

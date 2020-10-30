@@ -10,6 +10,7 @@
         public function index()
 
         {
+            session_start();
             $usuarios=$this->usuarioModelo->obtenerUsuarios();
             $datos=[
                 'titulo'=>'Listado de usuarios',

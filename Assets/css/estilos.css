@@ -3,6 +3,11 @@
     margin: 0px;
     text-decoration: none;
     list-style: none;
+     font-family: 'Roboto', sans-serif;
+}
+
+.content-wrapper, .content{
+    background-color:#fff !important;
 }
 .fondo{
     height: 100vh;
@@ -16,6 +21,12 @@ ul{
     list-style: none !important;
 }
 
+.img{
+    display: block;
+    width: 300px !important;
+    height: 200px !important;
+    padding: 5px;
+}
 #frase{
     font-size: 60px;
 }
