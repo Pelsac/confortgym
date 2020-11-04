@@ -4,8 +4,9 @@
 <?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
-<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
+
  <section class="content">
+ <?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
       <div class="container-fluid">
         <div class="row">
             <div class="col-md-6">
@@ -56,5 +57,6 @@
     </div>
 
 </section>
+</div>
 
-            <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>

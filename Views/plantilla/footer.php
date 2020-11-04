@@ -5,9 +5,9 @@
       <b>Version</b> 3.0.4
     </div>
   </footer>
-
+  <input type="hidden" name="" id="ruta_url" value="<?php echo RUTA_URL ?>">
 <!-- ./wrapper -->
-
+</div>
 <!-- REQUIRED SCRIPTS -->
 
 <!-- AdminLTE App -->
@@ -18,11 +18,15 @@
 <script src="<?php echo RUTA_URL?>Assets/js/adminlte.min.js"></script> 
 <script src="<?php echo RUTA_URL?>Assets/js/bs-custom-file-input.min.js"></script>
 <script src="<?php echo RUTA_URL?>Assets/js/select2.full.min.js"></script>
+<script src="<?php echo RUTA_URL?>Assets/js/notificacion.js"></script>
 <script src="<?php echo RUTA_URL?>Assets/DataTables/datatables.min.js"></script>
 
 <script>
+
 $(document).ready(function () {
   bsCustomFileInput.init();
+
+
 });
 
 $('.select2').select2()
@@ -31,7 +35,10 @@ $('.select2').select2()
 $('.select2bs4').select2({
   theme: 'bootstrap4'
 })
+ 
 
+
+ 
 </script>
 </body>
 </html>

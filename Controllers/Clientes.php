@@ -27,10 +27,10 @@ class Clientes extends  Controller{
     }
 
     public function agregar(){
-       
+       session_start();
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos=[
-                'titulo'=>"agregar nuevo cliente",
+                'titulo'=>"Agregar nuevo cliente",
                 'nombres'=>trim($_POST['nombres']),
                 'apellidos'=>trim($_POST['apellidos']),
                 'fecha'=>trim($_POST['fecha']),
@@ -46,8 +46,8 @@ class Clientes extends  Controller{
                      }
 
         }else{
-        
-          $this->vista('cliente/agregar');
+            $datos=["titulo"=>"Agregar nuevo cliente"];
+          $this->vista('cliente/agregar',$datos);
         }
     }
 

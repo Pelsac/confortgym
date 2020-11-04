@@ -15,7 +15,7 @@
          <i class="fas fa-user-graduate text-white "></i>
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php   echo $_SESSION['nombre']; ?></a>
+          <a href="#" class="d-block"><?php   echo $_SESSION['alias']; ?></a>
         </div>
       
       </div>
@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
         
           <li class="nav-item">
-            <a href="<?php echo RUTA_URL ?>sesiones" class="nav-link">
+            <a href="<?php echo RUTA_URL ?>Sesiones" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>
                Rutinas Programadas
@@ -52,15 +52,7 @@
               </p>
             </a>
           </li>
-          <li class="nav-item">
-            <a href="<?php echo RUTA_URL ?>entrenadores" class="nav-link">
-              <i class="nav-icon fas fa-user-friends"></i>
-              <p>
-                Entrenadores
-             
-              </p>
-            </a>
-          </li>
+         
           <li class="nav-item">
             <a href="<?php echo RUTA_URL ?>rutinas" class="nav-link">
               <i class="nav-icon fas fa-feather"></i>

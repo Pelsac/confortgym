@@ -5,7 +5,9 @@
     list-style: none;
      font-family: 'Roboto', sans-serif;
 }
-
+body{
+    height: auto !important;
+}
 .content-wrapper, .content{
     background-color:#fff !important;
 }

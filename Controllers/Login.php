@@ -25,16 +25,8 @@ class Login extends Controller
             $pass = trim($_POST['con_password']);
 
             //obteniendo datos del cliente
-            $datoscliente = [
-                'nombres' => trim($_POST['nombres']),
-                'apellidos' => trim($_POST['apellidos']),
-                'fecha' => trim($_POST['fecha']),
-                'edad' => calcularedad($_POST['fecha']),
-                'genero' => trim($_POST['genero']),
-                'cod' => '',
-            ];
-            $this->clienteModelo->agregarCliente($datoscliente);
-            $fila = $this->clienteModelo->obtenerid();
+            
+            
             $fecha = new DateTime();
             $datos = [
                 'nombre' => trim($_POST['alias']),
@@ -44,9 +36,11 @@ class Login extends Controller
                 'fecha' => $fecha->format('y-m-d H:i:s'),
                 'activo' => 1,
                 'id_rol' => 2,
-                'id_cliente' => $fila->id,
+               
             ];
-        
+            $id_user = $this->usuariomodelo->obtenerid();
+            
+            
             if (isNull($datos, $pass)) {
                 $errors[] = "Debe llenar todos los campos";
             }
@@ -57,10 +51,21 @@ class Login extends Controller
                 $errors[] = "Las contraseñas no coinciden";
             }
             if (count($errors) == 0) {
-
+                
+                
                 $datos['password'] = hashPassword(trim($_POST['password']));
-
-                if ($this->usuariomodelo->agregarUsuario($datos)) {
+                $this->usuariomodelo->agregarUsuario($datos);
+                $id_user = $this->usuariomodelo->obtenerid();
+                $datoscliente = [
+                    'nombres' => trim($_POST['nombres']),
+                    'apellidos' => trim($_POST['apellidos']),
+                    'fecha' => trim($_POST['fecha']),
+                    'edad' => calcularedad($_POST['fecha']),
+                    'genero' => trim($_POST['genero']),
+                    'cod' => '',
+                    'cod_usuario'=>$id_user->id
+                ];
+                if ($this->clienteModelo->agregarCliente($datoscliente)) {
                     redirecionar('login');
                 } else {
                     echo "algo salio mal";
@@ -96,10 +101,13 @@ class Login extends Controller
                 if ($this->usuariomodelo->isActivo($usuario)) {
                     $validpassw = password_verify($password, $fila->password);
                     if ($validpassw) {
-                        $this->usuariomodelo->lastSession($fila->id);
-                        $_SESSION['id_usuario'] = $fila->id;
-                        $_SESSION['nombre'] = $fila->nombre;
+                        $this->usuariomodelo->lastSession($fila->id_user);
+                        $_SESSION['id_usuario'] = $fila->id_user;
+                        $_SESSION['alias'] = $fila->alias;
+                        $_SESSION['nombres'] = $fila->nombres;
+                        $_SESSION['apellidos']=$fila->apellidos;
                         $_SESSION['tipo_usuario'] = $fila->id_rol;
+                        $_SESSION['identificacion']= $fila->id;
                         if($_SESSION['tipo_usuario'] == 2){
                             redirecionar('Home');
                         }else{

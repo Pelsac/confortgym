@@ -19,8 +19,8 @@ class Usuario{
 
     public function agregarUsuario($datos){
 
-    $this->db->query("INSERT INTO usuarios(nombre,password,correo,activo,token, fecha_registro,id_rol,id_cliente)
-                                             values(:nombre,:password,:correo,:activo,:token,:fecha_registro,:id_rol,:id_cliente)");
+    $this->db->query("INSERT INTO usuarios(alias,password,correo,activo,token, fecha_registro,id_rol)
+                                             values(:nombre,:password,:correo,:activo,:token,:fecha_registro,:id_rol)");
     //vincular los valores
     $this->db->bind(':nombre',$datos['nombre']);
     $this->db->bind(':password',$datos['password']);
@@ -29,7 +29,7 @@ class Usuario{
     $this->db->bind(':token',$datos['token']);
     $this->db->bind(':fecha_registro',$datos['fecha']);
     $this->db->bind(':id_rol',$datos['id_rol']);
-    $this->db->bind(':id_cliente',$datos['id_cliente']);
+    
         if($this->db->execute()){
             return true;
         }else{
@@ -38,7 +38,7 @@ class Usuario{
     }
 
     public function login($usuario,$password){
-        $this->db->query("SELECT id, nombre, id_rol,password FROM usuarios WHERE nombre = :nombre || correo = :correo limit 1");
+        $this->db->query("SELECT usuarios.id as id_user, clientes.nombres, clientes.apellidos, clientes.id, usuarios.alias as alias, id_rol,password FROM usuarios inner join clientes on (clientes.cod_usuario = usuarios.id) WHERE alias= :nombre || correo = :correo limit 1");
         $this->db->bind(':nombre',$usuario);
        $this->db->bind(':correo',$usuario);
  
@@ -58,7 +58,7 @@ class Usuario{
         }
     }
     function isActivo($usuario){
-        $this->db->query("SELECT activo FROM usuarios WHERE nombre = :nombre || correo = :correo limit 1");
+        $this->db->query("SELECT activo FROM usuarios WHERE alias = :nombre || correo = :correo limit 1");
         $this->db->bind(':nombre',$usuario);
         $this->db->bind(':correo',$usuario);
         $this->db->execute();
@@ -87,6 +87,15 @@ class Usuario{
         $this->db->bind(":valor",$valor);
         
         $fila = $this->db->registro();
+        
+        return $fila;
+    }
+    function getValores($campo,$campowhere,$valor){
+        
+        $this->db->query("SELECT ".$campo ." FROM usuarios WHERE ".$campowhere." = :valor LIMIT 1");
+        $this->db->bind(":valor",$valor);
+        
+        $fila = $this->db->registros();
         
         return $fila;
     }
@@ -124,6 +133,11 @@ class Usuario{
             return false;
         }
     }
+    public function obtenerid(){
+        $this->db->query("SELECT MAX(id) as id FROM usuarios");
+        $id = $this->db->registro();
+        return $id;
+       }
 
 }
 

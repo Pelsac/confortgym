@@ -1,15 +1,18 @@
 $(document).ready(function(){
 var ruta =  $("#ruta").val()
 
-console.log("hola "+ruta);
-   function obtenerRutinas(){
+
+    
+
+var rutina=$('#rutina');
+   function listarRutinas(){
     $.ajax({
         url:ruta+"wbhome/getRutinas",
         type:'GET',
         success:function(res){
+        console.log(res);
         var rutinas = JSON.parse(res);
-
-        let template='';
+        let template='';        
         rutinas.forEach(rut => {
             template +=`
                 <div class="card mt-3">
@@ -17,12 +20,10 @@ console.log("hola "+ruta);
                         ${rut.nombre_rutina}
                 </div>
                 <div class="card-body">
-                        ${rut.descripcion_rutina}
-            
+                        ${rut.descripcion_rutina}           
                 </div>
                 <div class="card-footer"> 
                 <div class="float-right">
-               
                 <a href='' class="btn btn-outline-primary">Ver detalles</a>
                 </div>
              </div>
@@ -30,13 +31,46 @@ console.log("hola "+ruta);
             `
         });
         $('#list-rut').html(template);
-        console.log(rutinas);
+     
         }
     })
-   }
 
-   obtenerRutinas();
+   }  
+  function programarrutina(){
+      
+$("#form-sesion").submit(function(e){
+    var fecha= $("#fecha").val()
+         datos=fecha.split('T',2)
+     var postdata={
+         asistencia:1,
+         fecha:datos[0],
+         hora:datos[1],
+         activo:0
+         
+     }
+     e.preventDefault();
+     var closable = alertify.alert().setting('closable');
+     //grab the dialog instance using its parameter-less constructor then set multiple settings at once.
+    
+   
+     $.post(ruta+"wbhome/programarRutina",postdata,function(res){
+        $("#form-sesion").trigger('reset');
+   
+       $('#modal-lg').modal('toggle');
+       console.log(res);
+       alertify.alert()
+       .setting({
+         'label':'Aceptar',
+         'message': res + (closable ? ' ' : ' not ')  ,
+         'onok': function(){ alertify.success('Excelente');}
+       }).setHeader('<em> Exitoso </em> ').show();
+     });
+    
+    })
+  }
 
+  programarrutina();
+   listarRutinas();
 
 
 

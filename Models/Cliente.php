@@ -18,8 +18,8 @@ class Cliente
 
     public function agregarCliente($datos)
     {
-        $this->db->query("INSERT INTO clientes (nombres,apellidos,fecha_nacimiento,edad,genero,cod_ingreso)
-                        VALUES(:nombres,:apellidos,:fecha_nacimiento,:edad,:genero,:cod_ingreso)");
+        $this->db->query("INSERT INTO clientes (nombres,apellidos,fecha_nacimiento,edad,genero,cod_ingreso,cod_usuario)
+                        VALUES(:nombres,:apellidos,:fecha_nacimiento,:edad,:genero,:cod_ingreso,:cod_usuario)");
         //vincular los valores
         $this->db->bind(':nombres', $datos['nombres']);
         $this->db->bind(':apellidos', $datos['apellidos']);
@@ -27,6 +27,7 @@ class Cliente
         $this->db->bind(':edad', $datos['edad']);
         $this->db->bind(':genero', $datos['genero']);
         $this->db->bind(':cod_ingreso', $datos['cod']);
+        $this->db->bind(':cod_usuario', $datos['cod_usuario']);
 
         if ($this->db->execute()) {
             return true;

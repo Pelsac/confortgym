@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/css/adminlte.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/css/estilos.css">
+    <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/alertifyjs/css/alertify.min.css">
     <link rel="Shortcut Icon" href="<?php echo RUTA_URL?>favicon.ico" type="image/x-icon">
 </head>
 <body>

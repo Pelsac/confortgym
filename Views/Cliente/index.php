@@ -3,18 +3,22 @@
 <?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
-<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
  <section class="content">
+<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
       <div class="container-fluid">
     <!--  aqui va el diseño !-->
         <div class="row">
             <div class="col-md-3 mt-3">
             <a type="button" href="<?php echo RUTA_URL;?>clientes/agregar"class="btn btn-success" >
                   Agregar cliente
-</a>
+            </a>
           </div>
+          </div>
+          <div class="row">
             <div class="col-md-12 mt-3">
-                <table class="table" id="table">
+            <div class="card">
+                    <div class="card-body">
+                    <table class="table table-responsive-md" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -27,7 +31,6 @@
                             <th>Operaciones</th>
                         </tr>
                     </thead>
-                  
                     <tbody>
                     <?php foreach($datos['clientes'] as $cliente): ?>
                         <tr>
@@ -50,10 +53,14 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                    </div>
+                </div>
+            </div>
             </div>
             <?php require_once RUTA_APP."/Views/Cliente/add.modal.php"?>
         </div>
       </div>
+      
  </section>
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>

@@ -24,7 +24,7 @@
                             <th>Ultima session</th>
                             <th>Fecha de registro</th>
                             <th>id rol</th>
-                            <th>id cliente</th>
+                            
                             <th>Esta activo</th>
                             <th>Operaciones</th>
                         </tr>
@@ -34,12 +34,12 @@
                     <?php foreach($datos['usuarios'] as $user): ?>
                         <tr>
                             <td><?php echo $user->id ?></td>
-                            <td><?php echo $user->nombre ?></td>
+                            <td><?php echo $user->alias ?></td>
                             <td><?php echo $user->correo ?></td>
                             <td><?php echo $user->last_session ?></td>
                             <td><?php echo $user->fecha_registro ?></td>
                             <td><?php echo $user->id_rol ?></td>
-                            <td><?php echo $user->id_cliente ?></td>
+                          
                             <td><?php echo $user->activo ?></td>
                           
                             <td>
@@ -58,7 +58,7 @@
         </div>
       </div>
  </section>
-</div>
+
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
 <script>
 $(document).ready(function() {

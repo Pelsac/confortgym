@@ -1,4 +1,3 @@
-
 <?php require_once RUTA_APP."/Views/plantilla/header.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
 <?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>

@@ -9,37 +9,38 @@
     <!--  aqui va el diseño !-->
         <div class="row">
             <div class="col-md-3 mt-3">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
-                  Agregar Nueva sesion
-        </button>
+           
             </div>
             <div class="col-md-12 mt-3">
                 <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>id sesion</th>
-                            <th>Entrenador</th>
-                            <th>Asistencia</th>     
+                         
+                            <th>Asistencia</th>  
+                            <th>cliente</th>   
                             <th>Fecha </th>
-                            <th>Hora de ingreso </th>
+                            <th>Hora </th>
                             <th>activa </th>
-                            <th>cliente</th>
+                         
                             <th>Operaciones</th>
                         </tr>
                     </thead>
                   
                     <tbody>
-                    <?php foreach($datos['rutinas'] as $rutina): ?>
+                    <?php foreach($datos['sesiones'] as $se): ?>
                         <tr>
-                            <td><?php echo $rutina->codigo ?></td>
-                            <td><?php echo $rutina->nombre_rutina ?></td>
-                            <td><?php echo $rutina->descripcion_rutina ?></td>
-                            <td><?php echo $rutina->id_nivel ?></td>
-                            
+                            <td><?php echo $se->id_sesion ?></td>
+                            <td><?php echo $se->asistencia ?></td>
+                            <td><?php echo $se->nombres." ".$se->apellidos?></td>
+                            <td><?php echo $se->fecha ?></td>
+                            <td><?php echo $se->hora_ingreso ?></td>
+                            <td><?php echo $se->activo?></td>
+
                             <td>
-                            <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white">Editar</a>
+                            <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white">Aprobar</a>
                            
-                            <a href="<?php echo RUTA_URL;?>rutinas/detalles/<?php echo $rutina->codigo?>" class="btn btn-info">Ver rutina</a>
+                        
                               
                         </td>
                         </tr>

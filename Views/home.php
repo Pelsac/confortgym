@@ -6,7 +6,7 @@
       <div class="container">
         <div class="row p-4 p-md-5">
         <div class="col-md-6">
-        <h1 class="text-uppercase">Te damos la bienvenda <?php echo $_SESSION['nombre']?></h1>
+        <h1 class="text-uppercase">Te damos la bienvenda <?php echo $_SESSION['nombres']." ". $_SESSION['apellidos']?></h1>
         </div>
         <div class="col-md-6">
         <img  class="card-img-top"src="./Assets/img/ilustraciones/fitness.svg" alt="" height="250" width="300">
@@ -31,8 +31,9 @@
            
             </div>
                 <div class="col-md-4">
-                    <button class="btn btn-flat btn-outline-primary">Nueva rutina</button>
-                    <button class="btn btn-flat btn-outline-primary">Programar Sesion</button>
+               
+                    <button class="btn btn-flat btn-outline-primary " >Nueva rutina</button>
+                    <button class="btn btn-flat btn-outline-primary" data-toggle="modal" data-target="#modal-lg">Programar Sesion</button>
                     
                 </div>
                
@@ -64,5 +65,7 @@
         </div>
 
 </div>
+<?php require_once RUTA_APP."/Views/nuevaSesion.modal.php" ?>
 <?php require_once RUTA_APP."/Views/inc/footer.php" ?>
+<script src="<?php echo RUTA_URL ?>/Assets/alertifyjs/alertify.min.js"></script>
 <script src="<?php echo RUTA_URL ?>/Assets/js/index.js"></script>
