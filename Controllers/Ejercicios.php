@@ -8,6 +8,7 @@ class Ejercicios extends  Controller{
     
     $this->ejercicioModelo = $this->model('ejercicio');
     $this->categoriaModelo = $this->model('Categoria');
+
     }
     public function index()
 
@@ -15,11 +16,13 @@ class Ejercicios extends  Controller{
         session_start();
         $categorias = $this->categoriaModelo->obtenerCategorias();
         $ejercicios = $this->ejercicioModelo->obtenerEjercicios();
+      
 
         $datos=[
             'titulo'=>'Listado de ejercicios',
             'categorias'=>$categorias,
             "ejercicios"=>$ejercicios
+           
         ];
        
          $this->vista('Ejercicios/index',$datos);
