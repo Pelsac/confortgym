@@ -161,12 +161,12 @@ ENGINE = InnoDB;
 -- Table `confort-gym`.`productos`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `confort-gym`.`productos` (
-  `codigo` INT NOT NULL,
-  `nombre` VARCHAR(45) NOT NULL,
-  `descripcion` VARCHAR(45) NOT NULL,
-  `stock` VARCHAR(45) NOT NULL,
-  `cantidad` VARCHAR(45) NOT NULL,
-  `imagen` VARCHAR(45) NOT NULL,
+  `codigo` INT NOT NULL  AUTO_INCREMENT,
+  `nombre` VARCHAR(100) NOT NULL,
+  `descripcion` VARCHAR(255) NOT NULL,
+  `stock` VARCHAR(45) ,
+  `cantidad` VARCHAR(45) ,
+  `imagen` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`codigo`))
 ENGINE = InnoDB;
 

@@ -35,7 +35,7 @@ class Login extends Controller
                 'token' => generateToken(),
                 'fecha' => $fecha->format('y-m-d H:i:s'),
                 'activo' => 1,
-                'id_rol' => 2,
+                'id_rol' =>2,
                
             ];
             $id_user = $this->usuariomodelo->obtenerid();

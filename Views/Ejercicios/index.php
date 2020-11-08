@@ -31,7 +31,7 @@
                     <tbody>
                     <?php foreach($datos['ejercicios'] as $ejercicio): ?>
                         <tr>
-                           <td><?php  echo $ejercicio->id_ejer ?></td>
+                           <td><?php  echo $ejercicio->id ?></td>
                             <td><?php echo $ejercicio->nombre ?></td>
                             <td><?php echo $ejercicio->duracion ?></td>
                             <td><?php echo $ejercicio->descripcion ?></td>

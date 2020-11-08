@@ -20,9 +20,9 @@ class Usuario{
     public function agregarUsuario($datos){
 
     $this->db->query("INSERT INTO usuarios(alias,password,correo,activo,token, fecha_registro,id_rol)
-                                             values(:nombre,:password,:correo,:activo,:token,:fecha_registro,:id_rol)");
+                                             values(:alias,:password,:correo,:activo,:token,:fecha_registro,:id_rol)");
     //vincular los valores
-    $this->db->bind(':nombre',$datos['nombre']);
+    $this->db->bind(':alias',$datos['nombre']);
     $this->db->bind(':password',$datos['password']);
     $this->db->bind(':correo',$datos['correo']);
     $this->db->bind(':activo',$datos['activo']);
