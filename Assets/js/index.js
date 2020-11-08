@@ -36,14 +36,13 @@ var rutina=$('#rutina');
     })
 
    }  
-  function programarrutina(){
-      
+  function programarrutina(){  
 $("#form-sesion").submit(function(e){
     var fecha= $("#fecha").val()
          datos=fecha.split('T',2)
      var postdata={
          asistencia:1,
-         fecha:datos[0],
+         fecha:fecha,
          hora:datos[1],
          activo:0
          
@@ -63,7 +62,7 @@ $("#form-sesion").submit(function(e){
          'label':'Aceptar',
          'message': res + (closable ? ' ' : ' not ')  ,
          'onok': function(){ alertify.success('Excelente');}
-       }).setHeader('<em> Exitoso </em> ').show();
+       }).show();
      });
     
     })

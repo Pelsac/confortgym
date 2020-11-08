@@ -15,7 +15,7 @@ class WbNotificacion extends Controller{
             $notificacion =$this->notModelo->obtenerNotificaciones();
             echo json_encode($notificacion);
            }else{
-               echo "no hay notificaciones nuevas";
+            echo json_encode("no hay notificaciones nuevas");
            }
         
         }

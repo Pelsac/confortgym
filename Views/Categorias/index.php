@@ -57,7 +57,3 @@
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
 <script>
-$(document).ready(function() {
-    $('#table').DataTable();
-} );
-</script>

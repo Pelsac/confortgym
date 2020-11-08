@@ -23,6 +23,7 @@ ul{
     list-style: none !important;
 }
 
+
 .img{
     display: block;
     width: 300px !important;
@@ -32,6 +33,7 @@ ul{
 #frase{
     font-size: 60px;
 }
+
 
 #frase>span{
     color: yellow;

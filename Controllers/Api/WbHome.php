@@ -34,7 +34,7 @@ class WbHome extends Controller{
                //enviar notificacion al los administradores
                $fecha = new DateTime();
               $useradmin = $this->usuarioModelo->getValores("id","id_rol",1);
-            echo "id usuario ".$_SESSION['id_usuario'];
+        
                $notificacion=[
                    "id1"=>$id_usuario,
                    "id2"=>$useradmin,
@@ -42,7 +42,7 @@ class WbHome extends Controller{
                 "fecha"=>$fecha->format('y-m-d H:i:s')
             ];
 
-            print_r($notificacion);
+     
                if($this->sesionModelo->programarSesion($id->id_sesion,$id_cliente)){
                     
                 if( $this->NotModelo->enviar($notificacion)){
@@ -61,6 +61,11 @@ class WbHome extends Controller{
         }
            
          
+     }
+
+     public function obtenerSesiones(){
+      $sesiones = $this->sesionModelo->obtenerSesiones();
+      echo json_encode($sesiones);
      }
 
     

@@ -14,7 +14,9 @@
         </button>
             </div>
             <div class="col-md-12 mt-3">
-                <table class="table" id="table">
+                <div class="card">
+                    <div class="card-body table-responsive"style="height:auto;">
+                <table class="table table-head-fixed text-nowrap" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -44,6 +46,8 @@
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                </div>
+                </div>
             </div>
             <?php require_once RUTA_APP."/Views/Rutina/add.modal.php"?>
         </div>
@@ -51,27 +55,3 @@
  </section>
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
-<script>
-$(document).ready(function() {
-    $('#table').DataTable({
-        language:{
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-        }}});
-} );
-</script>

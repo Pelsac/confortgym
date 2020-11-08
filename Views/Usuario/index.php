@@ -10,11 +10,13 @@
     <!--  aqui va el diseño !-->
         <div class="row">
             <div class="col-md-3 mt-3">
-            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#modal-lg">
+            <a type="button" class="btn btn-success" href="<?php echo RUTA_URL;?>usuarios/agregar">
                   Agregar usuario
-        </button>
+        </a>
             </div>
             <div class="col-md-12 mt-3">
+            <div class="card">
+                    <div class="card-body table-responsive"style="height:auto;">
                 <table class="table" id="table">
                     <thead>
                         <tr>
@@ -43,8 +45,8 @@
                             <td><?php echo $user->activo ?></td>
                           
                             <td>
-                            <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $user->id?>" class="btn btn-primary">Editar</a>
-                            <?php require_once RUTA_APP."/Views/Cliente/eliminar.modal.php"?>  
+                            <a href="<?php echo RUTA_URL;?>Usuarios/editar/<?php echo $user->id?>" class="btn btn-primary">Editar</a>
+                            <?php require_once RUTA_APP."/Views/Usuario/eliminar.modal.php"?>  
                             <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
                               
                         </td>
@@ -54,35 +56,10 @@
                     </tbody>
                 </table>
             </div>
-            <?php require_once RUTA_APP."/Views/Cliente/add.modal.php"?>
+            </div> 
+        </div>
         </div>
       </div>
  </section>
 
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
-<script>
-$(document).ready(function() {
-    $('#table').DataTable({
-        language:{
-        "decimal": "",
-        "emptyTable": "No hay información",
-        "info": "Mostrando _START_ a _END_ de _TOTAL_ Entradas",
-        "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
-        "infoFiltered": "(Filtrado de _MAX_ total entradas)",
-        "infoPostFix": "",
-        "thousands": ",",
-        "lengthMenu": "Mostrar _MENU_ Entradas",
-        "loadingRecords": "Cargando...",
-        "processing": "Procesando...",
-        "search": "Buscar:",
-        "zeroRecords": "Sin resultados encontrados",
-        "paginate": {
-            "first": "Primero",
-            "last": "Ultimo",
-            "next": "Siguiente",
-            "previous": "Anterior"
-        }}});
-})        
-  
-
-</script>

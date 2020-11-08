@@ -44,7 +44,15 @@ class Usuario{
  
         $fila = $this->db->registro();
         
+      if(empty($fila)){
+        $this->db->query("SELECT usuarios.id as id_user, usuarios.alias as alias, id_rol,password FROM usuarios  WHERE alias= :nombre || correo = :correo limit 1");
+        $this->db->bind(':nombre',$usuario);
+       $this->db->bind(':correo',$usuario);
  
+        $fila = $this->db->registro();
+        
+      }
+   
       return $fila;
     }
 

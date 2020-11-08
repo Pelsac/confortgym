@@ -8,11 +8,14 @@ $(document).ready(function(){
        data:"",
        url:ruta+"wbNotificacion/getNotificacion",
        success:function(res){
-           let template=``;
-           console.log(res);
+           try{
+           var template=``;
+           
            var notifica = JSON.parse(res);
-           var numero = Object.keys(notifica).length;           
-           notifica.forEach(noti => {
+           var numero = Object.keys(notifica).length;
+        
+           if(isJson(notifica)){
+            notifica.forEach(noti => {
               template+=`
               
               <div class="dropdown-divider"></div>
@@ -23,19 +26,37 @@ $(document).ready(function(){
              
             
            });
-      $('#notifica1').html(numero);
-      $('#notifica2').html(numero);
-        $('#panelNotify').html(template);
+           $('#notifica1').html(numero);
+           $('#notifica2').html(numero);
+             $('#panelNotify').html(template);
+           }else{
+           template +=`${res}`;
+           $('#notifica1').html(0);
+           $('#notifica2').html(0);
+             $('#panelNotify').html(template);
+           }          
+           
+          }catch(err){
+            console.log(err);
+          }
+   
         
        
       }
-            
-       
+      
      });
-     
+           
+     function isJson(str) {
+      try {
+          JSON.parse(str);
+      } catch (e) {
+          return false;
+      }
+      return true;
+}
    }
   
    
-   setInterval(push,1000);
+   setInterval(push(),1000);
 });
 

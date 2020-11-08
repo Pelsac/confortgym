@@ -80,7 +80,7 @@ class Login extends Controller
 
         } else {
 
-            echo "hola";
+            $this->vista('Login/registro', $datos, $errors);
         }
     }
 
@@ -103,14 +103,17 @@ class Login extends Controller
                     if ($validpassw) {
                         $this->usuariomodelo->lastSession($fila->id_user);
                         $_SESSION['id_usuario'] = $fila->id_user;
-                        $_SESSION['alias'] = $fila->alias;
-                        $_SESSION['nombres'] = $fila->nombres;
-                        $_SESSION['apellidos']=$fila->apellidos;
+                       
                         $_SESSION['tipo_usuario'] = $fila->id_rol;
-                        $_SESSION['identificacion']= $fila->id;
+                       
                         if($_SESSION['tipo_usuario'] == 2){
+                            $_SESSION['alias'] = $fila->alias;
+                            $_SESSION['nombres'] = $fila->nombres;
+                            $_SESSION['apellidos']=$fila->apellidos;
+                            $_SESSION['identificacion']= $fila->id;
                             redirecionar('Home');
-                        }else{
+                        }else if ($_SESSION['tipo_usuario'] == 1){
+                            $_SESSION['alias'] = $fila->alias;
                             redirecionar('clientes');
                         }
                        
@@ -123,7 +126,9 @@ class Login extends Controller
                     $errors[] = "El usuario no esta activo";
                     $this->vista("Login/Login", $datos = [], $errors);
                 }
-            } else {
+            }
+            
+            else {
                 $errors[] = "El usuario o correo electronico no existe";
                 $this->vista("Login/Login", $datos = [], $errors);
             }

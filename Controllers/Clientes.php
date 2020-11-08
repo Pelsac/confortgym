@@ -11,7 +11,7 @@ class Clientes extends  Controller{
     {
         session_start();
       
-        if($_SESSION['tipo_usuario'] == 2){
+        if($_SESSION['tipo_usuario'] == 1){
            
             $clientes = $this->clienteModelo->obtenerClientes();
         $datos = [
@@ -28,6 +28,7 @@ class Clientes extends  Controller{
 
     public function agregar(){
        session_start();
+       if($_SESSION['tipo_usuario'] == 1){
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $datos=[
                 'titulo'=>"Agregar nuevo cliente",
@@ -49,9 +50,14 @@ class Clientes extends  Controller{
             $datos=["titulo"=>"Agregar nuevo cliente"];
           $this->vista('cliente/agregar',$datos);
         }
+    }else{
+        redirecionar('home');
+    }
     }
 
     public function editar($id){
+        session_start();
+        if($_SESSION['tipo_usuario'] == 1){
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $datos=[
                     'id'=>$id,
@@ -87,11 +93,15 @@ class Clientes extends  Controller{
               $this->vista('cliente/editar',$datos);
             }
         
-        
+        }else{
+            redirecionar('home');
+        }
     }
 
 
     public function eliminar($id){
+        session_start();
+        if($_SESSION['tipo_usuario'] == 1){
         $cliente = $this->clienteModelo->obtenerClienteid($id);
             $datos = [
               
@@ -113,9 +123,11 @@ class Clientes extends  Controller{
         
         
     }
+    else{
+        redirecionar('home');
+    }
 
-
-
+    }
 
 }
 

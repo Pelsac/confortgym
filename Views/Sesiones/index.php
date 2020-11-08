@@ -8,15 +8,14 @@
       <div class="container-fluid">
     <!--  aqui va el diseño !-->
         <div class="row">
-            <div class="col-md-3 mt-3">
            
-            </div>
-            <div class="col-md-12 mt-3">
-                <table class="table" id="table">
+            <div class="col-11 mt-3">
+            <div class="card">
+                    <div class="card-body table-responsive"style="height:auto;">
+                     <table class="table" id="table" data-page-length="5">
                     <thead>
                         <tr>
                             <th>id sesion</th>
-                         
                             <th>Asistencia</th>  
                             <th>cliente</th>   
                             <th>Fecha </th>
@@ -26,7 +25,6 @@
                             <th>Operaciones</th>
                         </tr>
                     </thead>
-                  
                     <tbody>
                     <?php foreach($datos['sesiones'] as $se): ?>
                         <tr>
@@ -39,15 +37,14 @@
 
                             <td>
                             <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white">Aprobar</a>
-                           
-                        
-                              
                         </td>
                         </tr>
                         
                         <?php endforeach ?>
                     </tbody>
                 </table>
+                </div>
+                </div>
             </div>
             <?php require_once RUTA_APP."/Views/Sesiones/add.modal.php"?>
         </div>
@@ -56,7 +53,3 @@
 </div>
 <?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
 <script>
-$(document).ready(function() {
-    $('#table').DataTable();
-} );
-</script>
