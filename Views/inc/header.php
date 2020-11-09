@@ -6,9 +6,8 @@
     <title>Confort Gym</title>
    
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/css/bootstrap.min.css">
-   
-   
-    <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/alertifyjs/css/alertify.min.css">
+    <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/css/all.min.css">
+    <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/alertifyjs/css/alertify.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/fullcalendar/main.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/fullcalendar-daygrid/main.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>Assets/fullcalendar-timegrid/main.min.css">

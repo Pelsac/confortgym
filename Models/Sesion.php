@@ -7,7 +7,7 @@ public function __construct(){
 
 public function obtenerSesiones(){
     $this->db->query("SELECT * FROM sesion_entrenamiento as se INNER JOIN sesiones_programadas as sp ON ( sp.codigo_Sesion=se.id_sesion) inner join clientes on (clientes.id=sp.codigo_cliente)
-        ");
+     group by se.id_sesion desc");
     $resultados = $this->db->registros();
     return $resultados;
 }
@@ -47,4 +47,16 @@ public function obtenerSesionReciente(){
     $row = $this->db->registros();
     return $row;
    }
+
+public function aprobarSesion($id){
+    $this->db->query("UPDATE sesion_entrenamiento set activo=:activo
+    WHERE id_sesion = :id");
+    $this->db->bind(':activo',1);
+    $this->db->bind(':id',$id);
+    if ($this->db->execute()) {
+        return true;
+    } else {
+        return false;
+    }
+}
 }

@@ -33,7 +33,7 @@
                               </div>
                               <div class="col-md-4">
                                   <button class="btn btn-flat btn-outline-primary " > <i class="fas fa-edit"></i> Nueva rutina</button>
-                                  <button class="btn btn-flat btn-outline-primary" data-toggle="modal" data-target="#modal-lg"><i class="far fa-calendar-alt"></i> Programar Sesion</button>
+                                  <button class="btn btn-flat btn-outline-primary" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-calendar-alt"></i> Programar Sesion</button>
                               </div>
                          </div>
              <hr>
@@ -44,12 +44,12 @@
                   
                    
                       <div class="col-md-7" id="list-rut">
-                      <h1>hola</h1>
+                      
                       </div>
                       <div class="col-md-5">
                         <div class="area">
                                   <div class="card" >
-                                    <div class="card-header bg-primary">
+                                    <div class="card-header bg-primary text-white">
                                       Sesiones Programadas
                                         </div>
                                       <div class="card-body">

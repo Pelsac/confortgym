@@ -2,7 +2,6 @@ $(document).ready(function(){
 var ruta =  $("#ruta").val()
 
 
-    
 
 var rutina=$('#rutina');
    function listarRutinas(){
@@ -36,35 +35,46 @@ var rutina=$('#rutina');
     })
 
    }  
+
+  
   function programarrutina(){  
 $("#form-sesion").submit(function(e){
     var fecha= $("#fecha").val()
-         datos=fecha.split('T',2)
-     var postdata={
-         asistencia:1,
-         fecha:fecha,
-         hora:datos[1],
-         activo:0
+        var datos=fecha.split('T',2)
+       var fecha2 = new Date(datos[0]);
+        var fecha3= new Date()
+        e.preventDefault();
+       if(fecha2<=fecha3){
+        
+        alertify.error("¡Error fecha incorrecta!");
          
-     }
-     e.preventDefault();
-     var closable = alertify.alert().setting('closable');
-     //grab the dialog instance using its parameter-less constructor then set multiple settings at once.
+       }else{
+
+        var postdata={
+          asistencia:1,
+          fecha:datos[0],
+          hora:datos[1],
+          activo:0
+          
+      }
+      
+     
+      var closable = alertify.alert().setting('closable');
+      //grab the dialog instance using its parameter-less constructor then set multiple settings at once.
+     
     
-   
-     $.post(ruta+"wbhome/programarRutina",postdata,function(res){
-        $("#form-sesion").trigger('reset');
-   
-       $('#modal-lg').modal('toggle');
-       console.log(res);
-       alertify.alert()
-       .setting({
-         'label':'Aceptar',
-         'message': res + (closable ? ' ' : ' not ')  ,
-         'onok': function(){ alertify.success('Excelente');}
-       }).show();
-     });
-    
+      $.post(ruta+"wbhome/programarRutina",postdata,function(res){
+         $("#form-sesion").trigger('reset');
+        $('#modal-lg').modal('toggle');
+        console.log(res);
+        location.href = ruta+"home";
+       
+      });
+      
+      
+       }
+       alertify.success('Rutina Programada con exito!')
+       
     })
   }
 

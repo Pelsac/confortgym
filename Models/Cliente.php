@@ -100,4 +100,11 @@ class Cliente
         $id = $this->db->registro();
         return $id;
        }
+
+       function getValor($campo,$campowhere,$valor){ 
+        $this->db->query("SELECT ".$campo ." FROM clientes WHERE ".$campowhere." = :valor LIMIT 1");
+        $this->db->bind(":valor",$valor);
+        $fila = $this->db->registro();  
+        return $fila;
+    }
 }

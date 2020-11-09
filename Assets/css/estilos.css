@@ -22,7 +22,10 @@ body{
 ul{
     list-style: none !important;
 }
-
+.anyClass{
+    height: 200px !important;
+    overflow-y: scroll;
+}
 
 .img{
     display: block;

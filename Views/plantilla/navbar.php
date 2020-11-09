@@ -17,12 +17,12 @@
           <i class="far fa-bell"></i>
           <span class="badge badge-primary navbar-badge" id="notifica1"></span>
         </a>
-        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right" id="panelNotify">
+        <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right anyClass" id="panelNotify">
           <span class="dropdown-item dropdown-header" id="notifica2">15 Notifications</span>
           <div class="dropdown-divider"></div>
           <a href="#" class="dropdown-item">
             <i class="fas fa-envelope mr-2"></i> 4 new messages
-            <span class="float-right text-muted text-sm">3 mins</span>
+            <span class="float-right text-muted text-sm"></span>
           </a>
          
           <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>

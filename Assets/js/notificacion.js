@@ -10,53 +10,45 @@ $(document).ready(function(){
        success:function(res){
            try{
            var template=``;
-           
+           console.log(res);
            var notifica = JSON.parse(res);
            var numero = Object.keys(notifica).length;
-        
-           if(isJson(notifica)){
+           console.log("hola");
+           if(Array.isArray(notifica)){
+            
             notifica.forEach(noti => {
               template+=`
               
               <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item">
               <i class="fas fa-envelope mr-2"></i> <p>${noti.mensaje}</p>
-              <span class="float-right text-muted text-sm">3 mins</span>
+              <span class="float-right text-muted text-sm"></span>
               </a>`
-             
+           
             
            });
            $('#notifica1').html(numero);
            $('#notifica2').html(numero);
-             $('#panelNotify').html(template);
+            $('#panelNotify').html(template);
            }else{
-           template +=`${res}`;
-           $('#notifica1').html(0);
-           $('#notifica2').html(0);
-             $('#panelNotify').html(template);
+            template +=`${res}`;
+            $('#notifica1').html(0);
+            $('#notifica2').html(0);
+              $('#panelNotify').html(template);
            }          
            
           }catch(err){
             console.log(err);
           }
-   
-        
-       
       }
       
      });
            
-     function isJson(str) {
-      try {
-          JSON.parse(str);
-      } catch (e) {
-          return false;
-      }
-      return true;
-}
+    
    }
-  
+   push()
+   setInterval(push,1000);
    
-   setInterval(push(),1000);
+   
 });
 

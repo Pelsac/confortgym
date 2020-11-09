@@ -33,11 +33,14 @@
                             <td><?php echo $se->nombres." ".$se->apellidos?></td>
                             <td><?php echo $se->fecha ?></td>
                             <td><?php echo $se->hora_ingreso ?></td>
+                            
                             <td><?php echo $se->activo?></td>
 
                             <td>
-                            <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white">Aprobar</a>
-                        </td>
+                            <a href="<?php echo RUTA_URL;?>sesiones/aprobar/<?php echo $se->id_sesion?>/<?php echo $se->codigo_cliente ?>" class="btn btn-primary text-white">Aprobar</a>
+                            <a href="<?php echo RUTA_URL;?>sesiones/rechazar/<?php echo $se->id_sesion?>/<?php echo $se->codigo_cliente ?>" class="btn btn-warning text-white">Rechazar</a>
+                            
+                          </td>
                         </tr>
                         
                         <?php endforeach ?>

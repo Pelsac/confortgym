@@ -13,10 +13,10 @@
 
         public function agregarProducto($producto)
         {
-            $this->db->query("INSERT INTO productos (codigo,nombre,descripcion,imagen)
+            $this->db->query("INSERT INTO productos (nombre,descripcion,imagen)
                             VALUES(:codigo,:nombre,:descripcion,:imagen)");
             //vincular los valores
-            $this->db->bind(':codigo', $producto['codigo']);
+           
             $this->db->bind(':nombre',$producto['nombre']);
             $this->db->bind(':descripcion', $producto['descripcion']);
            

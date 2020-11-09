@@ -39,7 +39,7 @@ class Notificacion{
 
     public function obtenerNotificaciones(){
         $this->db->query("SELECT * FROM usuarios INNER JOIN notificar on(notificar.id_usuario =usuarios.id)
-        INNER JOIN notificacion on (notificacion.idNotificacion=notificar.cod_notificacion)");
+        INNER JOIN notificacion on (notificacion.idNotificacion=notificar.cod_notificacion) group by notificacion.idNotificacion DESC");
          $resultados = $this->db->registros();
          return $resultados;
     }

@@ -204,12 +204,12 @@ class Login extends Controller
             }
             if ($this->usuariomodelo->emailExiste($email)) {
                 $user_id = $this->usuariomodelo->getValor("id", "correo", $email);
-                $nombre = $this->usuariomodelo->getValor("nombre", "correo", $email);
+                $nombre = $this->usuariomodelo->getValor("alias", "correo", $email);
                 $token = $this->usuariomodelo->generateTokenPass($user_id->id);
               
                 $url = 'http://' . $_SERVER["SERVER_NAME"] . '/confortgym/login/cambiar_pass/' . $user_id->id . '/' . $token;
                 $asunto = 'Recuperar Contrase&ntilde;a - Confort gym';
-                $cuerpo = "Hola $nombre->nombre:
+                $cuerpo = "Hola $nombre->alias:
                         <br><br>
                         Se ha solicitado un reinicio de contrase&ntilde;a. <br>
                         Para recuperar la contrase&ntilde;a, visita la siguiente direcci&oacute;n <a href='$url'>Restablecer contrase&ntilde;a</a>
@@ -218,7 +218,7 @@ class Login extends Controller
                         Estimado cliente, este correo ha sido generado por un sistema de envio; por favor  NO responda al mismo ya que no podra ser gestionado.
                         ";
                
-                       if (enviarEmail($email, $nombre->nombre, $asunto, $cuerpo)) {
+                       if (enviarEmail($email, $nombre->alias, $asunto, $cuerpo)) {
 
 
                    $datos=['titulo'=>"¡Falta poco, Por favor verificar email!",

@@ -34,14 +34,24 @@ $(document).ready(function () {
     // -----------------------------------------------------------------
     evento.forEach(eve=>{
        var  fecha1 = eve.fecha.split(" ")
-      
-     newEvento.push({
-            title          : 'Rutina de ejercicio',
-            start          : fecha1[0],
-            end            : fecha1[0],
-            backgroundColor: '#f39c12', //yellow
-            borderColor    : '#f39c12' //yellow
-          })
+      if(eve.activo == 1){
+        newEvento.push({
+          title          : 'Rutina de ejercicio',
+          start          : fecha1[0],
+          end            : fecha1[0],
+          backgroundColor: '#28a745', //yellow
+          borderColor    : '#28a745' //yellow
+        })
+      }else{
+        newEvento.push({
+          title          : 'Rutina de ejercicio',
+          start          : fecha1[0],
+          end            : fecha1[0],
+          backgroundColor: '#f39c12', //yellow
+          borderColor    : '#f39c12' //yellow
+        })
+      }
+     
     })
     
     var calendar = new Calendar(calendarEl, {
