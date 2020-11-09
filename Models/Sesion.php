@@ -13,7 +13,7 @@ public function obtenerSesiones(){
 }
 
 public function agregarSesion($datos){
-    $this->db->query("INSERT INTO sesion_entrenamiento (asistencia,fecha,hora_ingreso,activo) values (:asistencia,:fecha,:hora,:activo)");
+    $this->db->query("INSERT INTO sesion_entrenamiento (asistencia,fecha,hora_ingreso,estado) values (:asistencia,:fecha,:hora,:activo)");
     $this->db->bind(':asistencia',$datos['asistencia']);
     $this->db->bind(':fecha',$datos['fecha']);
     $this->db->bind(':hora',$datos['hora']);
@@ -48,10 +48,10 @@ public function obtenerSesionReciente(){
     return $row;
    }
 
-public function aprobarSesion($id){
-    $this->db->query("UPDATE sesion_entrenamiento set activo=:activo
+public function aprobarSesion($id,$estado){
+    $this->db->query("UPDATE sesion_entrenamiento set estado=:activo
     WHERE id_sesion = :id");
-    $this->db->bind(':activo',1);
+    $this->db->bind(':activo',$estado);
     $this->db->bind(':id',$id);
     if ($this->db->execute()) {
         return true;

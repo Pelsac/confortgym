@@ -27,18 +27,16 @@
                                 </div>
                                 <div class="card-body">
                                 <div class="row">
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                 <img class="img" src="<?php echo "../..".$rut->animacion?>" alt="">
                                 </div>
-                                <div class="col-md-6">
+                                <div class="col-md-12">
                                 <p>
                                 <?php echo $rut->descripcion?>
                                 </p>
                                 </div>
                                 </div>
-                               
-                               
-                                
+
                                
                                 </div>
                            </div>

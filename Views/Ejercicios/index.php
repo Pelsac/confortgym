@@ -31,7 +31,7 @@
                     <tbody>
                     <?php foreach($datos['ejercicios'] as $ejercicio): ?>
                         <tr>
-                           <td><?php  echo $ejercicio->id ?></td>
+                           <td><?php  echo $ejercicio->id_ejer ?></td>
                             <td><?php echo $ejercicio->nombre ?></td>
                             <td><?php echo $ejercicio->duracion ?></td>
                             <td><?php echo $ejercicio->descripcion ?></td>
@@ -46,11 +46,7 @@
                             <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
                               
                         </td>
-                        </tr>
-
-                        <img src="https://steemitimages.com/0x0/https://cdn.steemitimages.com/DQmNRU7Ndz6a2nMEXGbLeSSGfi6QFiKYHru3nE9pRoMMH9K/Crunch%20Abdominales.gif" alt="">
-            
-                        
+                        </tr>                 
                         <?php endforeach ?>
                     </tbody>
                 </table>

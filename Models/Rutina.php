@@ -12,11 +12,15 @@ class Rutina{
     }
 
     public function agregarRutinas($datos){
-        $this->db->query("INSERT INTO rutinas(nombre_rutina,descripcion_rutina,id_nivel)
-                        VALUES(:nombre,:descripcion,:id)");
+        print_r($datos);
+        $this->db->query("INSERT INTO rutinas(nombre_rutina,descripcion_rutina,descripcion_corta,banner,frase_motivacional,id_nivel)
+                        VALUES(:nombre,:descripcion,:des_corta,:baner,:frase,:id)");
         //vincular los valores
         $this->db->bind(':nombre', $datos['nombre']);
-        $this->db->bind(':descripcion', $datos['descripcion']);
+        $this->db->bind(':descripcion', $datos['descri']);
+        $this->db->bind(':des_corta', $datos['descripcion_c']);
+        $this->db->bind(':baner', $datos['banner']);
+        $this->db->bind(':frase', $datos['frase']);
         $this->db->bind(':id', $datos['nivel']);
       
         if ($this->db->execute()) {
@@ -66,5 +70,17 @@ class Rutina{
         $fila = $this->db->registro();
         
         return $fila;
+    }
+    public function borrarRutina($id)
+    {
+       
+        $this->db->query("DELETE FROM rutinas WHERE codigo = :id");
+        //vincular los valores
+           $this->db->bind(':id',$id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
 }

@@ -7,7 +7,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form action="<?php echo RUTA_URL?>rutinas/agregar" method="POST">
+            <form action="<?php echo RUTA_URL?>rutinas/agregar" method="POST" enctype="multipart/form-data">
             <div class="modal-body">
               <div class="row">
               <div class="col-md-6">
@@ -16,20 +16,14 @@
                     <input name="nombre" type="text" class="form-control">
                 </div>
                 <div class="form-group">
-                    <label for="">Descripcion</label>
+                    <label for="">Descripcion general</label>
                     <textarea name="descripcion" type="text" class="form-control"></textarea>
                 </div>
-               
                 <div class="form-group">
-                <label>Nivel de la rutina</label>
-                        <select name="nivel" class="form-control">
-                        <?php foreach($datos['niveles'] as $nivel): ?>
-                          <option value="<?php echo $nivel->id ?>"><?php echo $nivel->tipo_nivel ?></option>
-                        
-                        <?php endforeach ?>
-                        </select>
+                    <label for="">Descripcion corta</label>
+                    <textarea name="descripcion_corta" type="text" class="form-control"></textarea>
                 </div>
-          
+               
                </div>
                
                <div class="col-md-6">
@@ -43,7 +37,27 @@
                     <?php endforeach ?>
                   </select>
                   </div>
-                  
+                  <div class="form-group">
+                    <label for="">banner</label>
+                    <div class="custom-file">
+                      <input type="file"  name="banner"class="custom-file-input" id="customFile" accept="image/*">
+                      <label class="custom-file-label" for="customFile" >Subir imagen</label>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                <label>Nivel de la rutina</label>
+                        <select name="nivel" class="form-control">
+                        <?php foreach($datos['niveles'] as $nivel): ?>
+                          <option value="<?php echo $nivel->id ?>"><?php echo $nivel->tipo_nivel ?></option>
+                        
+                        <?php endforeach ?>
+                        </select>
+                </div>
+          
+                </div>
+                <div class="form-group">
+                    <label for="">Frase Motivacional</label>
+                    <input type="text" name="frase" class="form-control">
                 </div>
                </div>
                

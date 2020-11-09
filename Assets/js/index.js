@@ -15,19 +15,25 @@ var rutina=$('#rutina');
         rutinas.forEach(rut => {
             template +=`
                 <div class="card mt-3">
-                <div class="card-header bg-primary">
+                <div class="card-header bg-primary text-white">
                         ${rut.nombre_rutina}
                 </div>
                 <div class="card-body">
-                        ${rut.descripcion_rutina}           
+                <div class="row">
+                <div class="col-md-5">
+                <img class="img-fluid" src=".${rut.banner}">             
                 </div>
-                <div class="card-footer"> 
-                <div class="float-right">
-                <a href='' class="btn btn-outline-primary">Ver detalles</a>
+                <div class="col-md-7">
+                <p class="myClassName">${rut.descripcion_corta}</p>
+               
+                <a href='' class="btn btn-outline-primary btn-block">Ver detalles</a>
+             
                 </div>
-             </div>
+                </div>
+                </div>
             </div>
             `
+            
         });
         $('#list-rut').html(template);
      

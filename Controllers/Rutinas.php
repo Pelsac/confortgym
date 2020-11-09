@@ -35,10 +35,16 @@ class Rutinas extends  Controller{
     session_start();
     if($_SESSION['tipo_usuario'] == 1){
     if($_SERVER['REQUEST_METHOD']=='POST'){
-      
+        $foto =$_FILES['banner']['name'];
+        $ruta= $_FILES['banner']['tmp_name'];
+        $destino=RUTA_APP."/Assets/img/banner/".$foto;
+        copy($ruta,$destino);
         $datos=[
             'nombre'=>trim($_POST['nombre']),
-            'descripcion'=>trim($_POST['descripcion']),
+            'descri'=>trim($_POST['descripcion']),
+            'descripcion_c'=>trim($_POST['descripcion_corta']),
+            'banner'=>"/Assets/img/banner/".$foto,
+            'frase'=>trim($_POST['frase']),
             'nivel'=>trim($_POST['nivel']),
             'ejercicios'=> $_POST['ejercicios'],
         ];
@@ -80,7 +86,24 @@ class Rutinas extends  Controller{
     }
    }
   
-
+    public function eliminar($id){
+        session_start();
+        if($_SESSION['tipo_usuario'] == 1){
+        
+           if($this->RutinaModelo->borrarRutina($id)){
+               redirecionar('rutinas');
+            }else{
+                die('algo salio mal');
+            }
+   
+            
+        
+        
+    }
+    else{
+        redirecionar('home');
+    }
+    }
 }
 
 

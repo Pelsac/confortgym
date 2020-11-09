@@ -36,9 +36,9 @@
                             <td><?php echo $rutina->id_nivel ?></td>
                             
                             <td>
-                            <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white">Editar</a>
-                           
-                            <a href="<?php echo RUTA_URL;?>rutinas/detalles/<?php echo $rutina->codigo?>" class="btn btn-info">Ver rutina</a>
+                            <a href="<?php echo RUTA_URL;?>rutinas/editar/<?php echo $rutina->codigo?>" class="btn btn-warning text-white"><i class="fas fa-edit"></i></a>
+                            <a href="<?php echo RUTA_URL;?>rutinas/eliminar/<?php echo $rutina->codigo?>" class="btn btn-danger text-white"><i class="fas fa-trash"></i></a>
+                            <a href="<?php echo RUTA_URL;?>rutinas/detalles/<?php echo $rutina->codigo?>" class="btn btn-info"><i class="fas fa-eye"></i></a>
                               
                         </td>
                         </tr>

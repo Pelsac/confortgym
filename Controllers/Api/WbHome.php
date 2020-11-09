@@ -25,7 +25,7 @@ class WbHome extends Controller{
                 'asistencia'=>$_POST['asistencia'],
                 'fecha'=>$_POST['fecha'],
                 'hora'=>$_POST['hora'],
-                'activo'=>$_POST['activo']                
+                'activo'=>"En espera"               
             ];
            if($this->sesionModelo->agregarSesion($datos)){
                $id=$this->sesionModelo->obtenerid(); 

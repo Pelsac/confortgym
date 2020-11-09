@@ -36,7 +36,16 @@ ul{
 #frase{
     font-size: 60px;
 }
+.img-{
+   margin-top: 0px;
+    width: 100% !important;
+    height: 300px !important;
+    background-size: cover;
 
+}
+.myClassName{
+    margin-top: 60px;
+}
 
 #frase>span{
     color: yellow;

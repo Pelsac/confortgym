@@ -20,7 +20,7 @@
                             <th>cliente</th>   
                             <th>Fecha </th>
                             <th>Hora </th>
-                            <th>activa </th>
+                            <th>Estado</th>
                          
                             <th>Operaciones</th>
                         </tr>
@@ -34,7 +34,7 @@
                             <td><?php echo $se->fecha ?></td>
                             <td><?php echo $se->hora_ingreso ?></td>
                             
-                            <td><?php echo $se->activo?></td>
+                            <td><?php echo $se->estado?></td>
 
                             <td>
                             <a href="<?php echo RUTA_URL;?>sesiones/aprobar/<?php echo $se->id_sesion?>/<?php echo $se->codigo_cliente ?>" class="btn btn-primary text-white">Aprobar</a>

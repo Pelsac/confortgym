@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="index3.html" class="brand-link">
+    <a href="<?php echo RUTA_URL ?>sesiones" class="brand-link">
       
            
       <span class="brand-text font-weight-light">Confort Gym</span>
@@ -26,7 +26,7 @@
                with font-awesome or any other icon font library -->
         
           <li class="nav-item">
-            <a href="<?php echo RUTA_URL ?>Sesiones" class="nav-link">
+            <a href="<?php echo RUTA_URL ?>sesiones" class="nav-link">
               <i class="nav-icon fas fa-calendar-check"></i>
               <p>
                Rutinas Programadas
