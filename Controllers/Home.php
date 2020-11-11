@@ -10,12 +10,9 @@
          {
             session_start();
             if($_SESSION['id_usuario']){
-                if(isAjax()){
-                    $rutinas = $this->rutinasModelo->obtenerRutinas();
-                    echo json_encode($rutinas);
-                }else{
-                    $this->vista('Home');
-                }
+               
+                    $this->vista('home');
+                
          
               
             }else{
@@ -23,11 +20,27 @@
             }
           
          }
-       
-         
-         
 
-      
+         public function sesiones(){
+            session_start();
+            if($_SESSION['id_usuario']){
+                $this->vista('sesion');
+         
+              
+            }else{
+                redirecionar('login');
+            }
+        
+         }
+
+         public function actualizardatos(){
+         
+            session_start();
+
+            $this->vista('actualizar');
+
+
+         }
      }
 
 ?>

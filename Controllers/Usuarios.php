@@ -20,7 +20,7 @@
                 'usuarios'=>$usuarios,
                 
             ];
-            $this->vista('Usuario/index',$datos);
+            $this->vista('usuario/index',$datos);
        }
 
 
@@ -105,7 +105,7 @@
                 'id_rol' => '' 
 
            ];
-        $this->vista('Usuario/agregar',$datos,$errors);
+        $this->vista('usuario/agregar',$datos,$errors);
        }
 
       
@@ -117,12 +117,28 @@
         $datos=[
             'titulo'=>'Actualizar contraseña'
         ];
-        $this->vista('Usuario/editar',$datos);
+        $this->vista('usuario/editar',$datos);
     }
 
 
-    function eliminar(){
+    function eliminar($id){
+        session_start();
+        if($_SESSION['tipo_usuario'] == 1){
         
+           if($this->usuarioModelo->eliminarUsuario($id)){
+               redirecionar('usuarios');
+            }else{
+                die('algo salio mal');
+            }
+   
+           
+        
+        
+    }
+    else{
+        redirecionar('home');
+    }
+
     }
     }
 

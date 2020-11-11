@@ -83,7 +83,7 @@
 
         function enviarEmail($email, $nombre, $asunto, $cuerpo){
 		
-            require_once './PHPMailer/PHPMailerAutoload.php';
+            require_once './phpmailer/PHPMailerAutoload.php';
             
             $mail = new PHPMailer();
             $mail->isSMTP();

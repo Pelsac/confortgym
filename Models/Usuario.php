@@ -147,6 +147,17 @@ class Usuario{
         return $id;
        }
 
+       function eliminarUsuario($id){
+        $this->db->query("DELETE FROM usuarios WHERE id = :id");
+        //vincular los valores
+           $this->db->bind(':id',$id);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+       }
+
 }
 
 

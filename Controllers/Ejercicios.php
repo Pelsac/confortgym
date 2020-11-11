@@ -25,7 +25,7 @@ class Ejercicios extends  Controller{
            
         ];
        
-         $this->vista('Ejercicios/index',$datos);
+         $this->vista('ejercicios/index',$datos);
    }
 
 
@@ -51,7 +51,7 @@ class Ejercicios extends  Controller{
 
      }else{
      
-       $this->vista('Ejercicios/agregar');
+       $this->vista('ejercicios/agregar');
      }
 
    }
@@ -98,7 +98,7 @@ class Ejercicios extends  Controller{
 
 
         
-   $this->vista('Ejercicios/editar',$datos);
+   $this->vista('ejercicios/editar',$datos);
     }
 }
 }

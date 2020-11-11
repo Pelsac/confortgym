@@ -5,9 +5,7 @@
     list-style: none;
      font-family: 'Roboto', sans-serif;
 }
-body{
-    height: auto !important;
-}
+
 .content-wrapper, .content{
     background-color:#fff !important;
 }
@@ -19,6 +17,11 @@ body{
     background-position: center;
     overflow: hidden;
 }
+.list{
+    display: inline-block;
+    margin-left: 30px;
+}
+
 ul{
     list-style: none !important;
 }

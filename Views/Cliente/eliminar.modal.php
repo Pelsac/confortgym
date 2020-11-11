@@ -12,7 +12,7 @@
             </div>
             <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <a href="<?php echo RUTA_URL;?>clientes/eliminar/<?php echo $cliente->id?>"class="btn btn-primary">Save changes</a>
+              <a href="<?php echo RUTA_URL;?>clientes/eliminar/<?php echo $cliente->id?>"class="btn btn-primary">aceptar</a>
             </div>
           </div>
           <!-- /.modal-content -->

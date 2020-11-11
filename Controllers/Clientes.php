@@ -19,7 +19,7 @@ class Clientes extends  Controller{
             'clientes'=>$clientes
         ];
         
-        $this->vista('Cliente/index',$datos);
+        $this->vista('cliente/index',$datos);
         }else{
             redirecionar('home');
         }

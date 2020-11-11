@@ -45,13 +45,14 @@
                             <td><?php echo $user->activo ?></td>
                           
                             <td>
-                            <a href="<?php echo RUTA_URL;?>Usuarios/editar/<?php echo $user->id?>" class="btn btn-primary">Editar</a>
-                            <?php require_once RUTA_APP."/Views/Usuario/eliminar.modal.php"?>  
-                            <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
+                            <a href="<?php echo RUTA_URL;?>usuarios/editar/<?php echo $user->id?>" class="btn btn-primary">Editar</a>
+                            <?php require_once RUTA_APP."/views/usuario/eliminar.modal.php"?>  
+                            <button  data-toggle="modal" data-target="#s<?php echo$user->id?>"  class="btn btn-danger">Eliminar</button>
                               
                         </td>
                         </tr>
-                        
+                        <?php require RUTA_APP."/views/usuario/eliminar.modal.php";
+                        ?>  
                         <?php endforeach ?>
                     </tbody>
                 </table>
@@ -62,4 +63,4 @@
       </div>
  </section>
 
-<?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<?php require_once RUTA_APP."/views/plantilla/footer.php" ?>

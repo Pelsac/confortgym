@@ -1,7 +1,44 @@
 $(document).ready(function(){
 var ruta =  $("#ruta").val()
 
+$('#search').keyup(function(e){
+    var search = $('#search').val();
+    console.log(search);
 
+    $.ajax({
+        url:ruta+'wbhome/buscar',
+        type:'POST',
+        data:{search},
+        success:function(res){
+            let rutinas = JSON.parse(res);
+            let template ='';
+
+            rutinas.forEach(rut=>{
+                template +=`
+                <div class="card mt-3">
+                <div class="card-header bg-primary text-white">
+                        ${rut.nombre_rutina}
+                </div>
+                <div class="card-body">
+                <div class="row">
+                <div class="col-md-5">
+                <img class="img-fluid" src=".${rut.banner}">             
+                </div>
+                <div class="col-md-7">
+                <p class="myClassName">${rut.descripcion_corta}</p>
+               
+                <a href='' class="btn btn-outline-primary btn-block">Ver detalles</a>
+             
+                </div>
+                </div>
+                </div>
+            </div>
+            `
+            })
+            $('#list-rut').html(template);
+        }
+    })
+})
 
 var rutina=$('#rutina');
    function listarRutinas(){
@@ -9,7 +46,7 @@ var rutina=$('#rutina');
         url:ruta+"wbhome/getRutinas",
         type:'GET',
         success:function(res){
-        console.log(res);
+      
         var rutinas = JSON.parse(res);
         let template='';        
         rutinas.forEach(rut => {
@@ -44,6 +81,9 @@ var rutina=$('#rutina');
 
   
   function programarrutina(){  
+
+
+
 $("#form-sesion").submit(function(e){
     var fecha= $("#fecha").val()
         var datos=fecha.split('T',2)
@@ -73,7 +113,7 @@ $("#form-sesion").submit(function(e){
          $("#form-sesion").trigger('reset');
         $('#modal-lg').modal('toggle');
         console.log(res);
-        location.href = ruta+"home";
+      //  location.href = ruta+"home";
        
       });
       
@@ -83,7 +123,53 @@ $("#form-sesion").submit(function(e){
        
     })
   }
+  
+  function listarSesiones(){
+     var id_user = $('#id_user').val();
+ 
+    $.ajax({
+        url:ruta+"wbhome/getsesiones",
+        type:'POST',
+        data:{id_user},
+        success:function(res){
+        
+        var sesiones = JSON.parse(res);
+        let template='';  
+        console.log(sesiones);
+        var i=1;
+        console.log(res);
+        var options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
+        sesiones.forEach(se => {
+            var f = new Date(se.fecha).toLocaleDateString('es-ES',options);
+            template +=`
+                 <tr se_id='${se.id_sesion}'>
+                
+                 <td>sesion ${se.id_sesion} </td>
+                 <td>${se.estado} </td>
+                 <td>${f}</td>
+                 <td><button class='sesion-eliminar btn btn-outline-danger'> cancelar </button></td>
+                 </tr>
+            `;
+            i++;
+        });
+        $('#list-sesion').html(template);
+     
+        }
+    })
+  }
 
+  $(document).on('click','.sesion-eliminar',function(){
+     let elemento = $(this)[0].parentElement.parentElement;
+  
+    var id= $(elemento).attr('se_id');
+    console.log(id);
+    $.post(ruta+'wbhome/cancelarsesion',{id},function(res){
+        listarSesiones();
+        alertify.success('Rutina ha sido cancelada con exito!')
+    })
+
+  })
+  listarSesiones()
   programarrutina();
    listarRutinas();
 

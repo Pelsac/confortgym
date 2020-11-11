@@ -17,7 +17,7 @@
                 
                 'productos'=>$productos
             ];
-            $this->vista('Productos/index',$datos);
+            $this->vista('productos/index',$datos);
        }
        public function agregar(){
         if($_SERVER['REQUEST_METHOD']=='POST'){
@@ -41,7 +41,7 @@
     
          }else{
          
-           $this->vista('Productos/agregar');
+           $this->vista('productos/agregar');
          }
     
        }
@@ -79,7 +79,7 @@
     
     
                 
-              $this->vista('Productos/editar',$datos);
+              $this->vista('productos/editar',$datos);
             }
         
         
@@ -106,7 +106,7 @@
              die('algo salio mal');
          }
 
-         $this->vista('Productos/index',$datos);
+         $this->vista('productos/index',$datos);
        }
 
     }

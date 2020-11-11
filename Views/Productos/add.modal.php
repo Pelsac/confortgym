@@ -19,7 +19,7 @@
                                 <label for="">Descripcion</label>
                                 <textarea  name="descripcion" class="form-control form-control-sm"></textarea>
                         </div>
-                 
+                      
                 
                   <div class="form-group">
                         <label>Imagen</label>

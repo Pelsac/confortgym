@@ -61,7 +61,7 @@ class Rutinas extends  Controller{
 
      }else{
      
-       $this->vista('Ejercicios/agregar');
+       $this->vista('rutina/index');
      }
    }else{
     redirecionar('home');

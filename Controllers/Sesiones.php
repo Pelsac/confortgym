@@ -18,7 +18,7 @@ class Sesiones extends Controller
             'titulo' => 'Listado de Sesiones de entrenamiento',
             'sesiones' => $sesiones,
         ];
-        $this->vista('Sesiones/index', $datos);
+        $this->vista('sesiones/index', $datos);
     }
 
     public function aprobar($id, $codigo_cliente)
@@ -56,7 +56,7 @@ class Sesiones extends Controller
                 die('algo salio mal el email no pudo ser enviado');
             }
 
-            $this->vista('Sesiones/index', );
+            $this->vista('sesiones/index', );
         } else {
             redirecionar('home');
         }
@@ -97,7 +97,7 @@ class Sesiones extends Controller
                 die('algo salio mal el email no pudo ser enviado');
             }
 
-            $this->vista('Sesiones/index', );
+            $this->vista('sesiones/index', );
         } else {
             redirecionar('home');
         }

@@ -1,8 +1,8 @@
-<?php require_once RUTA_APP."/Views/plantilla/header.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/navbar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
-<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
  <section class="content">
       <div class="container-fluid">
             <div class="row">
@@ -47,4 +47,4 @@
             </div>
       </section>
 </div>
-<?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<?php require_once RUTA_APP."/views/plantilla/footer.php" ?>

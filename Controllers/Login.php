@@ -11,12 +11,12 @@ class Login extends Controller
     public function index()
     {
 
-        $this->vista('Login/login');
+        $this->vista('login/login');
     }
 
     public function crear_usuario()
     {
-        $this->vista('Login/registro');
+        $this->vista('login/registro');
     }
     public function registrar()
     {
@@ -75,12 +75,12 @@ class Login extends Controller
 
             } else {
 
-                $this->vista('Login/registro', $datos, $errors);
+                $this->vista('login/registro', $datos, $errors);
             }
 
         } else {
 
-            $this->vista('Login/registro', $datos, $errors);
+            $this->vista('login/registro', $datos, $errors);
         }
     }
 
@@ -120,17 +120,17 @@ class Login extends Controller
 
                     } else {
                         $errors[] = "La contraseña es incorrecta";
-                        $this->vista("Login/Login", $datos = [], $errors);
+                        $this->vista("login/login", $datos = [], $errors);
                     }
                 } else {
                     $errors[] = "El usuario no esta activo";
-                    $this->vista("Login/Login", $datos = [], $errors);
+                    $this->vista("login/login", $datos = [], $errors);
                 }
             }
             
             else {
                 $errors[] = "El usuario o correo electronico no existe";
-                $this->vista("Login/Login", $datos = [], $errors);
+                $this->vista("login/login", $datos = [], $errors);
             }
         }
 
@@ -140,14 +140,14 @@ class Login extends Controller
     {
         session_start();
         session_destroy();
-        redirecionar('Login');
+        redirecionar('login');
 
     }
 
     public function recuperar_password()
     {
 
-        $this->vista('Login/recuperar_password');
+        $this->vista('login/recuperar_password');
     }
 
     public function cambiar_pass($id, $token)
@@ -160,7 +160,7 @@ class Login extends Controller
             redirecionar('login');
         }
         if($this->usuariomodelo->verificaTokenPass($id,$token)){
-            $this->vista('Login/cambiar_password',$datos);
+            $this->vista('login/cambiar_password',$datos);
         }else{
             $this->vista('Errors/error');
         }       
@@ -199,7 +199,7 @@ class Login extends Controller
             $email = trim($_POST['email']);
             if (!isEmail($email)) {
                 $errors[] = "Debe ingresar un correo electronico valido";
-                $this->vista('Login/recuperar_password',$datos,$errors);
+                $this->vista('login/recuperar_password',$datos,$errors);
                
             }
             if ($this->usuariomodelo->emailExiste($email)) {
@@ -223,18 +223,18 @@ class Login extends Controller
 
                    $datos=['titulo'=>"¡Falta poco, Por favor verificar email!",
                        'message'=>"Hemos enviado un correo electronico a la direccion $email para restablecer tu contraseña, por favor verificar! <br>"];
-                   $this->vista('Login/message',$datos);
+                   $this->vista('login/message',$datos);
                 } else {
                     $errors[] = "Error al enviar Email";
-                    $this->vista('Login/recuperar_password',$datos,$errors);
+                    $this->vista('login/recuperar_password',$datos,$errors);
                 }
             } else {
                 $errors[] = "no existe el correo electronico";
-                $this->vista('Login/recuperar_password',$datos,$errors);
+                $this->vista('login/recuperar_password',$datos,$errors);
             }
 
         } else {
-            $this->vista('Login/recuperar_password',$datos,$errors);
+            $this->vista('login/recuperar_password',$datos,$errors);
         }
     }
 

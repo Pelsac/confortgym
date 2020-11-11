@@ -56,7 +56,7 @@ class WbHome extends Controller{
                }
               
            }else{
-               echo 'la Rutina no pudo se programada';
+               echo 'la Rutina no pudo ser programada';
            }
         }
            
@@ -67,6 +67,48 @@ class WbHome extends Controller{
       $sesiones = $this->sesionModelo->obtenerSesiones();
       echo json_encode($sesiones);
      }
+
+     public function buscar(){
+         $nombre = $_POST['search'];
+        $rutinas = $this->rutinasModelo->buscar($nombre);
+        echo json_encode($rutinas);
+     }
+
+     public function getsesiones(){
+         $id = $_POST['id_user'];
+    
+        $sesione = $this->sesionModelo->obtenerSesionesclientes($id);
+        echo json_encode($sesione);
+     }
+
+     public function cancelarsesion(){
+        session_start();
+        $id=$this->sesionModelo->obtenerid(); 
+        $id_cliente=$_SESSION['identificacion'];
+        $id_usuario=$_SESSION['id_usuario'];
+        //enviar notificacion al los administradores
+        $fecha = new DateTime();
+       $useradmin = $this->usuarioModelo->getValores("id","id_rol",1);
+ 
+        $notificacion=[
+            "id1"=>$id_usuario,
+            "id2"=>$useradmin,
+         "mensaje"=>"El cliente ". $_SESSION['nombres']." ha cancelado la rutina programada en la fecha",
+         "fecha"=>$fecha->format('y-m-d H:i:s')
+     ];
+        $id = $_POST['id'];
+        $estado ="Cancelado";
+       
+        if($this->sesionModelo->aprobarSesion($id,$estado)){
+            if( $this->NotModelo->enviar($notificacion)){
+                echo 'La rutina ha sido cancelada';
+                }else{
+                    echo "error";
+                }
+        }else{
+            echo 'la Rutina no pudo ser cancelada';
+        }
+    }
 
     
 }

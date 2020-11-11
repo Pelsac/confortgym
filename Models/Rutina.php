@@ -83,4 +83,11 @@ class Rutina{
             return false;
         }
     }
+
+    public function buscar($nombre){
+        $this->db->query("SELECT * FROM rutinas WHERE nombre_rutina  LIKE '$nombre%'");
+      
+        $resultados = $this->db->registros();
+        return $resultados;
+    }
 }

@@ -1,9 +1,9 @@
 
-<?php require_once RUTA_APP."/Views/plantilla/header.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/navbar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
-<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
  <section class="content">
       <div class="container-fluid">
     <!--  aqui va el diseño !-->
@@ -51,9 +51,9 @@
                     </tbody>
                 </table>
             </div>
-            <?php require_once RUTA_APP."/Views/Ejercicios/add.modal.php"?>
+            <?php require_once RUTA_APP."/views/Ejercicios/add.modal.php"?>
         </div>
       </div>
  </section>
 </div>
-<?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<?php require_once RUTA_APP."/views/plantilla/footer.php" ?>

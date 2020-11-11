@@ -59,4 +59,12 @@ public function aprobarSesion($id,$estado){
         return false;
     }
 }
+
+public function obtenerSesionesclientes($id){
+   
+    $this->db->query("SELECT * FROM sesion_entrenamiento as se INNER JOIN sesiones_programadas as sp ON ( sp.codigo_Sesion=se.id_sesion) inner join clientes on (clientes.id=sp.codigo_cliente) where sp.codigo_cliente = $id and se.estado != 'cancelado' group by se.id_sesion desc");
+
+    $resultados = $this->db->registros();
+    return $resultados;
+}
 }

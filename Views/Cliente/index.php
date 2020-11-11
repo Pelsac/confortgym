@@ -1,10 +1,10 @@
 
-<?php require_once RUTA_APP."/Views/plantilla/header.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/navbar.php";?>
-<?php require_once RUTA_APP."/Views/plantilla/sidebar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/navbar.php";?>
+<?php require_once RUTA_APP."/views/plantilla/sidebar.php";?>
 <div class="content-wrapper">
  <section class="content">
-<?php require_once RUTA_APP."/Views/plantilla/content-header.php";?>
+<?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
       <div class="container-fluid">
     <!--  aqui va el diseño !-->
         <div class="row">
@@ -17,8 +17,8 @@
           <div class="row">
             <div class="col-md-12 mt-3">
             <div class="card">
-                    <div class="card-body">
-                    <table class="table table-responsive-md" id="table">
+                    <div class="card-body table-responsive">
+                    <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -48,7 +48,7 @@
                               
                         </td>
                         </tr>
-                        <?php require RUTA_APP."/Views/Cliente/eliminar.modal.php";
+                        <?php require RUTA_APP."/views/cliente/eliminar.modal.php";
                         ?>  
                         <?php endforeach ?>
                     </tbody>
@@ -57,10 +57,10 @@
                 </div>
             </div>
             </div>
-            <?php require_once RUTA_APP."/Views/Cliente/add.modal.php"?>
+            
         </div>
       </div>
       
  </section>
 </div>
-<?php require_once RUTA_APP."/Views/plantilla/footer.php" ?>
+<?php require_once RUTA_APP."/views/plantilla/footer.php" ?>
