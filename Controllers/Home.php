@@ -36,7 +36,8 @@
          public function actualizardatos(){
          
             session_start();
-
+           $idusuario = $_SESSION['id_usuario'];
+           $id_cliente = $_SESSION['identificacion'];
             $this->vista('actualizar');
 
 
