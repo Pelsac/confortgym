@@ -23,7 +23,7 @@ class Rutinas extends  Controller{
             'niveles'=>$niveles,
             'ejercicios'=>$ejercicios
         ];
-        $this->vista('Rutina/index',$datos);
+        $this->vista('rutina/index',$datos);
    }
    else{
        redirecionar('home');

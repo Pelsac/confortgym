@@ -6,7 +6,7 @@ class Ejercicios extends  Controller{
     public function __construct()
     {
     
-    $this->ejercicioModelo = $this->model('ejercicio');
+    $this->ejercicioModelo = $this->model('Ejercicio');
     $this->categoriaModelo = $this->model('Categoria');
 
     }

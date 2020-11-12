@@ -17,6 +17,7 @@ class WbNotificacion extends Controller{
            }else{
             echo json_encode("no hay notificaciones nuevas");
            }
+           
         
         }
            

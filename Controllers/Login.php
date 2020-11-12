@@ -114,6 +114,8 @@ class Login extends Controller
                             redirecionar('Home');
                         }else if ($_SESSION['tipo_usuario'] == 1){
                             $_SESSION['alias'] = $fila->alias;
+                            $_SESSION['nombres'] = $fila->alias;
+                            $_SESSION['apellidos']=$fila->id;
                             redirecionar('clientes');
                         }
                        

@@ -17,13 +17,13 @@
                $url = $this->getUrl();
                
                //buscar en los controladores si el controlador existe
-               if(file_exists('Controllers/'.ucwords($url[0]).'.php')){
+               if(file_exists('controllers/'.ucwords($url[0]).'.php')){
                 //si exite se configura por controlador por defecto
                 $this->controladorActual = ucwords($url[0]);
                 //unset indice
                 unset($url[0]);
 
-               }else if(file_exists('Controllers/Api/'.ucwords($url[0]).'.php')){
+               }else if(file_exists('controllers/Api/'.ucwords($url[0]).'.php')){
                 $this->controladorActual = ucwords($url[0]);
                 //unset indice
                 unset($url[0]);
@@ -31,11 +31,11 @@
                }
                   //requerir en controlador
                   if($this->api){
-                    require_once 'Controllers/Api/'. $this->controladorActual.'.php';
+                    require_once 'controllers/Api/'. $this->controladorActual.'.php';
 
                     $this->controladorActual = new $this->controladorActual;
                   }else{
-                    require_once 'Controllers/'. $this->controladorActual.'.php';
+                    require_once 'controllers/'. $this->controladorActual.'.php';
 
                     $this->controladorActual = new $this->controladorActual;
                   }

@@ -8,18 +8,34 @@
               </button>
             </div>
             <form action="<?php echo RUTA_URL?>productos/agregar" method="POST" enctype="multipart/form-data">
-            <div class="modal-body">
-                <div class="row">
+            <div class="row p-5">
+            
+                
                     <div class="col-md-6">
-                               <div class="form-group">
+                        <div class="form-group">
                                 <label for="">Nombre</label>
                                 <input type="text" name="nombre" class="form-control form-control-sm">
+                        </div>
+                       
+                        <div class="form-group">
+                                <label for="">stock</label>
+                                <input type="number" min="1" name="stock" class="form-control form-control-sm">
                         </div>
                         <div class="form-group">
                                 <label for="">Descripcion</label>
                                 <textarea  name="descripcion" class="form-control form-control-sm"></textarea>
                         </div>
                       
+                    </div> 
+                    <div class="col-md-6">
+                    <div class="form-group">
+                                <label for="">Precio</label>
+                                <input type="number" min="1" name="precio" class="form-control form-control-sm">
+                        </div>
+                        <div class="form-group">
+                                <label for="">cantidad</label>
+                                <input type="number" min="1" name="cantidad" class="form-control form-control-sm">
+                        </div>
                 
                   <div class="form-group">
                         <label>Imagen</label>
@@ -28,10 +44,11 @@
                       <label class="custom-file-label" for="customFile" >Subir imagen</label>
                     </div>
                         </div>
-                    </div>               
-                    </div>
+                    </div>              
+                
+                 </div>
                     
-                </div>
+                
                 <div class="modal-footer justify-content-between">
               <button type="button" class="btn btn-danger" data-dismiss="modal">Cerrar</button>
               <button type="submit" class="btn btn-primary">Aceptar</button>

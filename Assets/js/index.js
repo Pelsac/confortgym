@@ -126,18 +126,18 @@ $("#form-sesion").submit(function(e){
   
   function listarSesiones(){
      var id_user = $('#id_user').val();
- 
+
     $.ajax({
         url:ruta+"wbhome/getsesiones",
         type:'POST',
         data:{id_user},
         success:function(res){
-        
+       
         var sesiones = JSON.parse(res);
         let template='';  
-        console.log(sesiones);
+   
         var i=1;
-        console.log(res);
+      
         var options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
         sesiones.forEach(se => {
             var f = new Date(se.fecha).toLocaleDateString('es-ES',options);
@@ -157,7 +157,36 @@ $("#form-sesion").submit(function(e){
         }
     })
   }
-
+ 
+  function listarProductos(){
+    $.ajax({
+        url:ruta+"wbhome/getProductos",
+        type:'GET',
+        success:function(res){
+            
+            var productos = JSON.parse(res);
+            let template=''; 
+            console.log(productos);
+            productos.forEach(pro=>{
+                template+=`
+                <div class='col-md-3'>
+                <div class='card'>
+                    <div class='card-body pb-0'>
+                    <img class="grande" src="..${pro.imagen}">
+                    <p class="mt-3">${pro.nombre}<p>   
+                    </div>
+                    <div class="card-footer mt-0">
+                    <span> precio: ${pro.precio}  u</span>
+                    </div>
+                </div>
+            </div>
+                `;
+            });
+            $('#productos').html(template);
+        }
+    })
+  }
+   
   $(document).on('click','.sesion-eliminar',function(){
      let elemento = $(this)[0].parentElement.parentElement;
   
@@ -172,7 +201,7 @@ $("#form-sesion").submit(function(e){
   listarSesiones()
   programarrutina();
    listarRutinas();
-
+   listarProductos();
 
 
 });

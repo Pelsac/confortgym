@@ -6,16 +6,21 @@ class WbHome extends Controller{
         $this->sesionModelo= $this->model('Sesion');
         $this->usuarioModelo= $this->model('Usuario');
         $this->NotModelo= $this->model('Notificacion');
+        $this->productosModelo=$this->model('Producto');
        
     }
     function index(){
     
     }
+    public function getProductos(){
+        $productos = $this->productosModelo->obtenerproductos();
+        echo json_encode($productos);
+    }
 
     public function getRutinas(){
         $rutinas = $this->rutinasModelo->obtenerRutinas();
         echo json_encode($rutinas);
-     }
+ }
 
 
      public function programarRutina(){
@@ -95,7 +100,7 @@ class WbHome extends Controller{
             "id2"=>$useradmin,
          "mensaje"=>"El cliente ". $_SESSION['nombres']." ha cancelado la rutina programada en la fecha",
          "fecha"=>$fecha->format('y-m-d H:i:s')
-     ];
+            ];
         $id = $_POST['id'];
         $estado ="Cancelado";
        

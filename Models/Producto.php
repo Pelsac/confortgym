@@ -6,20 +6,22 @@
         }    
 
         public function obtenerProductos(){
-            $this->db->query("SELECT codigo,nombre,descripcion,imagen FROM productos");
+            $this->db->query("SELECT * FROM productos");
             $resultados = $this->db->registros();
             return $resultados;
         }
 
         public function agregarProducto($producto)
         {
-            $this->db->query("INSERT INTO productos (nombre,descripcion,imagen)
-                            VALUES(:codigo,:nombre,:descripcion,:imagen)");
+            $this->db->query("INSERT INTO productos (nombre,descripcion,stock,precio,cantidad,imagen)
+                            VALUES(:nombre,:descripcion,:stock,:precio,:cant,:imagen)");
             //vincular los valores
            
             $this->db->bind(':nombre',$producto['nombre']);
             $this->db->bind(':descripcion', $producto['descripcion']);
-           
+            $this->db->bind(':stock', $producto['stock']);
+            $this->db->bind(':precio', $producto['precio']);
+            $this->db->bind(':cant', $producto['cantidad']);
             $this->db->bind(':imagen', $producto['imagen']);
     
             if ($this->db->execute()) {

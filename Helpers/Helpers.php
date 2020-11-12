@@ -32,7 +32,7 @@
                             <button type='button' class='btn btn-tool' data-card-widget='remove'><i class='fas fa-times'></i>
                             </button>
                         </div>
-                    <div class='card-body'>";
+                    <div class='card-body text-white'>";
             echo "<ul>";
             foreach($errors as $error){
                 echo "<li>".$error."</li>";

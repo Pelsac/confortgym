@@ -29,7 +29,9 @@
                
                 'nombre'=>trim($_POST['nombre']),
                 'descripcion'=>trim($_POST['descripcion']),
-                             
+                 'stock'=>trim($_POST['stock']),
+                 'precio'=>trim($_POST['precio']),
+                 'cantidad'=>trim($_POST['cantidad']),            
                 'imagen'=> "/Assets/img/productos/".$foto
                 
                            ];

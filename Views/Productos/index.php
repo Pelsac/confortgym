@@ -19,6 +19,9 @@
                             <th>Codigo</th>
                             <th>Nombre </th>
                             <th>Descripcion</th>
+                            <th>stock</th>
+                            <th>precio</th>
+                            <th>Cantidad</th>
                             <th>Imagen</th>
                             <th>Operaciones</th>
                         </tr>
@@ -30,8 +33,10 @@
                            <td><?php  echo $producto->codigo ?></td>
                             <td><?php echo $producto->nombre ?></td>
                             <td><?php echo $producto->descripcion ?></td>
-                         
-                            <td><img class="img-fluid brand-image-xs" src="<?php echo ".".$producto->imagen ?>" alt=""></td>
+                            <td><?php echo $producto->stock ?></td>
+                            <td><?php echo $producto->precio ?></td>
+                            <td><?php echo $producto->cantidad ?></td>
+                            <td><img class="img-md" src="<?php echo ".".$producto->imagen ?>" alt=""></td>
                            
                                                         
                             <td>

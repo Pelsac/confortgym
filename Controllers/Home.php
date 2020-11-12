@@ -21,6 +21,10 @@
           
          }
 
+        function productos(){
+            session_start();
+            $this->vista('productos');
+        }
          public function sesiones(){
             session_start();
             if($_SESSION['id_usuario']){
