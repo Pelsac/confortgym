@@ -48,38 +48,6 @@ class Rutina{
         }
   
     }
-         public function obtenerClienteid($id)
-    {
-        $this->db->query("SELECT nombres,apellidos,fecha_nacimiento,edad,genero FROM clientes WHERE id = :id");
-        $this->db->bind(':id', $id);
-
-        $fila = $this->db->registro();
-        return $fila;
-    }
-
-    public function actualizarCliente($datos)
-    {
-        $this->db->query("UPDATE clientes set nombres=:nombres,
-                                              apellidos=:apellidos,
-                                              fecha_nacimiento= :fecha,
-                                              edad = :edad,
-                                              genero = :genero
-                                              
-                                              WHERE id = :id");
-        //vincular los valores
-        $this->db->bind(':id', $datos['id']);
-        $this->db->bind(':nombres', $datos['nombres']);
-        $this->db->bind(':apellidos', $datos['apellidos']);
-        $this->db->bind(':fecha', $datos['fecha']);
-        $this->db->bind(':edad', $datos['edad']);
-        $this->db->bind(':genero', $datos['genero']);
-     
-        if ($this->db->execute()) {
-            return true;
-        } else {
-            return false;
-        }
-    }
     
     public function obtenerDetalles($id){
             $this->db->query("SELECT * FROM rutinas INNER JOIN rutinas_de_ejercicios ON (rutinas_de_ejercicios.id_rutina = rutinas.codigo) INNER JOIN ejercicios ON(rutinas_de_ejercicios.id_ejercicio =ejercicios.id_ejer) WHERE rutinas_de_ejercicios.id_rutina=:id");
