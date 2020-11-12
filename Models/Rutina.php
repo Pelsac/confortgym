@@ -46,10 +46,9 @@ class Rutina{
         } else {
             return false;
         }
-
-       
-      
+  
     }
+    
     public function obtenerDetalles($id){
             $this->db->query("SELECT * FROM rutinas INNER JOIN rutinas_de_ejercicios ON (rutinas_de_ejercicios.id_rutina = rutinas.codigo) INNER JOIN ejercicios ON(rutinas_de_ejercicios.id_ejercicio =ejercicios.id_ejer) WHERE rutinas_de_ejercicios.id_rutina=:id");
             $this->db->bind(':id', $id);
