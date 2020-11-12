@@ -17,23 +17,23 @@
         </div>
             <div class="card">
                 
-                 <form action="">
+            <form action="<?php echo RUTA_URL?>home/actualizardatos/<?php echo $_SESSION['identificacion'] ?>" method="POST"  >
                         <div class="card-body">
                           <div class="form-group">
                               <label for="">Nombres</label>
-                              <input type="text" class="form-control" required>
+                              <input name="nombres" type="text" class="form-control" required>
                           </div>
                           <div class="form-group">
                               <label for="">Apellidos</label>
-                              <input type="text" class="form-control" required>
+                              <input name="apellidos"  type="text" class="form-control" required>
                           </div>
                           <div class="form-group">
                     <label for="">Fecha de nacimiento</label>
-                    <input name="fecha" type="date" class="form-control">
+                    <input name="fecha" type="date" class="form-control"  required>
                 </div>
                 <div class="form-group">
                 <label>Genero</label>
-                        <select name="genero" class="form-control">
+                        <select name="genero" class="form-control"  required>
                           <option value="masculino">Masculino</option>
                           <option value="femenino">Femenino</option>
                         </select>

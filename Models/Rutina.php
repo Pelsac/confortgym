@@ -50,7 +50,7 @@ class Rutina{
     }
          public function obtenerClienteid($id)
     {
-        $this->db->query("SELECT * FROM clientes WHERE id = :id");
+        $this->db->query("SELECT nombres,apellidos,fecha_nacimiento,edad,genero FROM clientes WHERE id = :id");
         $this->db->bind(':id', $id);
 
         $fila = $this->db->registro();
