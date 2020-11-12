@@ -16,6 +16,31 @@ class Usuario{
         $resultados = $this->db->registros();
         return $resultados;
     }
+    
+    public function obtenerUsuarioid($id)
+    {
+        $this->db->query("SELECT id,alias,correo FROM usuarios WHERE id = :id");
+        $this->db->bind(':id', $id);
+
+        $fila = $this->db->registro();
+        return $fila;
+    }
+    public function actualizarUsuario($datos)
+    {
+        $this->db->query("UPDATE usuarios set alias=:alias,
+                                              correo=:correo
+                                              WHERE id = :id");
+        //vincular los valores
+        $this->db->bind(':id', $datos['id']);
+        $this->db->bind(':alias', $datos['alias']);
+        $this->db->bind(':correo', $datos['correo']);
+      
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     public function agregarUsuario($datos){
 

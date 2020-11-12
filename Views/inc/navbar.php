@@ -18,7 +18,7 @@
                   <li class="nav-item dropdown">
                          <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i> <?php echo $_SESSION['nombres']." ". $_SESSION['apellidos']?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown03">
-                              <a class="dropdown-item" href="<?php echo RUTA_URL;?>home/actualizardatos"> <i class="fas fa-edit"></i> Editar perfil</a>
+                              <a class="dropdown-item" href="<?php echo RUTA_URL;?>home/actualizardatos/<?php echo $_SESSION['id_usuario']  ?>"> <i class="fas fa-edit"></i> Editar perfil</a>
                              
                               <a href="<?php echo RUTA_URL;?>login/cerrarSesion" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Salir</a>
                         </div>

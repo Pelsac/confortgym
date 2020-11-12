@@ -7,7 +7,7 @@
      
         <div class="row p-4 p-md-5">
                 <div class="col-md-6 mt-4">
-                <h1 class="text-uppercase">Te damos la bienvenida <?php echo $_SESSION['nombres']." ". $_SESSION['apellidos']?></h1>
+                <h1 class="text-uppercase">Te damos la bienvenida:</h1> <h2 class="text-uppercase"><?php echo $_SESSION['nombres']." ". $_SESSION['apellidos']?></h2>
                 </div>
                 <div class="col-md-6 mt-4">
                 <img  class="card-img-top"src="./Assets/img/ilustraciones/fitness.svg" alt="" height="250" width="300">
