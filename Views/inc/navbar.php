@@ -13,15 +13,19 @@
                   <input type="hidden" name="" id="ruta" value="<?php echo RUTA_URL ?>">
                   <input type="hidden" id="id_user" value= "<?php echo $_SESSION['identificacion'] ?>">
                   <li class="nav-item">
+                        <a href="<?php echo RUTA_URL;?>home/" class="nav-link"><i class="fas fa-clock"></i> Inicio</a>
+                  </li>
+                  <li class="nav-item">
                         <a href="<?php echo RUTA_URL;?>home/sesiones" class="nav-link"><i class="fas fa-clock"></i> Sesiones</a>
                   </li>
                   <li class="nav-item">
-                        <a href="<?php echo RUTA_URL;?>home/productos" class="nav-link"><i class="fas fa-shopping-bag"></i> Catlogo</a>
+                        <a href="<?php echo RUTA_URL;?>home/productos" class="nav-link"><i class="fas fa-shopping-bag"></i> Catálogo  </a>
                   </li>
                   <li class="nav-item dropdown">
                          <a class="nav-link dropdown-toggle" href="#" id="dropdown03" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="fas fa-user"></i> <?php echo $_SESSION['nombres']." ". $_SESSION['apellidos']?></a>
                         <div class="dropdown-menu" aria-labelledby="dropdown03">
                               <a class="dropdown-item" href="<?php echo RUTA_URL;?>home/actualizardatos/<?php echo $_SESSION['id_usuario']  ?>"> <i class="fas fa-edit"></i> Editar perfil</a>
+                              <a class="dropdown-item" href=""> <i class="fas fa-edit"></i> Cambiar contraseña</a>
                              
                               <a href="<?php echo RUTA_URL;?>login/cerrarSesion" class="dropdown-item"> <i class="fas fa-sign-out-alt"></i> Salir</a>
                         </div>

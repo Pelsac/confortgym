@@ -112,12 +112,45 @@
     }
 
 
-    function editar(){
-        session_start();
-        $datos=[
-            'titulo'=>'Actualizar contraseña'
-        ];
-        $this->vista('usuario/editar',$datos);
+    public function editar($id){
+       
+            session_start();
+            if($_SESSION['tipo_usuario'] == 1){
+                if($_SERVER['REQUEST_METHOD']=='POST'){
+                    $datos=[
+                        'id'=>$id,
+                        'alias'=>trim($_POST['alias']),
+                        'correo'=>trim($_POST['correo']),
+                        'id_rol'=>trim($_POST['id_rol'])
+                    ];
+        
+              
+                   if($this->usuarioModelo->actualizarUsuarioAdmin($datos)){
+                       redirecionar('usuarios');
+                    }else{
+                        die('algo salio mal');
+                    }
+        
+                }else{
+                    $user = $this->usuarioModelo->obtenerUsuarioid($id);
+                    $datos = [
+                        'id'=>$user->id,
+                        'alias'=>$user->alias,
+                        'correo'=>$user->correo,
+                        'id_rol'=>$user->id_rol
+                        
+                    ];
+        
+        
+                    
+                  $this->vista('usuario/editar',$datos);
+                }
+            
+            }else{
+                redirecionar('home');
+            }
+      
+    
     }
 
 

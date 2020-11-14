@@ -44,7 +44,7 @@ class Sesiones extends Controller
                         Estimado cliente, este correo ha sido generado por un sistema de envio; por favor  NO responda al mismo ya que no podra ser gestionado.
                         ";
 
-            $estado = "Rechazado";
+            $estado = "Aprobado";
             $asistencia=1;
             if ($this->SesionModelo->aprobarSesion($id, $estado,$asistencia)) {
                 if (enviarEmail(trim($email->correo), $nombres->nombres, $asunto, $cuerpo)) {

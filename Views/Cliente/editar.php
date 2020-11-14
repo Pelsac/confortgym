@@ -34,7 +34,7 @@
                     <input type="text" value="<?php echo $datos['cod'] ?>" name="codigo" class="form-control">
                 </div>
                 <div class="form-group">
-                <button type="reset" class="btn btn-danger" data-dismiss="modal">limpiar</button>
+                <a href="<?php echo RUTA_URL;?>clientes/"class="btn btn-danger">Cancelar</a>
               <button type="submit" class="btn btn-primary">Aceptar</button>
                 </div>
                     </form>
