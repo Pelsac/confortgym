@@ -4,7 +4,7 @@ $(document).ready(function(){
         var id_user = $('#id_user').val();
    
        $.ajax({
-           url:ruta+"wbhome/getsesiones",
+           url:ruta+"WbHome/getsesiones",
            type:'POST',
            data:{id_user},
            success:function(res){
@@ -45,7 +45,7 @@ $(document).ready(function(){
     var f = $(fecha).attr('fecha');
     var hora =$('.hora')[0]
     var h = $(hora).attr('hora');
- $.post(ruta+'wbhome/cancelarsesion',{id,asiste,f,h},function(res){
+ $.post(ruta+'WbHome/cancelarsesion',{id,asiste,f,h},function(res){
        console.log(res);
        listarSesiones();
        alertify.success('Rutina ha sido cancelada con exito!')

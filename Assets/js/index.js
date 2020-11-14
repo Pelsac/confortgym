@@ -43,7 +43,7 @@ $('#search').keyup(function(e){
 var rutina=$('#rutina');
    function listarRutinas(){
     $.ajax({
-        url:ruta+"wbhome/getRutinas",
+        url:ruta+"WbHome/getRutinas",
         type:'GET',
         success:function(res){
       
@@ -87,12 +87,15 @@ var rutina=$('#rutina');
 
     $("#form-sesion").submit(function(e){
         var fecha= $("#fecha").val()
+        console.log(fecha);
         var datos=fecha.split('T',2)
-        var fecha2 = new Date(datos[0]);
+        console.log("fecha 1: "+datos[0]);
+        var fecha2 = new Date(fecha);
         var fecha3= new Date()
         e.preventDefault();
        if(fecha2<=fecha3){
-        
+        console.log("fecha ingresada"+fecha2);
+        console.log("fecha3 actual"+fecha3);
         alertify.error("¡Error fecha incorrecta!");
          
        }else{
@@ -103,24 +106,20 @@ var rutina=$('#rutina');
           hora:datos[1],
           activo:0
           
-      }
-      
-     
+      } 
       var closable = alertify.alert().setting('closable');
-      //grab the dialog instance using its parameter-less constructor then set multiple settings at once.
-     
-    
-      $.post(ruta+"wbhome/programarRutina",postdata,function(res){
+      //grab the dialog instance using its parameter-less constructor then set multiple settings at once.   
+      $.post(ruta+"WbHome/programarRutina",postdata,function(res){
          $("#form-sesion").trigger('reset');
         $('#modal-lg').modal('toggle');
 
-      //  location.href = ruta+"home";
+      location.href = ruta+"home";
        
       });
-      
+      alertify.success('Rutina Programada con exito!')
       
        }
-       alertify.success('Rutina Programada con exito!')
+      
        
     })
   }

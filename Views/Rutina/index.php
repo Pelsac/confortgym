@@ -19,9 +19,10 @@
                 <table class="table table-head-fixed text-nowrap" id="table">
                     <thead>
                         <tr>
-                            <th>id</th>
+                            <th>codigo</th>
                             <th>Nombre de la rutina</th>
                             <th>descripcion</th>     
+                            <th>banner</th>  
                             <th>id_nivel</th>
                             <th>Operaciones</th>
                         </tr>
@@ -32,7 +33,8 @@
                         <tr>
                             <td><?php echo $rutina->codigo ?></td>
                             <td><?php echo $rutina->nombre_rutina ?></td>
-                            <td><?php echo $rutina->descripcion_rutina ?></td>
+                            <td><?php echo substr($rutina->descripcion_rutina,0,35)."..."?></td>
+                            <td> <img src="<?php echo ".".$rutina->banner ?>" alt="" class="img-md">   </td>
                             <td><?php echo $rutina->id_nivel ?></td>
                             
                             <td>
@@ -49,7 +51,7 @@
                 </div>
                 </div>
             </div>
-            <?php require_once RUTA_APP."/views/Rutina/add.modal.php"?>
+            <?php require_once RUTA_APP."/views/rutina/add.modal.php"?>
         </div>
       </div>
  </section>

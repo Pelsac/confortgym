@@ -57,7 +57,7 @@
                 $datos['password'] = hashPassword(trim($_POST['password']));
                
                 if ( $this->usuarioModelo->agregarUsuario($datos)) {
-                    redirecionar('Usuario/index');
+                    redirecionar('usuarios');
                 } else {
                     $datos=[
                         'titulo'=>'Agregar nuevo usuario',

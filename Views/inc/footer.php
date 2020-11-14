@@ -1,6 +1,11 @@
 
 
 
+<footer class="footer mt-auto py-3">
+  <div class="container text-center">
+    <span class="text-muted">Todos los derechos reservados.</span>
+  </div>
+</footer>
 <script
   src="https://code.jquery.com/jquery-3.5.1.min.js"
   integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0="

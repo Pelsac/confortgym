@@ -10,7 +10,7 @@ if (isset($_SESSION['id_usuario'])) {
 <?php require_once RUTA_APP . "/views/inc/navbar.php";?>
 
 <div class="fondo">
-<br>
+    <br>
 <div class="container mt-5">
         <div class="row mt-3 align-items-center">
           <div class="col-md-6 mx-auto">
@@ -23,6 +23,7 @@ if (isset($_SESSION['id_usuario'])) {
                 <div class="card-body">
                 
                         <p><?php echo $datos['message']?></p>
+                        <p class="text-center"><a href="<?php echo RUTA_URL?>/login">Iniciar sesion</a></p>
                 </div>    
                      
             </div>

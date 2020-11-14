@@ -27,6 +27,19 @@ img.grande{
 ul{
     list-style: none !important;
 }
+
+.list-group-item:hover{
+    background-color: #e0eefd;
+    color: white;
+}
+.list-group-item>a.nav-link{
+    display: block !important;
+  
+}
+.list-group-item>div>:hover{
+   
+  color: white;
+}
 .anyClass{
     height: 200px !important;
     overflow-y: scroll;

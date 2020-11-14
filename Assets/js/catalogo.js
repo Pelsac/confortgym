@@ -3,7 +3,7 @@ $(document).ready(function(){
 
     function listarProductos(){
         $.ajax({
-            url:ruta+"wbhome/getProductos",
+            url:ruta+"WbHome/getProductos",
             type:'GET',
             success:function(res){
                 

@@ -49,7 +49,7 @@ class Usuario{
                                               correo=:correo
                                               WHERE id = :id");
         //vincular los valores
-        $this->db->bind(':id', $datos['id']);
+        $this->db->bind(':id', $datos['id1']);
         $this->db->bind(':alias', $datos['alias']);
         $this->db->bind(':correo', $datos['correo']);
       
@@ -174,7 +174,7 @@ class Usuario{
     }
 
     function cambiaPassword($id,$token,$password){
-        $this->db->query("UPDATE usuarios set password = :password ,token_password = '',password_request=0 WHERE id = :id and  token_password = :token");
+        $this->db->query("UPDATE usuarios set password = :password ,token_password = '',password_request=1 WHERE id = :id and  token_password = :token");
         $this->db->bind(':password',$password);
         $this->db->bind(':id',$id);
         $this->db->bind(':token',$token);
@@ -184,6 +184,19 @@ class Usuario{
             return false;
         }
     }
+    function cambiaPasswordC($id,$password){
+        $this->db->query("UPDATE usuarios set password = :password ,token_password = '',password_request=1 WHERE id = :id");
+        $this->db->bind(':password',$password);
+        $this->db->bind(':id',$id);
+ 
+        if($this->db->execute()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    
+    
     public function obtenerid(){
         $this->db->query("SELECT MAX(id) as id FROM usuarios");
         $id = $this->db->registro();

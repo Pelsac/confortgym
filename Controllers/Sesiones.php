@@ -99,7 +99,7 @@ class Sesiones extends Controller
                 die('algo salio mal el email no pudo ser enviado');
             }
 
-            $this->vista('sesiones/index', );
+            $this->vista('sesiones/index' );
         } else {
             redirecionar('home');
         }
