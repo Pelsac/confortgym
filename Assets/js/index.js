@@ -56,14 +56,15 @@ var rutina=$('#rutina');
                         ${rut.nombre_rutina}
                 </div>
                 <div class="card-body">
-                <div class="row">
+                <div class="row" cod="${rut.codigo}">
                 <div class="col-md-5">
-                <img class="img-fluid" src=".${rut.banner}">             
+                <img class="img-fluid" src=".${rut.banner}">  
+                   
                 </div>
                 <div class="col-md-7">
                 <p class="myClassName">${rut.descripcion_corta}</p>
                
-                <a href='' class="btn btn-outline-primary btn-block">Ver detalles</a>
+                <button  class="btn btn-outline-primary btn-block detalles">Ver detalles</button>
              
                 </div>
                 </div>
@@ -84,10 +85,10 @@ var rutina=$('#rutina');
 
 
 
-$("#form-sesion").submit(function(e){
-    var fecha= $("#fecha").val()
+    $("#form-sesion").submit(function(e){
+        var fecha= $("#fecha").val()
         var datos=fecha.split('T',2)
-       var fecha2 = new Date(datos[0]);
+        var fecha2 = new Date(datos[0]);
         var fecha3= new Date()
         e.preventDefault();
        if(fecha2<=fecha3){
@@ -112,7 +113,7 @@ $("#form-sesion").submit(function(e){
       $.post(ruta+"wbhome/programarRutina",postdata,function(res){
          $("#form-sesion").trigger('reset');
         $('#modal-lg').modal('toggle');
-        console.log(res);
+
       //  location.href = ruta+"home";
        
       });
@@ -123,85 +124,22 @@ $("#form-sesion").submit(function(e){
        
     })
   }
-  
-  function listarSesiones(){
-     var id_user = $('#id_user').val();
-
-    $.ajax({
-        url:ruta+"wbhome/getsesiones",
-        type:'POST',
-        data:{id_user},
-        success:function(res){
-       
-        var sesiones = JSON.parse(res);
-        let template='';  
-   
-        var i=1;
-      
-        var options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
-        sesiones.forEach(se => {
-            var f = new Date(se.fecha).toLocaleDateString('es-ES',options);
-            template +=`
-                 <tr se_id='${se.id_sesion}'>
-                
-                 <td>sesion ${se.id_sesion} </td>
-                 <td>${se.estado} </td>
-                 <td>${f}</td>
-                 <td><button class='sesion-eliminar btn btn-outline-danger'> cancelar </button></td>
-                 </tr>
-            `;
-            i++;
-        });
-        $('#list-sesion').html(template);
-     
-        }
-    })
-  }
- 
-  function listarProductos(){
-    $.ajax({
-        url:ruta+"wbhome/getProductos",
-        type:'GET',
-        success:function(res){
-            
-            var productos = JSON.parse(res);
-            let template=''; 
-            console.log(productos);
-            productos.forEach(pro=>{
-                template+=`
-                <div class='col-md-3'>
-                <div class='card'>
-                    <div class='card-body pb-0'>
-                    <img class="grande" src="..${pro.imagen}">
-                    <p class="mt-3">${pro.nombre}<p>   
-                    </div>
-                    <div class="card-footer mt-0">
-                    <span> precio: ${pro.precio}  u</span>
-                    </div>
-                </div>
-            </div>
-                `;
-            });
-            $('#productos').html(template);
-        }
-    })
-  }
-   
-  $(document).on('click','.sesion-eliminar',function(){
-     let elemento = $(this)[0].parentElement.parentElement;
-  
-    var id= $(elemento).attr('se_id');
-    console.log(id);
-    $.post(ruta+'wbhome/cancelarsesion',{id},function(res){
-        listarSesiones();
-        alertify.success('Rutina ha sido cancelada con exito!')
-    })
-
+  $(document).on('click','.detalles',function(){
+    let elemento = $(this)[0].parentElement.parentElement;
+     var id= $(elemento).attr('cod');
+    
+    
+   $.post(ruta+'home/detalles',{id},function(res){
+    location.href=ruta+"home/detalles/"+id;
+})
   })
-  listarSesiones()
+ 
+ 
+
+  
   programarrutina();
    listarRutinas();
-   listarProductos();
+  
 
 
 });

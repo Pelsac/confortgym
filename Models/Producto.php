@@ -36,7 +36,7 @@
 
         public function obtenerProductoid($codigo)
         {
-            $this->db->query("SELECT codigo,nombre,descripcion,imagen FROM productos WHERE codigo = :codigo");
+            $this->db->query("SELECT codigo,nombre,descripcion,stock,precio,cantidad,imagen FROM productos WHERE codigo = :codigo");
             $this->db->bind(':codigo', $codigo);
     
             $fila = $this->db->registro();
@@ -47,12 +47,18 @@
         {
             $this->db->query("UPDATE productos set nombre= :nombre,
                                                    descripcion= :descripcion,
+                                                   stock = :stock,
+                                                   precio = :precio,
+                                                   cantidad =:cantidad,
                                                    imagen = :imagen
                                                   WHERE codigo = :codigo");
             //vincular los valores
             $this->db->bind(':codigo', $datos['codigo']);
             $this->db->bind(':nombre', $datos['nombre']);
             $this->db->bind(':descripcion', $datos['descripcion']);
+            $this->db->bind(':stock', $datos['stock']);
+            $this->db->bind(':precio', $datos['precio']);
+            $this->db->bind(':cantidad', $datos['cantidad']);
             $this->db->bind(':imagen', $datos['imagen']);
         
             if ($this->db->execute()) {

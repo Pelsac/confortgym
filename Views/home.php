@@ -1,5 +1,5 @@
-<?php require_once RUTA_APP."/Views/inc/header.php";?>
-<?php require_once RUTA_APP."/Views/inc/navbar.php";?>
+<?php require_once RUTA_APP."/views/inc/header.php";?>
+<?php require_once RUTA_APP."/views/inc/navbar.php";?>
 
     
 
@@ -63,13 +63,9 @@
                       </div>
                             
         </div>
-        <hr>
-        <div class="row">
-          <h3>resda</h3>
-         
-        </div>
+      
 </div>   
-<?php require_once RUTA_APP."/Views/nuevaSesion.modal.php" ?>
+<?php require_once RUTA_APP."/views/nuevaSesion.modal.php" ?>
            </div>
            <footer class="align-content-center m-auto" style="position:relative">
              <p class="text-center text-white">hola</p>
@@ -80,6 +76,7 @@
 
 
 
-<?php require_once RUTA_APP."/Views/inc/footer.php" ?>
-<script src="<?php echo RUTA_URL ?>/Assets/alertifyjs/alertify.min.js"></script>
-<script src="<?php echo RUTA_URL ?>/Assets/js/index.js"></script>
+<?php require_once RUTA_APP."/views/inc/footer.php" ?>
+<script src="<?php echo RUTA_URL ?>/assets/alertifyjs/alertify.min.js"></script>
+<script src="<?php echo RUTA_URL?>assets/js/eventos.js"></script>
+<script src="<?php echo RUTA_URL ?>/assets/js/index.js"></script>

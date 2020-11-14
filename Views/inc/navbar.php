@@ -11,7 +11,7 @@
            
             <?php if(isset($_SESSION['id_usuario'])){?>
                   <input type="hidden" name="" id="ruta" value="<?php echo RUTA_URL ?>">
-                  
+                  <input type="hidden" id="id_user" value= "<?php echo $_SESSION['identificacion'] ?>">
                   <li class="nav-item">
                         <a href="<?php echo RUTA_URL;?>home/sesiones" class="nav-link"><i class="fas fa-clock"></i> Sesiones</a>
                   </li>

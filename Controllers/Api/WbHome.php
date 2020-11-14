@@ -20,8 +20,9 @@ class WbHome extends Controller{
     public function getRutinas(){
         $rutinas = $this->rutinasModelo->obtenerRutinas();
         echo json_encode($rutinas);
- }
-
+     }
+    
+     
 
      public function programarRutina(){
          session_start();
@@ -98,13 +99,13 @@ class WbHome extends Controller{
         $notificacion=[
             "id1"=>$id_usuario,
             "id2"=>$useradmin,
-         "mensaje"=>"El cliente ". $_SESSION['nombres']." ha cancelado la rutina programada en la fecha",
+         "mensaje"=>"El cliente ". $_SESSION['nombres']." ha cancelado la rutina programada en la fecha ".$_POST['f']. "a las ".$_POST['h'],
          "fecha"=>$fecha->format('y-m-d H:i:s')
             ];
         $id = $_POST['id'];
         $estado ="Cancelado";
        
-        if($this->sesionModelo->aprobarSesion($id,$estado)){
+        if($this->sesionModelo->aprobarSesion($id,$estado,$_POST['asiste'])){
             if( $this->NotModelo->enviar($notificacion)){
                 echo 'La rutina ha sido cancelada';
                 }else{

@@ -18,6 +18,6 @@
 <script src="<?php echo RUTA_URL?>assets/fullcalendar-timegrid/main.min.js"></script> 
 <script src="<?php echo RUTA_URL?>assets/dataTables/datatables.min.js"></script>
 <script src="<?php echo RUTA_URL?>assets/fullcalendar-bootstrap/main.min.js"></script> 
-<script src="<?php echo RUTA_URL?>assets/js/eventos.js"></script>
+
 </body>
 </html>

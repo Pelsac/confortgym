@@ -133,6 +133,25 @@
                 redirecionar('home');
             }
         }
+
+
+        public function detalles($id){
+            session_start();
+            $rutinas = $this->rutinasModelo->obtenerDetalles($id);
+            $fila = $this->rutinasModelo->getValor("nombre_rutina","codigo",$id);
+            $des = $this->rutinasModelo->getValor("descripcion_corta","codigo",$id);
+            $banner = $this->rutinasModelo->getValor("banner","codigo",$id);
+            $datos = [
+                'titulo'=>'Informacion de la rutina',
+                'nombre'=>$fila->nombre_rutina,
+                'banner'=>$banner->banner,
+                'descripcion'=>$des->descripcion_corta,
+                'rutinas'=>$rutinas
+               
+            ];
+            
+            $this->vista('detallesderutina',$datos);
+        }
           
            
 

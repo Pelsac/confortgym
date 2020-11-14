@@ -23,7 +23,7 @@
         if($_SERVER['REQUEST_METHOD']=='POST'){
             $foto =$_FILES['imagen']['name'];
             $ruta= $_FILES['imagen']['tmp_name'];
-            $destino=RUTA_APP."/Assets/img/productos/".$foto;
+            $destino=RUTA_APP."/assets/img/productos/".$foto;
             copy($ruta,$destino);
             $datos=[
                
@@ -32,7 +32,7 @@
                  'stock'=>trim($_POST['stock']),
                  'precio'=>trim($_POST['precio']),
                  'cantidad'=>trim($_POST['cantidad']),            
-                'imagen'=> "/Assets/img/productos/".$foto
+                'imagen'=> "/assets/img/productos/".$foto
                 
                            ];
             if($this->productoModelo->agregarProducto($datos)){
@@ -49,25 +49,29 @@
        }
 
           public function editar($codigo){
+              session_start();
             if($_SERVER['REQUEST_METHOD']=='POST'){
                 $foto =$_FILES['imagen']['name'];
                 $ruta= $_FILES['imagen']['tmp_name'];
-                $destino=RUTA_APP."/Assets/img/productos/".$foto;
+                $destino=RUTA_APP."/assets/img/productos/".$foto;
                 copy($ruta,$destino);
                 $datos=[
                     'codigo'=>$codigo,
                     'nombre'=>trim($_POST['nombre']),
-                    'descripcion'=>$_POST['descripcion'],
-                    'imagen'=>"/Assets/img/productos/".$foto
+                'descripcion'=>trim($_POST['descripcion']),
+                 'stock'=>trim($_POST['stock']),
+                 'precio'=>trim($_POST['precio']),
+                 'cantidad'=>trim($_POST['cantidad']),            
+                'imagen'=> "/assets/img/productos/".$foto
                    
                 ];
-    
-          
+                print_r($datos);
                if($this->productoModelo->actualizarProducto($datos)){
-                   redirecionar('productos');
-                }else{
-                    die('algo salio mal');
-                }
+                 
+                 redirecionar('productos');
+               }else{
+               die('algo salio mal');
+               }
     
             }else{
                 $producto = $this->productoModelo->obtenerProductoid($codigo);
@@ -75,7 +79,10 @@
                     'codigo'=> $producto->codigo,
                     'nombre'=>$producto->nombre,
                     'descripcion'=>$producto->descripcion,
-                    'imagen'=>$producto->imagen
+                    'imagen'=>$producto->imagen,
+                    'stock'=>$producto->stock,
+                    'precio'=>$producto->precio,
+                    'cantidad'=>$producto->cantidad
                     
                 ];
     

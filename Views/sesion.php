@@ -4,7 +4,7 @@
 <div class="container mt-5 p-5">
     <div class="row">
             <div class="col-md-12 col-gl-12">
-            <input type="hidden" id="id_user" value= "<?php echo $_SESSION['identificacion'] ?>">
+            
                  <h3>Consulta el estado de las sesiones programadas</h3>
             </div>
             <div class="col-md-12">
@@ -16,6 +16,7 @@
                                           <th>Nombre</th>
                                           <th>Estado</th>
                                           <th>Fecha</th>
+                                          <th>Hora establecida</th>
                                           <th>Operaciones</th>
                                         </tr>
                                       </thead>
@@ -31,4 +32,4 @@
 </div>
 <?php require_once RUTA_APP."/views/inc/footer.php" ?>
 <script src="<?php echo RUTA_URL ?>/assets/alertifyjs/alertify.min.js"></script>
-<script src="<?php echo RUTA_URL ?>/assets/js/index.js"></script>
+<script src="<?php echo RUTA_URL ?>/assets/js/sesiones.js"></script>

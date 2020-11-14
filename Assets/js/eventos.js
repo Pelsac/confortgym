@@ -3,15 +3,15 @@ $(document).ready(function () {
    
     /* initialize the external events
      -----------------------------------------------------------------*/
-        
+     var id_user = $('#id_user').val();
     var sesion=   $.ajax({
             async:false,
-            type:"GET",
-            
-            url:ruta+"wbhome/obtenerSesiones",
+            type:"POST",
+            data:{id_user},
+            url:ruta+"wbhome/getsesiones",
             success:function(res){
              
-           
+           console.log(res);
              return res;
             }
         }

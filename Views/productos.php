@@ -14,4 +14,4 @@
 </div>
 <?php require_once RUTA_APP."/views/inc/footer.php" ?>
 <script src="<?php echo RUTA_URL ?>/assets/alertifyjs/alertify.min.js"></script>
-<script src="<?php echo RUTA_URL ?>/assets/js/index.js"></script>
+<script src="<?php echo RUTA_URL ?>/assets/js/catalogo.js"></script>

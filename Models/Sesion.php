@@ -48,10 +48,11 @@ public function obtenerSesionReciente(){
     return $row;
    }
 
-public function aprobarSesion($id,$estado){
-    $this->db->query("UPDATE sesion_entrenamiento set estado=:activo
+public function aprobarSesion($id,$estado,$asistencia){
+    $this->db->query("UPDATE sesion_entrenamiento set estado=:activo, asistencia=:asiste
     WHERE id_sesion = :id");
     $this->db->bind(':activo',$estado);
+    $this->db->bind(':asiste',$asistencia);
     $this->db->bind(':id',$id);
     if ($this->db->execute()) {
         return true;
@@ -62,7 +63,7 @@ public function aprobarSesion($id,$estado){
 
 public function obtenerSesionesclientes($id){
    
-    $this->db->query("SELECT * FROM sesion_entrenamiento as se INNER JOIN sesiones_programadas as sp ON ( sp.codigo_Sesion=se.id_sesion) inner join clientes on (clientes.id=sp.codigo_cliente) where sp.codigo_cliente = $id and se.estado != 'cancelado' group by se.id_sesion desc");
+    $this->db->query("SELECT * FROM sesion_entrenamiento as se INNER JOIN sesiones_programadas as sp ON ( sp.codigo_Sesion=se.id_sesion) inner join clientes on (clientes.id=sp.codigo_cliente) where sp.codigo_cliente = $id and (se.estado != 'cancelado' and se.asistencia = 1) group by se.id_sesion desc");
 
     $resultados = $this->db->registros();
     return $resultados;
