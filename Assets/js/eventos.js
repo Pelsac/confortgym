@@ -8,7 +8,7 @@ $(document).ready(function () {
             async:false,
             type:"POST",
             data:{id_user},
-            url:ruta+"wbhome/getsesiones",
+            url:ruta+"WbHome/getsesiones",
             success:function(res){
              
            console.log(res);

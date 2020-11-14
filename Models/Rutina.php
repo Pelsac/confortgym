@@ -55,6 +55,13 @@ class Rutina{
           $filas = $this->db->registros();
        return $filas;
     }
+
+    public function obtenerRutindaid($id){
+        $this->db->query("SELECT * FROM rutinas where codigo =:id");
+        $this->db->bind(':id', $id);
+        $filas = $this->db->registro();
+     return $filas;
+    }
     public function obtenerid(){
         $this->db->query("SELECT MAX(codigo) as codigo FROM rutinas");
         $id = $this->db->registro();
@@ -81,6 +88,24 @@ class Rutina{
         } else {
             return false;
         }
+    }
+    public function editarRutina($datos){
+        $this->db->query("UPDATE rutinas set nombre_rutina=:nombre,
+        descripcion_rutina=:descripcion,
+        descripcion_corta= :descripcion_c,
+        frase_motivacional = :frm
+        WHERE codigo = :id");
+            $this->db->bind(':id', $datos['id']);
+            $this->db->bind(':nombre', $datos['nombre']);
+            $this->db->bind(':descripcion', $datos['descripcion']);
+            $this->db->bind(':descripcion_c', $datos['descripcion_c']);
+            $this->db->bind(':frm', $datos['frase']);
+            
+            if ($this->db->execute()) {
+                return true;
+            } else {
+                return false;
+            }
     }
 
     public function buscar($nombre){

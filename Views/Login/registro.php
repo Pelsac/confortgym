@@ -1,5 +1,5 @@
-<?php require_once RUTA_APP . "/Views/inc/header.php"?>
-<?php require_once RUTA_APP . "/Views/inc/navbar.php"?>
+<?php require_once RUTA_APP . "/views/inc/header.php"?>
+<?php require_once RUTA_APP . "/views/inc/navbar.php"?>
   <div class="container">
         <div class="row p-5">
             <div class="col-md-8">
@@ -60,4 +60,4 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             </div>
         </div>
   </div>
-<?php require_once RUTA_APP . "/Views/inc/footer.php"?>
+<?php require_once RUTA_APP . "/views/inc/footer.php"?>

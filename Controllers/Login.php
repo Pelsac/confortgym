@@ -180,18 +180,25 @@ class Login extends Controller
                 if(validPassword($pass1,$pass2)){
                     $pass_has1 = hashPassword($pass1);
                     if($this->usuariomodelo->cambiaPassword($id,$token,$pass_has1)){
-                        echo "la contraseña ha sido modificada";
+                        $datos=['titulo'=>'Contraseña actualizada',
+                                'message'=>"La contraseña se modifico correctamente por favor inicie sesion"];
+                       redireccionar('login/success');
+
                     }else{
                         $errors[]="Error al modificar la contraseña";
-                        $this->vista('Login/cambiar_password',$datos,$errors);
+                        $this->vista('login/cambiar_password',$datos,$errors);
                     }
                 }else{
                     $errors[]="Las Contraseñas no coinciden";
-                    $this->vista('Login/cambiar_password',$datos,$errors);
+                    $this->vista('login/cambiar_password',$datos,$errors);
                 }
         }
     }
-
+function success(){
+    $datos=['titulo'=>'Contraseña actualizada',
+    'message'=>"La contraseña se modifico correctamente por favor inicie sesion"];
+    $this->vista('login/success',$datos);
+}
 
     public function restablecer_password()
     {

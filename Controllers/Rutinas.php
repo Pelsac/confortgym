@@ -37,13 +37,13 @@ class Rutinas extends  Controller{
     if($_SERVER['REQUEST_METHOD']=='POST'){
         $foto =$_FILES['banner']['name'];
         $ruta= $_FILES['banner']['tmp_name'];
-        $destino=RUTA_APP."/Assets/img/banner/".$foto;
+        $destino=RUTA_APP."/assets/img/banner/".$foto;
         copy($ruta,$destino);
         $datos=[
             'nombre'=>trim($_POST['nombre']),
             'descri'=>trim($_POST['descripcion']),
             'descripcion_c'=>trim($_POST['descripcion_corta']),
-            'banner'=>"/Assets/img/banner/".$foto,
+            'banner'=>"/assets/img/banner/".$foto,
             'frase'=>trim($_POST['frase']),
             'nivel'=>trim($_POST['nivel']),
             'ejercicios'=> $_POST['ejercicios'],
@@ -94,16 +94,54 @@ class Rutinas extends  Controller{
                redirecionar('rutinas');
             }else{
                 die('algo salio mal');
-            }
-   
-            
-        
-        
+            }     
     }
     else{
         redirecionar('home');
     }
     }
+
+    public function editar($id){
+        session_start();
+        if($_SESSION['tipo_usuario'] == 1){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+               
+                $datos=[
+                    'id'=>$id,
+                    'nombre'=>trim($_POST['nombre']),
+                    'descripcion'=>trim($_POST['descripcion']),
+                    'descripcion_c'=>trim($_POST['descripcion_corta']),                  
+                    'frase'=>trim($_POST['frase']),
+                   
+                ];
+                
+
+                if($this->RutinaModelo->editarRutina($datos)){
+                    redirecionar('rutinas');
+                 }else{
+                     die('algo salio mal');
+                 }   
+             }else{
+                $rutinas = $this->RutinaModelo->obtenerRutindaid($id);
+
+                $datos=[
+                    'titulo'=>'Editar Rutina',
+                    'codigo'=>$rutinas->codigo,
+                    'nombre'=>$rutinas->nombre_rutina,
+                    'descripcion'=>$rutinas->descripcion_rutina,
+                    'descripcion_c'=>$rutinas->descripcion_corta,
+                    'frase'=>$rutinas->frase_motivacional
+                   
+                ];
+               $this->vista('rutina/editar',$datos);
+             }
+        }else{
+             redirecionar('home');
+        }
+    }
+
+
+
 }
 
 

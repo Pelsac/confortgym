@@ -9,8 +9,8 @@ if(isset($_SESSION['id_usuario'])){
 
 <?php 
 
- require_once RUTA_APP."/Views/inc/header.php"; ?>
-<?php require_once RUTA_APP."/Views/inc/navbar.php"; ?>
+ require_once RUTA_APP."/views/inc/header.php"; ?>
+<?php require_once RUTA_APP."/views/inc/navbar.php"; ?>
 
 <div class="fondo">
 <div class="container-fluid" >
@@ -63,4 +63,4 @@ if(isset($_SESSION['id_usuario'])){
 
 
     
-    <?php  } require_once RUTA_APP."/Views/inc/footer.php" ?>
+    <?php  } require_once RUTA_APP."/views/inc/footer.php" ?>

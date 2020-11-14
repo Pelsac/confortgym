@@ -34,7 +34,7 @@
                 
                               </div>
                               <div class="col-md-4 mt-3">
-                                  <button class="btn btn-flat btn-outline-primary " > <i class="fas fa-edit"></i> Nueva rutina</button>
+                                 
                                   <button class="btn btn-flat btn-outline-primary" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-calendar-alt"></i> Programar Sesion</button>
                               </div>
                          </div>

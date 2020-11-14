@@ -93,7 +93,7 @@
             $mail->Port = 587; //Modificar
             
             $mail->Username = 'confortgymlorica@gmail.com'; //Modificar
-            $mail->Password = 'confort123L'; //Modificar
+            $mail->Password = 'Loricagym2020'; //Modificar
             
             $mail->setFrom('confortgymlorica@gmail.com', 'Confort Gym Lorica'); //Modificar
             $mail->addAddress($email, $nombre);
