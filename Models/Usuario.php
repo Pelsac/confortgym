@@ -19,11 +19,29 @@ class Usuario{
     
     public function obtenerUsuarioid($id)
     {
-        $this->db->query("SELECT id,alias,correo FROM usuarios WHERE id = :id");
+        $this->db->query("SELECT id,alias,correo,id_rol FROM usuarios WHERE id = :id");
         $this->db->bind(':id', $id);
 
         $fila = $this->db->registro();
         return $fila;
+    }
+    public function actualizarUsuarioAdmin($datos)
+    {
+        $this->db->query("UPDATE usuarios set alias=:alias,
+                                              correo=:correo,
+                                              id_rol=:id_rol
+                                              WHERE id = :id");
+        //vincular los valores
+        $this->db->bind(':id', $datos['id']);
+        $this->db->bind(':alias', $datos['alias']);
+        $this->db->bind(':correo', $datos['correo']);
+        $this->db->bind(':id_rol', $datos['id_rol']);
+      
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
     }
     public function actualizarUsuario($datos)
     {

@@ -25,6 +25,7 @@
             $ruta= $_FILES['imagen']['tmp_name'];
             $destino=RUTA_APP."/assets/img/productos/".$foto;
             copy($ruta,$destino);
+            
             $datos=[
                
                 'nombre'=>trim($_POST['nombre']),
