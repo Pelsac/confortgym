@@ -145,11 +145,12 @@ var rutina=$('#rutina');
             let num;   
             console.log(clientes);     
          num= clientes.length;
+         
             $('#clientes').html(num);
     }});
 }
 
-setTimeout(rutinasusuarios,1000);
+setInterval(rutinasusuarios,1000);
  
 
   
