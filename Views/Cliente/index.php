@@ -28,6 +28,8 @@
                             <th>edad</th>
                             <th>Genero</th>
                             <th>Codigo ingreso</th>
+                            <th>En rutina</th>
+                            <th>Usuario</th>
                             <th>Operaciones</th>
                         </tr>
                     </thead>
@@ -41,6 +43,8 @@
                             <td><?php echo $cliente->edad ?></td>
                             <td><?php echo $cliente->genero ?></td>
                             <td><?php echo $cliente->cod_ingreso ?></td>
+                            <td><?php echo $cliente->en_rutina ?></td>
+                            <td><?php echo $cliente->cod_usuario ?></td>
                             <td>
                             <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $cliente->id?>" class="btn btn-primary">Editar</a>
                            

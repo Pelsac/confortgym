@@ -9,7 +9,7 @@
  <?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
       <div class="container-fluid">
         <div class="row">
-            <div class="col-md-6">
+            <div class="col-md-8">
             <?php
         if( $_SERVER['REQUEST_METHOD'] == "POST"){
    
@@ -19,7 +19,9 @@
         }        
          ?>
             <form action="<?php echo RUTA_URL?>clientes/agregar" method="POST">
-      
+                <div class="row">
+                    <div class="col-md-6">
+                        
                 <div class="form-group">
                     <label for="">Nombres</label>
                     <input name="nombres" type="text" class="form-control">
@@ -32,7 +34,11 @@
                     <label for="">Fecha nacimiento</label>
                     <input name="fecha" type="date" class="form-control">
                 </div>
-                <div class="form-group">
+               
+           
+                    </div>
+                    <div class="col-md-6">
+                    <div class="form-group">
                 <label>genero</label>
                         <select name="genero" class="form-control">
                           <option value="masculino">Masculino</option>
@@ -44,11 +50,21 @@
                     <input type="text" name="codigo" class="form-control">
                 </div>
                 <div class="form-group">
+                        <label>usuario</label>
+                                <select name="user" class="form-control">
+                                <?php foreach($datos['usuarios'] as $u): ?>
+                                <option value="<?php echo $u->id?>"><?php echo "(".$u->alias.") ".$u->correo?></option>
+                                    
+                                <?php endforeach ?>
+                                </select>
+                     </div>
+                <div class="form-group">
          
               <button type="submit" class="btn btn-primary">Aceptar</button>
            </div>
             </div>
-           
+                    </div>
+                </div>
               
         
             </form>

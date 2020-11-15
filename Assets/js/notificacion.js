@@ -13,7 +13,7 @@ $(document).ready(function(){
            console.log(res);
            var notifica = JSON.parse(res);
            var numero = Object.keys(notifica).length;
-           console.log("hola");
+          
            if(Array.isArray(notifica)){
             
             notifica.forEach(noti => {

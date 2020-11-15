@@ -18,8 +18,8 @@ class Cliente
 
     public function agregarCliente($datos)
     {
-        $this->db->query("INSERT INTO clientes (nombres,apellidos,fecha_nacimiento,edad,genero,cod_ingreso,cod_usuario)
-                        VALUES(:nombres,:apellidos,:fecha_nacimiento,:edad,:genero,:cod_ingreso,:cod_usuario)");
+        $this->db->query("INSERT INTO clientes (nombres,apellidos,fecha_nacimiento,edad,genero,cod_ingreso,en_rutina,cod_usuario)
+                        VALUES(:nombres,:apellidos,:fecha_nacimiento,:edad,:genero,:cod_ingreso,:rut,:cod_usuario)");
         //vincular los valores
         $this->db->bind(':nombres', $datos['nombres']);
         $this->db->bind(':apellidos', $datos['apellidos']);
@@ -27,6 +27,7 @@ class Cliente
         $this->db->bind(':edad', $datos['edad']);
         $this->db->bind(':genero', $datos['genero']);
         $this->db->bind(':cod_ingreso', $datos['cod']);
+        $this->db->bind(':rut', 'no');
         $this->db->bind(':cod_usuario', $datos['cod_usuario']);
 
         if ($this->db->execute()) {
@@ -95,13 +96,41 @@ class Cliente
                 return false;
             }
         }
-    public function obtenerid(){
+     public function obtenerid(){
         $this->db->query("SELECT MAX(id) as id FROM clientes");
         $id = $this->db->registro();
         return $id;
        }
+       public function enrutina($id){
+        $this->db->query("SELECT en_rutina FROM clientes where id=:cod");
+        
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+       }
+       public function ingresar($codigo,$estado){
+           
+        $this->db->query("UPDATE clientes set en_rutina = :rutina WHERE id = :codigo");
+        $this->db->bind(":rutina",$estado);
+        $this->db->bind(":codigo",$codigo);
+      
 
+         if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+       }
+
+       function clientesenrutinas(){
+        $this->db->query("SELECT * FROM clientes where en_rutina='si'");
+        $resultados = $this->db->registros();
+        return $resultados;
+       }
        function getValor($campo,$campowhere,$valor){ 
+           
         $this->db->query("SELECT ".$campo ." FROM clientes WHERE ".$campowhere." = :valor LIMIT 1");
         $this->db->bind(":valor",$valor);
         $fila = $this->db->registro();  

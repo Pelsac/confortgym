@@ -5,6 +5,7 @@ class Clientes extends  Controller{
     public function __construct()
     {
         $this->clienteModelo = $this->model('cliente');
+        $this->usuarioModelo = $this->model('Usuario');
     }
     public function index()
 
@@ -14,9 +15,11 @@ class Clientes extends  Controller{
         if($_SESSION['tipo_usuario'] == 1){
            
             $clientes = $this->clienteModelo->obtenerClientes();
+            
         $datos = [
             'titulo'=>'Listado de clientes',
-            'clientes'=>$clientes
+            'clientes'=>$clientes,
+            
         ];
         
         $this->vista('cliente/index',$datos);
@@ -30,6 +33,7 @@ class Clientes extends  Controller{
        session_start();
        if($_SESSION['tipo_usuario'] == 1){
         if($_SERVER['REQUEST_METHOD']=='POST'){
+            
             $datos=[
                 'titulo'=>"Agregar nuevo cliente",
                 'nombres'=>trim($_POST['nombres']),
@@ -37,7 +41,9 @@ class Clientes extends  Controller{
                 'fecha'=>trim($_POST['fecha']),
                 'edad'=> calcularedad($_POST['fecha']),
                 'genero'=>$_POST['genero'],
-                'cod'=>$_POST['codigo']
+                'cod'=>$_POST['codigo'],
+                'cod_usuario'=>$_POST['user']
+                
             ];
            
                     if($this->clienteModelo->agregarCliente($datos)){
@@ -47,7 +53,9 @@ class Clientes extends  Controller{
                      }
 
         }else{
-            $datos=["titulo"=>"Agregar nuevo cliente"];
+            $usuarios = $this->usuarioModelo->obtenerUsuarios();
+            $datos=["titulo"=>"Agregar nuevo cliente",
+            'usuarios'=>$usuarios];
           $this->vista('cliente/agregar',$datos);
         }
     }else{

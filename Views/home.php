@@ -17,10 +17,8 @@
             <div class="row mt-3">
                <div class="col-md-12">
                     <div class="row">
-                            <div class="col-md-7 ">
-                                <h3>Explora las rutinas de entrenamiento</h3>
-                                
-                                 
+                            <div class="col-md-6 ">
+                          
                               <form >
                                   <div class="input-group">
                                     <input class="form-control form-control-navbar" type="search" placeholder="Search" id="search"aria-label="Search">
@@ -33,10 +31,16 @@
                               </form>
                 
                               </div>
-                              <div class="col-md-4 mt-3">
+                              <div class="col-md-3">
                                  
-                                  <button class="btn btn-flat btn-outline-primary" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-calendar-alt"></i> Programar Sesion</button>
+                                  <button class="btn btn-flat btn-block btn-outline-primary" data-toggle="modal" data-target="#modal-lg"><i class="fas fa-calendar-alt"></i> Programar Sesion</button>
+                                  
                               </div>
+                              <div class="col-md-3">
+                                <h5>Usuarios en rutinas</h5>
+                                <span ><i class="fas fa-users fa-2x"></i>  <span id="clientes" class="fa-2x"></span></span>
+                              </div>
+                             
                          </div>
              <hr>
                     </div>

@@ -131,8 +131,25 @@ var rutina=$('#rutina');
    $.post(ruta+'home/detalles',{id},function(res){
     location.href=ruta+"home/detalles/"+id;
 })
+
+
+        
   })
- 
+  function rutinasusuarios(){
+    $.ajax({
+        async:true,
+        url:ruta+"WbHome/obtenerclientes",
+        type:'GET',
+        success:function(res){
+            var clientes = JSON.parse(res);
+            let num;   
+            console.log(clientes);     
+         num= clientes.length;
+            $('#clientes').html(num);
+    }});
+}
+
+setTimeout(rutinasusuarios,1000);
  
 
   

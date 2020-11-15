@@ -7,7 +7,7 @@ class WbHome extends Controller{
         $this->usuarioModelo= $this->model('Usuario');
         $this->NotModelo= $this->model('Notificacion');
         $this->productosModelo=$this->model('Producto');
-       
+        $this->clienteModelo= $this->model('Cliente');
     }
     function index(){
     
@@ -22,7 +22,10 @@ class WbHome extends Controller{
         echo json_encode($rutinas);
      }
     
-     
+     public function obtenerclientes(){
+        $clientes = $this->clienteModelo->clientesenrutinas();
+        echo json_encode($clientes);
+     }
 
      public function programarRutina(){
          session_start();
