@@ -11,6 +11,29 @@
             <div class="row">
             
                     <div class="col-md-6">
+                    <div class="form-group">
+                                <label for="">Nombres</label>
+                                <input type="text" name="nombres" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Apellidos</label>
+                                <input type="text" name="apellidos" class="form-control form-control-sm">
+                                
+                            </div>
+                            <div class="form-group">
+                                <label for="">Fecha de nacimiento</label>
+                                <input type="date" name="fecha" class="form-control form-control-sm">
+                            </div>
+                            <div class="form-group">
+                           <label>Genero</label>
+                            <select name="genero" class="form-control">
+                                <option value="masculino">Masculino</option>
+                                <option value="femenino">Femenino</option>
+                                <option value="otros">otros</option>
+                                
+                            </select>
+                            </div>
+                           
                          <div class="form-group">
                                 <label>Rol</label>
                                 <select name="id_rol" class="form-control">
@@ -20,6 +43,8 @@
                                 <?php endforeach ?>
                                 </select>
                              </div>
+                             </div>
+                             <div class="col-md-6">
                              <div class="form-group">
                                 <label for="">Nombre usuario</label>
                                 <input name="alias" type="text" class="form-control" >
@@ -28,8 +53,8 @@
                                      <label for="">Correo</label>
                                     <input name="correo" type="email" class="form-control" >
                              </div>
-                    </div>
-                    <div class="col-md-6">
+                 
+                   
                          <div class="form-group">
                             <label for="">Contraseña</label>
                             <input name="password" type="password" class="form-control" >

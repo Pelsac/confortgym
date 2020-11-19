@@ -33,7 +33,7 @@ class Clientes extends  Controller{
        session_start();
        if($_SESSION['tipo_usuario'] == 1){
         if($_SERVER['REQUEST_METHOD']=='POST'){
-            
+            $cliente = $this->clienteModelo->obteneridUsuario();
             $datos=[
                 'titulo'=>"Agregar nuevo cliente",
                 'nombres'=>trim($_POST['nombres']),
@@ -42,10 +42,10 @@ class Clientes extends  Controller{
                 'edad'=> calcularedad($_POST['fecha']),
                 'genero'=>$_POST['genero'],
                 'cod'=>$_POST['codigo'],
-                'cod_usuario'=>$_POST['user']
-                
+                'cod_usuario'=>$cliente->id
+              
             ];
-           
+            
                     if($this->clienteModelo->agregarCliente($datos)){
                         redirecionar('clientes');
                      }else{
