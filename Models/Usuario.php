@@ -81,7 +81,7 @@ class Usuario{
     }
 
     public function login($usuario,$password){
-        $this->db->query("SELECT usuarios.id as id_user, clientes.nombres, clientes.apellidos, clientes.id, usuarios.alias as alias, id_rol,password FROM usuarios inner join clientes on (clientes.cod_usuario = usuarios.id) WHERE alias= :nombre || correo = :correo limit 1");
+        $this->db->query("SELECT usuarios.id as id_user,token, clientes.nombres, clientes.apellidos, clientes.id, usuarios.alias as alias, id_rol,password FROM usuarios inner join clientes on (clientes.cod_usuario = usuarios.id) WHERE alias= :nombre || correo = :correo limit 1");
         $this->db->bind(':nombre',$usuario);
        $this->db->bind(':correo',$usuario);
  
@@ -196,7 +196,28 @@ class Usuario{
         }
     }
     
-    
+    public function verificarEmail($email){
+        $this->db->query("SELECT correo  FROM usuarios where correo=:email");
+        $this->db->bind(':email',$email);
+        $id = $this->db->registro();
+        if($id){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public function verificarAlias($alias){
+        $this->db->query("SELECT alias  FROM usuarios where alias=:alias");
+        $this->db->bind(':alias',$alias);
+        $id = $this->db->registro();
+        if($id){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     public function obtenerid(){
         $this->db->query("SELECT MAX(id) as id FROM usuarios");
         $id = $this->db->registro();

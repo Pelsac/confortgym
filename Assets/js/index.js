@@ -143,7 +143,7 @@ var rutina=$('#rutina');
         success:function(res){
             var clientes = JSON.parse(res);
             let num;   
-            console.log(clientes);     
+            
          num= clientes.length;
          
             $('#clientes').html(num);
@@ -152,11 +152,16 @@ var rutina=$('#rutina');
 
 setInterval(rutinasusuarios,1000);
  
+function verificarsesion(){
+     const token = $('#token').val();
+     $.post(ruta+'WbHome/verificausuario',{token},function(res){
+        console.log(res)
+    })
+}
 
-  
   programarrutina();
    listarRutinas();
-  
+  setInterval(verificarsesion,1000)
 
 
 });

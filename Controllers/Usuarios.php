@@ -58,6 +58,7 @@
                
                 if ( $this->usuarioModelo->agregarUsuario($datos)) {
                     redirecionar('usuarios');
+                
                 } else {
                     $datos=[
                         'titulo'=>'Agregar nuevo usuario',

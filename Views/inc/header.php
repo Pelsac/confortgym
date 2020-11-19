@@ -16,5 +16,5 @@
     <link rel="Shortcut Icon" href="<?php echo RUTA_URL?>favicon.ico" type="image/x-icon">
 </head>
 <body>
-
+<input type="hidden" id="token" value="<?php echo $_SESSION['token']?>">
  

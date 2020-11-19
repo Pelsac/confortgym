@@ -111,15 +111,17 @@ class Clientes extends  Controller{
         session_start();
         if($_SESSION['tipo_usuario'] == 1){
 
-        $id = $_POST['id'];
-           if($this->clienteModelo->borrarCliente($id)){
+           $id = $_POST['id'];
+           
+           $row = $this->clienteModelo->obtenerClienteid($id);
+           $id_user = $row->cod_usuario;
+
+           if( $this->usuarioModelo->eliminarUsuario($id_user)){
                redirecionar('clientes');
             }else{
                 die('algo salio mal');
             }
-   
-            $this->vista('cliente/editar',$datos);
-        
+
         
     }
     else{

@@ -25,11 +25,18 @@ class Login extends Controller
             $pass = trim($_POST['con_password']);
 
             //obteniendo datos del cliente
-            
+            $datoscliente = [
+                'nombres' => trim($_POST['nombres']),
+                'apellidos' => trim($_POST['apellidos']),
+                'fecha' => trim($_POST['fecha']),
+                'edad' => calcularedad($_POST['fecha']),
+                'genero' => trim($_POST['genero']),
+            ];
             
             $fecha = new DateTime();
             $datos = [
                 'nombre' => trim($_POST['alias']),
+                'cliente'=>$datoscliente,
                 'password' => trim($_POST['password']),
                 'correo' => trim($_POST['correo']),
                 'token' => generateToken(),
@@ -46,6 +53,12 @@ class Login extends Controller
             }
             if (!isEmail($datos['correo'])) {
                 $errors[] = "Direccion de correo invalida";
+            }
+            if($this->usuariomodelo->verificarEmail($datos['correo'])){
+                $errors[] = "La direccion de correo electronico ya se encuentra registrado  en nuestro sistema, por favor ingresa otro.";
+            }
+            if($this->usuariomodelo->verificarAlias($datos['nombre'])){
+                $errors[] = "El alias que ingresaste ya se encuentra registrado  en nuestro sistema, por favor ingresa otro.";
             }
             if (!validPassword($datos['password'], $pass)) {
                 $errors[] = "Las contraseñas no coinciden";
@@ -103,7 +116,7 @@ class Login extends Controller
                     if ($validpassw) {
                         $this->usuariomodelo->lastSession($fila->id_user);
                         $_SESSION['id_usuario'] = $fila->id_user;
-                       
+                
                         $_SESSION['tipo_usuario'] = $fila->id_rol;
                        
                         if($_SESSION['tipo_usuario'] == 2){
@@ -111,11 +124,14 @@ class Login extends Controller
                             $_SESSION['nombres'] = $fila->nombres;
                             $_SESSION['apellidos']=$fila->apellidos;
                             $_SESSION['identificacion']= $fila->id;
+                            $_SESSION['token']= $fila->token;
+                            
                             redirecionar('Home');
                         }else if ($_SESSION['tipo_usuario'] == 1){
                             $_SESSION['alias'] = $fila->alias;
                             $_SESSION['nombres'] = $fila->alias;
                             $_SESSION['apellidos']=$fila->id;
+                            $_SESSION['activo']=$fila->activo; 
                             redirecionar('clientes');
                         }
                        

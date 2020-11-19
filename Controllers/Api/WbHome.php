@@ -16,7 +16,19 @@ class WbHome extends Controller{
         $productos = $this->productosModelo->obtenerproductos();
         echo json_encode($productos);
     }
+    public function verificausuario(){
+        $token = $_POST['token'];
+       
+     $row= $this->usuarioModelo->getValor("id","token",$token);
+     if(isset($row->id)){
+        echo json_encode($row);
+     }else{
+         session_start();
+        session_destroy();    
+    }
+    
 
+    }
     public function getProducto(){
         $id = $_POST['id'];
         $producto = $this->productosModelo->obtenerProductoid($id);
