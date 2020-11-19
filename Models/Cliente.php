@@ -136,4 +136,10 @@ class Cliente
         $fila = $this->db->registro();  
         return $fila;
     }
+
+    public function ingresos(){
+        $this->db->query("SELECT count(id) as num from clientes WHERE en_rutina = 'si'");
+        $row = $this->db->registro();
+        return $row;
+    }
 }

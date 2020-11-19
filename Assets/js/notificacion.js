@@ -10,7 +10,7 @@ $(document).ready(function(){
        success:function(res){
            try{
            var template=``;
-           console.log(res);
+        
            var notifica = JSON.parse(res);
            var numero = Object.keys(notifica).length;
           
@@ -46,6 +46,31 @@ $(document).ready(function(){
            
     
    }
+
+function alerta(){
+  $.ajax({
+    async:true,
+    type:"GET",
+    data:"",
+    url:ruta+"WBIngresos/obteneringresos",
+    success:function(res){
+     var ingreso = JSON.parse(res);
+     console.log(ingreso);
+     if(ingreso.num >=localStorage.getItem('limite')){
+       alert('!Se ha llegado al limite de personas dentro del gimnasio!')
+     }
+     $('#limite').html("Limite de personas: "+localStorage.getItem('limite'))
+    }})
+
+}
+
+$('#agrega').click(function(){
+localStorage.setItem('limite',$('#ingresos').val())
+console.log(localStorage.getItem('limite'));
+
+})
+ 
+alerta();
    push()
    setInterval(push,1000);
    

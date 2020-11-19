@@ -16,15 +16,15 @@
                              <div class="col-md-6"> 
                              <div class="form-group">
                         <label for="">Nombre</label>
-                        <input name="nombre" type="text" value="<?php echo $datos['nombre'] ?>" class="form-control">
+                        <input name="nombre" type="text" value="<?php echo $datos['nombre'] ?>" class="form-control" required>
                     </div>
                         <div class="form-group">
                                 <label for="">stock</label>
-                                <input type="number" min="1" value="<?php echo $datos['stock'] ?>"name="stock" class="form-control form-control-sm">
+                                <input type="number" min="1" value="<?php echo $datos['stock'] ?>"name="stock" class="form-control form-control-sm" required>
                         </div>
                     <div class="form-group">
                         <label for="">Descripcion</label>
-                        <input name="descripcion" type="text" value="<?php echo $datos['descripcion']?>"class="form-control">
+                        <input name="descripcion" type="text" value="<?php echo $datos['descripcion']?>"class="form-control" required>
                     </div>
                     
                       
@@ -33,7 +33,7 @@
                             <div class="col-md-6">
                             <div class="form-group">
                                 <label for="">Precio</label>
-                                <input type="number" min="1" value="<?php echo $datos['precio'] ?>"name="precio" class="form-control form-control-sm">
+                                <input type="number" min="1" value="<?php echo $datos['precio'] ?>"name="precio" class="form-control form-control-sm" required>
                     </div>
                             <div class="form-group">
                                 <label for="">cantidad</label>
@@ -42,7 +42,7 @@
                     <div class="form-group">
                         <label>Imagen</label>
                         <div class="custom-file">
-                            <input type="file"  name="imagen" class="custom-file-input" id="customFile" required accept="image/*">
+                            <input type="file"  name="imagen" class="custom-file-input" id="customFile" required accept="image/*" required>
                              <label class="custom-file-label" for="customFile" >Subir imagen</label>
                             </div>
                         </div>

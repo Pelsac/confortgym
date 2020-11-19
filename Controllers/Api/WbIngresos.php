@@ -40,6 +40,10 @@
             }
            
         }
+        public function obteneringresos(){
+          $numero_ingresos =  $this->clienteModelo->ingresos();
+          echo json_encode($numero_ingresos);
+        }
     }
 
 

@@ -16,13 +16,15 @@ $(document).ready(function(){
          
            var options = {weekday: "long", year: "numeric", month: "long", day: "numeric"};
            sesiones.forEach(se => {
-               var f = new Date(se.fecha).toLocaleDateString('es-ES',options);
+               var f = new Date(se.fecha).toLocaleDateString('en-US',options)
+               moment.lang("es");
+               var m = moment(se.fecha).format('LL');
                template +=`
                     <tr se_id='${se.id_sesion}'>
                    
                     <td>sesion ${se.id_sesion} </td>
                     <td>${se.estado} </td>
-                    <td class='fecha' fecha='${f}'>${f}</td>
+                    <td class='fecha' fecha='${m}'>${m}</td>
                     <td class='hora' hola='${se.hora_ingreso}'>${se.hora_ingreso}</td>
                     <td><button class='sesion-eliminar btn btn-outline-danger'> cancelar </button></td>
                     </tr>

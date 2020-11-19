@@ -67,6 +67,17 @@
         }
     }
 
+    public function borrarEjercicio($codigo){
+        $this->db->query("DELETE FROM ejercicios WHERE id_ejer = :id");
+        //vincular los valores
+           $this->db->bind(':id',$codigo);
+        if ($this->db->execute()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
     }
 
 ?>

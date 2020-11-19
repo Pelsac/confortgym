@@ -24,15 +24,15 @@
                         
                 <div class="form-group">
                     <label for="">Nombres</label>
-                    <input name="nombres" type="text" class="form-control">
+                    <input name="nombres" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Apellidos</label>
-                    <input name="apellidos" type="text" class="form-control">
+                    <input name="apellidos" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Fecha nacimiento</label>
-                    <input name="fecha" type="date" class="form-control">
+                    <input name="fecha" type="date" class="form-control" required>
                 </div>
                
            
@@ -43,15 +43,16 @@
                         <select name="genero" class="form-control">
                           <option value="masculino">Masculino</option>
                           <option value="femenino">Femenino</option>
+                          <option value="femenino">otro</option>
                         </select>
                 </div>
                 <div class="form-group">
                     <label for="">Codigo de ingreso</label>
-                    <input type="text" name="codigo" class="form-control">
+                    <input type="text" name="codigo" class="form-control" required>
                 </div>
                 <div class="form-group">
                         <label>usuario</label>
-                                <select name="user" class="form-control">
+                                <select name="user" class="form-control" required>
                                 <?php foreach($datos['usuarios'] as $u): ?>
                                 <option value="<?php echo $u->id?>"><?php echo "(".$u->alias.") ".$u->correo?></option>
                                     

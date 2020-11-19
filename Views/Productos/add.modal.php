@@ -14,12 +14,12 @@
                     <div class="col-md-6">
                         <div class="form-group">
                                 <label for="">Nombre</label>
-                                <input type="text" name="nombre" class="form-control form-control-sm">
+                                <input type="text" name="nombre" class="form-control form-control-sm" required>
                         </div>
                        
                         <div class="form-group">
                                 <label for="">stock</label>
-                                <input type="number" min="1" name="stock" class="form-control form-control-sm">
+                                <input type="number" min="1" name="stock" class="form-control form-control-sm" required>
                         </div>
                         <div class="form-group">
                                 <label for="">Descripcion</label>
@@ -30,17 +30,17 @@
                     <div class="col-md-6">
                     <div class="form-group">
                                 <label for="">Precio</label>
-                                <input type="number" min="1" name="precio" class="form-control form-control-sm">
+                                <input type="number" min="1" name="precio" class="form-control form-control-sm" required>
                         </div>
                         <div class="form-group">
                                 <label for="">cantidad</label>
-                                <input type="number" min="1" name="cantidad" class="form-control form-control-sm">
+                                <input type="number" min="1" name="cantidad" class="form-control form-control-sm" required>
                         </div>
                 
                   <div class="form-group">
                         <label>Imagen</label>
                         <div class="custom-file">
-                      <input type="file"  name="imagen"class="custom-file-input" id="customFile" accept="image/*">
+                      <input type="file"  name="imagen"class="custom-file-input" id="customFile" accept="image/*" required>
                       <label class="custom-file-label" for="customFile" >Subir imagen</label>
                     </div>
                         </div>

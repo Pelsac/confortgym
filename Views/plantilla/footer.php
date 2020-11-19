@@ -26,7 +26,7 @@
 <script src="<?php echo RUTA_URL?>assets/js/select2.full.min.js"></script>
 <script src="<?php echo RUTA_URL?>assets/js/notificacion.js"></script>
 <script src="<?php echo RUTA_URL?>assets/dataTables/datatables.min.js"></script>
-
+<script src="<?php echo RUTA_URL ?>/assets/alertifyjs/alertify.min.js"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js" integrity="sha384-LtrjvnR4Twt/qOuYxE721u19sVFLVSA4hf/rRt6PrZTmiPltdZcI7q7PXQBYTKyf" crossorigin="anonymous"></script>
 <script>
 

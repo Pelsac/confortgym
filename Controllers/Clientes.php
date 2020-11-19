@@ -4,7 +4,7 @@ class Clientes extends  Controller{
 
     public function __construct()
     {
-        $this->clienteModelo = $this->model('cliente');
+        $this->clienteModelo = $this->model('Cliente');
         $this->usuarioModelo = $this->model('Usuario');
     }
     public function index()
@@ -107,21 +107,12 @@ class Clientes extends  Controller{
     }
 
 
-    public function eliminar($id){
+    public function eliminar(){
         session_start();
         if($_SESSION['tipo_usuario'] == 1){
-        $cliente = $this->clienteModelo->obtenerClienteid($id);
-            $datos = [
-              
-                'id'=>$cliente->id,
-                'nombres'=>$cliente->nombres,
-                'apellidos'=>$cliente->apellidos,
-                'fecha'=>$cliente->fecha_nacimiento,
-                'edad'=>$cliente->edad,
-                'genero'=>$cliente->genero,
-                'cod'=>$cliente->cod_ingreso
-            ];
-           if($this->clienteModelo->borrarCliente($datos['id'])){
+
+        $id = $_POST['id'];
+           if($this->clienteModelo->borrarCliente($id)){
                redirecionar('clientes');
             }else{
                 die('algo salio mal');

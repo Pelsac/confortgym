@@ -13,15 +13,15 @@
               <div class="col-md-6">
                <div class="form-group">
                     <label for="">Nombre de rutina</label>
-                    <input name="nombre" type="text" class="form-control">
+                    <input name="nombre" type="text" class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Descripcion general</label>
-                    <textarea name="descripcion" type="text" class="form-control"></textarea>
+                    <textarea name="descripcion" type="text" class="form-control" required></textarea>
                 </div>
                 <div class="form-group">
                     <label for="">Descripcion corta</label>
-                    <textarea name="descripcion_corta" type="text" class="form-control"></textarea>
+                    <textarea name="descripcion_corta" type="text" class="form-control" required></textarea>
                 </div>
                
                </div>
@@ -30,7 +30,7 @@
                <div class="form-group">
                   <label>Asignar ejercicios</label>
                   <div class="select2-purple">
-                  <select name="ejercicios[]" class="select2"  data-dropdown-css-class="select2-purple" multiple="multiple" data-placeholder="agregar ejercicio" style="width: 100%;">
+                  <select name="ejercicios[]" class="select2"  data-dropdown-css-class="select2-purple" multiple="multiple" data-placeholder="agregar ejercicio" required style="width: 100%;">
                   <?php foreach($datos['ejercicios'] as $ejer): ?>
                     <option value="<?php echo $ejer->id_ejer ?>"><?php echo $ejer->nombre ?></option>
                    
@@ -40,13 +40,13 @@
                   <div class="form-group">
                     <label for="">banner</label>
                     <div class="custom-file">
-                      <input type="file"  name="banner"class="custom-file-input" id="customFile" accept="image/*">
+                      <input type="file"  name="banner"class="custom-file-input" id="customFile" accept="image/*" required>
                       <label class="custom-file-label" for="customFile" >Subir imagen</label>
                     </div>
                   </div>
                   <div class="form-group">
                 <label>Nivel de la rutina</label>
-                        <select name="nivel" class="form-control">
+                        <select name="nivel" class="form-control" requied>
                         <?php foreach($datos['niveles'] as $nivel): ?>
                           <option value="<?php echo $nivel->id ?>"><?php echo $nivel->tipo_nivel ?></option>
                         

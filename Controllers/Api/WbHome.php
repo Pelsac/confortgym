@@ -17,6 +17,12 @@ class WbHome extends Controller{
         echo json_encode($productos);
     }
 
+    public function getProducto(){
+        $id = $_POST['id'];
+        $producto = $this->productosModelo->obtenerProductoid($id);
+        echo json_encode($producto);
+    }
+
     public function getRutinas(){
         $rutinas = $this->rutinasModelo->obtenerRutinas();
         echo json_encode($rutinas);

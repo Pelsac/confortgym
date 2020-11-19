@@ -1,9 +1,13 @@
 <?php 
 
-if(isset($_SESSION['id_usuario'])){ 
- redirecionar('clientes'); 
-}else{
 
+if($_SESSION['tipo_usuario'] == 1){ 
+
+ redirecionar('clientes'); 
+}else if( $_SESSION['tipo_usuario'] == 2){
+    
+    redirecionar('home'); 
+ }else{ 
 
 ?>
 

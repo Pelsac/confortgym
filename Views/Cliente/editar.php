@@ -12,21 +12,22 @@
                     <form action="<?php echo RUTA_URL?>clientes/editar/<?php echo $datos['id'] ?>" method="POST">
                     <div class="form-group">
                     <label for="">Nombres</label>
-                    <input name="nombres" type="text" value="<?php echo $datos['nombres'] ?>" class="form-control">
+                    <input name="nombres" type="text" value="<?php echo $datos['nombres'] ?>" class="form-control"  required>
                 </div>
                 <div class="form-group">
                     <label for="">Apellidos</label>
-                    <input name="apellidos" type="text" value="<?php echo $datos['apellidos']?>"class="form-control">
+                    <input name="apellidos" type="text" value="<?php echo $datos['apellidos']?>"class="form-control" required>
                 </div>
                 <div class="form-group">
                     <label for="">Fecha nacimiento</label>
-                    <input name="fecha" type="date" value="<?php echo $datos['fecha'] ?>" class="form-control">
+                    <input name="fecha" type="date" value="<?php echo $datos['fecha'] ?>" class="form-control" required>
                 </div>
                 <div class="form-group">
                 <label>genero</label>
                         <select name="genero" class="form-control">
                           <option value="masculino">Masculino</option>
                           <option value="femenino">Femenino</option>
+                          <option value="femenino">otro</option>
                         </select>
                 </div>
                 <div class="form-group">

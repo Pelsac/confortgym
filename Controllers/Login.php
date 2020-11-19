@@ -10,7 +10,7 @@ class Login extends Controller
 
     public function index()
     {
-
+        session_start();
         $this->vista('login/login');
     }
 

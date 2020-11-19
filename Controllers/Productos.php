@@ -99,15 +99,7 @@
        
 
        public function eliminar($codigo){
-        $producto = $this->productoModelo->obtenerProductoid($codigo);
-        $datos = [
-        'codigo'=> $producto->codigo,
-        'nombre'=>$producto->nombre,
-        'descripcion'=>$producto->descripcion,
-         'cantidad'=>$producto->cantidad,
-        'imagen'=>$producto->imagen
-        ];
-
+    
 
 
         if($this->productoModelo->borrarproducto($codigo)){

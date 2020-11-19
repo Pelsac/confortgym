@@ -11,7 +11,7 @@
            
             <div class="col-11 mt-3">
             <div class="card">
-                    <div class="card-body table-responsive"style="height:auto;">
+                    <div class="card-body table-responsive"style="height:400px;">
                      <table class="table" id="table" data-page-length="5">
                     <thead>
                         <tr>

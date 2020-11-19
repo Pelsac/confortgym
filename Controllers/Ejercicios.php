@@ -101,6 +101,15 @@ class Ejercicios extends  Controller{
    $this->vista('ejercicios/editar',$datos);
     }
 }
+
+public function eliminar($id){
+    if($this->ejercicioModelo->borrarEjercicio($id)){
+        redirecionar('ejercicios');
+     }else{
+         die('algo salio mal');
+     }
+
+}
 }
 
 

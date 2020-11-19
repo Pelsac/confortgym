@@ -12,7 +12,7 @@
             <form action="<?php echo RUTA_URL?>categorias/agregar" method="POST">
                 <div class="form-group">
                 <label for=""> Agregar Categoria</label>
-                    <input type="text" class="form-control" name="cat" placeholder="ingrese la categoria">    
+                    <input type="text" class="form-control" required name="cat" placeholder="ingrese la categoria">    
                 </div>
                     <div class="form-group">
                         <button class="btn btn-success" type="submit">Agregar</button>
@@ -22,6 +22,8 @@
             </div>
             
             <div class="col-md-12 mt-3">
+               <div class="card">
+                <div class="card-body table-responsive" style="height:400px;">
                 <table class="table" id="table">
                     <thead>
                         <tr>
@@ -44,16 +46,19 @@
                         </td>
                         </tr>
                         
-                        <?php require RUTA_APP."/views/Categorias/eliminar.modal.php"?>  
+                        <?php require RUTA_APP."/views/categorias/eliminar.modal.php"?>  
                         <?php endforeach ?>
                        
                     </tbody>
                 </table>
+                </div>
+               </div>
             </div>
-            <?php require_once RUTA_APP."/views/Rutina/add.modal.php"?>
+           
         </div>
       </div>
  </section>
 </div>
 <?php require_once RUTA_APP."/views/plantilla/footer.php" ?>
 <script>
+zz

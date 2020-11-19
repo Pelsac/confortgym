@@ -13,6 +13,8 @@
         </button>
             </div>
             <div class="col-md-12 mt-3">
+                <div class="card">
+                <div class="card-body table-responsive" style="height:400px;">
                 <table class="table" id="table">
                     <thead>
                         <tr>
@@ -46,13 +48,15 @@
                              
                        </td>
                        </tr>
-                       <?php require RUTA_APP."/views/Productos/eliminar.php";
+                       <?php require RUTA_APP."/views/productos/eliminar.php";
                        ?>  
                        <?php endforeach ?>
                    </tbody>
                 </table>
+                </div>
+                </div>
             </div>
-            <?php require_once RUTA_APP."/views/Productos/add.modal.php"?>
+            <?php require_once RUTA_APP."/views/productos/add.modal.php"?>
         </div>
       </div>
  </section>

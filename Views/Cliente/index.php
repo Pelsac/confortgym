@@ -15,10 +15,25 @@
           </div>
           </div>
           <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                <label for="">Limite de ingresos</label>
+                <input type="text" class="form-control" id="ingresos">
+                
+                </div>
+                <div class="form-group">
+                <button class="btn btn-primary" id="agrega">Establecer</button>
+                </div>
+            </div>
+            <div class="col-md-6">
+            <h3 id="limite"></h3>
+            </div>
+          </div>
+          <div class="row">
             <div class="col-md-12 mt-3">
             <div class="card">
-                    <div class="card-body table-responsive">
-                    <table class="table" id="table">
+                    <div class="card-body table-responsive"style="height:400px;">
+                    <table class="table" id="table1">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -33,28 +48,8 @@
                             <th>Operaciones</th>
                         </tr>
                     </thead>
-                    <tbody>
-                    <?php foreach($datos['clientes'] as $cliente): ?>
-                        <tr>
-                            <td><?php echo $cliente->id ?></td>
-                            <td><?php echo $cliente->nombres ?></td>
-                            <td><?php echo $cliente->apellidos ?></td>
-                            <td><?php echo $cliente->fecha_nacimiento ?></td>
-                            <td><?php echo $cliente->edad ?></td>
-                            <td><?php echo $cliente->genero ?></td>
-                            <td><?php echo $cliente->cod_ingreso ?></td>
-                            <td><?php echo $cliente->en_rutina ?></td>
-                            <td><?php echo $cliente->cod_usuario ?></td>
-                            <td>
-                            <a href="<?php echo RUTA_URL;?>clientes/editar/<?php echo $cliente->id?>" class="btn btn-primary">Editar</a>
-                           
-                            <button  data-toggle="modal" data-target="#s<?php echo$cliente->id?>"  class="btn btn-danger">Eliminar</button>
-                              
-                        </td>
-                        </tr>
-                        <?php require RUTA_APP."/views/cliente/eliminar.modal.php";
-                        ?>  
-                        <?php endforeach ?>
+                    <tbody id="clientes">
+                    
                     </tbody>
                 </table>
                     </div>
@@ -68,3 +63,10 @@
  </section>
 </div>
 <?php require_once RUTA_APP."/views/plantilla/footer.php" ?>
+<script src="<?php echo RUTA_URL?>assets/ajax/clientes.js"></script> 
+<script >
+ var ruta =  $("#ruta").val();
+$('#table1').DataTable({
+    "ajax":ruta+"WbClientes/getClientes"
+});
+</script> 

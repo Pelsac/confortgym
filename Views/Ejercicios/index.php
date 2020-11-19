@@ -14,7 +14,9 @@
         </button>
             </div>
             <div class="col-md-12 mt-3">
-                <table class="table" id="table">
+              <div class="card">
+              <div class="card-body table-responsive" style="height:400px;">
+              <table class="table" id="table">
                     <thead>
                         <tr>
                             <th>id</th>
@@ -43,15 +45,17 @@
                             <td>
                             <a href="<?php echo RUTA_URL;?>ejercicios/editar/<?php echo $ejercicio->id_ejer?>" class="btn btn-primary">Editar</a>
                      
-                            <button  data-toggle="modal" data-target="#modal-default"  class="btn btn-danger">Eliminar</button>
+                            <a href="<?php echo RUTA_URL;?>ejercicios/eliminar/<?php echo $ejercicio->id_ejer?>" class="btn btn-danger">Eliminar</a>
                               
                         </td>
                         </tr>                 
                         <?php endforeach ?>
                     </tbody>
                 </table>
+              </div>
+              </div>
             </div>
-            <?php require_once RUTA_APP."/views/Ejercicios/add.modal.php"?>
+            <?php require_once RUTA_APP."/views/ejercicios/add.modal.php"?>
         </div>
       </div>
  </section>

@@ -33,6 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                             <select name="genero" class="form-control">
                                 <option value="masculino">Masculino</option>
                                 <option value="femenino">Femenino</option>
+                                <option value="otros">otros</option>
+                                
                             </select>
                             </div>
                             <div class="form-group">
