@@ -196,7 +196,28 @@ class Usuario{
         }
     }
     
-    
+    public function verificarEmail($email){
+        $this->db->query("SELECT correo  FROM usuarios where correo=:email");
+        $this->db->bind(':email',$email);
+        $id = $this->db->registro();
+        if($id){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
+    public function verificarAlias($alias){
+        $this->db->query("SELECT alias  FROM usuarios where alias=:alias");
+        $this->db->bind(':alias',$alias);
+        $id = $this->db->registro();
+        if($id){
+            return true;
+        }else{
+            return false;
+        }
+
+    }
     public function obtenerid(){
         $this->db->query("SELECT MAX(id) as id FROM usuarios");
         $id = $this->db->registro();

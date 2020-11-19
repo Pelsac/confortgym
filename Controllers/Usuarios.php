@@ -6,6 +6,7 @@
         {
         
         $this->usuarioModelo = $this->model('Usuario');
+        $this->clienteModelo=$this->model('Cliente');
         
         $this->rolesModelo = $this->model('Rol');
         }
@@ -23,8 +24,7 @@
             $this->vista('usuario/index',$datos);
        }
 
-
-       public function agregar(){
+     public function agregar(){
            session_start();
         $roles = $this->rolesModelo->obtenerRoles();
         $errors = [];
@@ -40,24 +40,47 @@
                 'token' => generateToken(),
                 'fecha' => $fecha->format('y-m-d H:i:s'),
                 'activo' => 1,
-                'id_rol' => trim($_POST['id_rol']),
+                'id_rol' => trim($_POST['id_rol'])
                
             ];
 
             if (isNull($datos, $pass)) {
-                $errors[] = "Debe llenar todos los campos";
+                $errors[] = "¡Debe llenar todos los campos!";
             }
             if (!isEmail($datos['correo'])) {
-                $errors[] = "Direccion de correo invalida";
+                $errors[] = "¡Direccion de correo invalida!";
             }
             if (!validPassword($datos['password'], $pass)) {
-                $errors[] = "Las contraseñas no coinciden";
+                $errors[] = "¡Las contraseñas no coinciden!";
+            }
+            if( $this->usuarioModelo->verificarEmail($datos['correo'])){
+                $errors[] = "¡El correo ingresado, ya se encuentra registrado!";
+            }
+            if( $this->usuarioModelo-> verificarAlias($datos['nombre'])){
+                $errors[] = "¡El nombre de usuario ingresado, ya se encuentra registrado!";
             }
             if (count($errors) == 0) {
                 $datos['password'] = hashPassword(trim($_POST['password']));
                
-                if ( $this->usuarioModelo->agregarUsuario($datos)) {
+                $this->usuarioModelo->agregarUsuario($datos);
+                $id_user = $this->usuarioModelo->obtenerid();
+                $datoscliente = [
+                    'nombres' => trim($_POST['nombres']),
+                    'apellidos' => trim($_POST['apellidos']),
+                    'fecha' => trim($_POST['fecha']),
+                    'edad' => calcularedad($_POST['fecha']),
+                    'genero' => trim($_POST['genero']),
+                    'cod' => '',
+                    'cod_usuario'=>$id_user->id
+                ];
+                
+                if ($this->clienteModelo->agregarCliente($datoscliente)) {
                     redirecionar('usuarios');
+                } else {
+                    echo "algo salio mal";
+                    die('algo salio mal');
+
+                }
                 } else {
                     $datos=[
                         'titulo'=>'Agregar nuevo usuario',
@@ -90,25 +113,8 @@
                 ];
                 $this->vista('Usuario/agregar',$datos,$errors);
             }
-
-           
-       }else{
-           $datos=[
-               'titulo'=>'Agregar nuevo usuario',
-               'roles'=>$roles,
-               'nombre' =>'' ,
-                'password' => '' ,
-                'correo' => '' ,
-                'token' => '' ,
-                'fecha' => '',
-                'activo' => '',
-                'id_rol' => '' 
-
-           ];
-        $this->vista('usuario/agregar',$datos,$errors);
-       }
-
       
+          
     }
 
 

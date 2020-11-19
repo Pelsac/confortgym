@@ -48,17 +48,9 @@
                 </div>
                 <div class="form-group">
                     <label for="">Codigo de ingreso</label>
-                    <input type="text" name="codigo" class="form-control" required>
+                    <input type="text" name="codigo" class="form-control" >
                 </div>
-                <div class="form-group">
-                        <label>usuario</label>
-                                <select name="user" class="form-control" required>
-                                <?php foreach($datos['usuarios'] as $u): ?>
-                                <option value="<?php echo $u->id?>"><?php echo "(".$u->alias.") ".$u->correo?></option>
-                                    
-                                <?php endforeach ?>
-                                </select>
-                     </div>
+              
                 <div class="form-group">
          
               <button type="submit" class="btn btn-primary">Aceptar</button>

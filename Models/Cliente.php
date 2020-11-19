@@ -38,7 +38,7 @@ class Cliente
         }
 
     }
-
+    
     public function obtenerClienteid($id)
     {
         $this->db->query("SELECT * FROM clientes WHERE id = :id");
@@ -96,8 +96,8 @@ class Cliente
                 return false;
             }
         }
-     public function obtenerid(){
-        $this->db->query("SELECT MAX(id) as id FROM clientes");
+     public function obteneridUsuario(){
+        $this->db->query("SELECT MAX(id) as id FROM usuarios");
         $id = $this->db->registro();
         return $id;
        }
