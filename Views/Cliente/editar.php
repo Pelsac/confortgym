@@ -31,9 +31,17 @@
                         </select>
                 </div>
                 <div class="form-group">
-                    <label for="">Codigo de ingreso</label>
-                    <input type="text" value="<?php echo $datos['cod'] ?>" name="codigo" class="form-control">
-                </div>
+                                <label for="">Codigo de ingreso</label>
+                                 <div class="input-group mb-3">
+                                    <div class="input-group-prepend">
+                                        <button type="button" id="cargar" class="btn btn-primary">Cargar</button>
+                                    </div>
+                                    <!-- /btn-group -->
+                                    <input type="text"  name="codigo" id="codigo" class="form-control">
+                                    
+                                </div>
+                                <p id="message"></p>
+                            </div>
                 <div class="form-group">
                 <a href="<?php echo RUTA_URL;?>clientes/"class="btn btn-danger">Cancelar</a>
               <button type="submit" class="btn btn-primary">Aceptar</button>
