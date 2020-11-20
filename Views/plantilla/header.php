@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="<?php echo RUTA_URL?>assets/dataTables/datatables.min.css">
     <link rel="stylesheet" href="<?php echo RUTA_URL?>assets/css/estilos.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <input type="hidden" name="" id="ruta_url" value="<?php echo RUTA_URL ?>">
 </head>
-<body class="">
+<body class="hold-transition sidebar-mini layout-fixed">
     <div class="wrapper">
    

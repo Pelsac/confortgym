@@ -40,10 +40,15 @@
                 'token' => generateToken(),
                 'fecha' => $fecha->format('y-m-d H:i:s'),
                 'activo' => 1,
-                'id_rol' => trim($_POST['id_rol'])
-               
+                'id_rol' => trim($_POST['id_rol']),
+                'cod' => $_POST['codigo']
             ];
-
+            if(empty($_POST['codigo'])){
+                $errors[]="El campo codigo de ingreso no puede estar vacio";
+            }
+            if($this->clienteModelo->verificarCodigo($datos['cod'])){
+                $errors[]="El codigo de ingreso ya se encuenta asignado!";
+            }
             if (isNull($datos, $pass)) {
                 $errors[] = "¡Debe llenar todos los campos!";
             }
@@ -70,7 +75,7 @@
                     'fecha' => trim($_POST['fecha']),
                     'edad' => calcularedad($_POST['fecha']),
                     'genero' => trim($_POST['genero']),
-                    'cod' => '',
+                    'cod' => $_POST['codigo'],
                     'cod_usuario'=>$id_user->id
                 ];
                 

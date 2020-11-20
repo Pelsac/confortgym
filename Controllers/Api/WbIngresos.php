@@ -1,7 +1,6 @@
 <?php 
     class WBIngresos extends Controller{
 
-
         function __construct(){
             $this->clienteModelo= $this->model('Cliente');
     
@@ -44,6 +43,38 @@
           $numero_ingresos =  $this->clienteModelo->ingresos();
           echo json_encode($numero_ingresos);
         }
+
+        public function cargarCodigo(){
+            if($_SERVER['REQUEST_METHOD']=='POST'){
+            if(isset($_GET['codigo'])){
+                $data=['estatus'=>$_GET['codigo'] ];
+                $fp = fopen('codigos.json','w');
+                fwrite($fp,json_encode($data));
+                fclose($fp);
+                $codigo = file_get_contents("codigos.json");
+                echo $codigo;
+            }else{
+                
+                
+            }
+        
+        }
+        }
+
+            public function codigo(){
+                
+               if(!file_exists("codigos.json")) {
+                    $data=['estatus'=>'0' ];
+                   echo json_encode($data);
+               }else{
+                   $codigo = file_get_contents("codigos.json");
+                echo $codigo;
+                unlink("codigos.json");
+              
+            }
+        
+        }
+       
     }
 
 

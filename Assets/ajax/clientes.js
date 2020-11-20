@@ -2,7 +2,7 @@ $(document).ready(function(){
 
 
     var ruta =  $("#ruta").val()
-console.log('jquey cargado');
+
 
  function listarClientes(){
     $.ajax({

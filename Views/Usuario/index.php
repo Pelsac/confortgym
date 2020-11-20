@@ -4,8 +4,8 @@
 
 
 <div class="content-wrapper">
-<?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
  <section class="content">
+ <?php require_once RUTA_APP."/views/plantilla/content-header.php";?>
       <div class="container-fluid">
     <!--  aqui va el diseño !-->
         <div class="row">
@@ -60,6 +60,7 @@
             </div> 
         </div>
         </div>
+      </div>
       </div>
  </section>
 

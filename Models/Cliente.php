@@ -142,4 +142,15 @@ class Cliente
         $row = $this->db->registro();
         return $row;
     }
+
+    function verificarCodigo($codigo){
+        $this->db->query("SELECT cod_ingreso from clientes WHERE cod_ingreso = :cod");
+        $this->db->bind(':cod',$codigo);
+        $row = $this->db->registro();
+        if($row){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
