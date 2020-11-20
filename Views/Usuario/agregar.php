@@ -21,7 +21,7 @@
                          <br>
                             <div class="form-group">
                                 <label for="">Nombres</label>
-                                <input type="text" name="nombres" value="<?phpecho $datos[''] ?>" class="form-control form-control-sm">
+                                <input type="text" name="nombres" value="<?php echo $datos['nombre'] ?>" class="form-control form-control-sm">
                             </div>
                             <div class="form-group">
                                 <label for="">Apellidos</label>
